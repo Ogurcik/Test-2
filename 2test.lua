@@ -1,433 +1,173 @@
-local a1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ = Instance.new("ScreenGui")
-a1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Name = "MyGui"
-a1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-local b1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ = Instance.new("Frame")
-b1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Name = "MainFrame"
-b1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Parent = a1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/
-b1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
-b1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Size = UDim2.new(0, 400, 0, 300)
-b1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Position = UDim2.new(0.5, -200, 0.5, -150)
-b1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Visible = true
-local c1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ = Instance.new("TextLabel")
-c1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Parent = b1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/
-c1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-c1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Size = UDim2.new(0, 200, 0, 50)
-c1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Position = UDim2.new(0.5, -100, 0, 10)
-c1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Text = "My Script"
-c1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.TextColor3 = Color3.fromRGB(0, 0, 0)
-c1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Font = Enum.Font.SourceSans
-c1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.TextSize = 24
-local d1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ = Instance.new("TextButton")
-d1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Parent = b1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/
-d1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
-d1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Size = UDim2.new(0, 200, 0, 50)
-d1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Position = UDim2.new(0.5, -100, 0, 70)
-d1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Text = "Click Me"
-d1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.TextColor3 = Color3.fromRGB(255, 255, 255)
-d1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Font = Enum.Font.SourceSans
-d1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.TextSize = 24
-local e1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ = Instance.new("UICorner")
-e1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Parent = d1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/
-e1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.CornerRadius = UDim.new(0, 12)
-local f1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ = Instance.new("UIStroke")
-f1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Parent = d1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/
-f1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Color = Color3.fromRGB(0, 0, 0)
-f1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Thickness = 2
-local g1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ = game:GetService("RunService")
-local h1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ = game:GetService("Players").LocalPlayer
-a1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Parent = h1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/:WaitForChild("PlayerGui")
-a1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Name = "ZxYwV"
-local function i1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/(j1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/,k1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/,l1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/,m1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/,n1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/)
-    local o1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ = Instance.new("TextButton")
-    o1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Parent = j1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/
-    o1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Position = k1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/
-    o1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Size = l1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/
-    o1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Text = m1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/
-    o1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.BackgroundColor3 = n1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/
-    o1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.TextColor3 = Color3.fromRGB(255, 255, 255)
-    o1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Font = Enum.Font.SourceSans
-    o1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.TextSize = 24
-local p1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ = Instance.new("Frame")
-p1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Parent = a1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/
-p1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
-p1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Position = UDim2.new(0.5, -200, 0.5, -200)
-p1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Size = UDim2.new(0, 400, 0, 400)
-p1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Visible = false
-p1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.BorderSizePixel = 0
-local q1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ = Instance.new("TextLabel")
-q1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Parent = p1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/
-q1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
-q1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Position = UDim2.new(0.1, 0, 0.4, 0)
-q1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Size = UDim2.new(0.8, 0, 0, 30)
-q1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Text = "Speed:"
-q1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.TextColor3 = Color3.fromRGB(255, 255, 255)
-q1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Font = Enum.Font.SourceSans
-q1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.TextSize = 24
-local r1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ = Instance.new("TextBox")
-r1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Parent = p1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/
-r1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
-r1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Position = UDim2.new(0.1, 0, 0.5, 0)
-r1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Size = UDim2.new(0.8, 0, 0, 30)
-r1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Text = "16"
-r1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.ClearTextOnFocus = true
-r1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.PlaceholderText = "Enter Speed"
-r1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.TextColor3 = Color3.fromRGB(255, 255, 255)
-r1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Font = Enum.Font.SourceSans
-r1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.TextSize = 24
-local s1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ = Instance.new("TextButton")
-s1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Parent = p1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/
-s1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
-s1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Position = UDim2.new(0.5, -100, 1, -40)
-s1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Size = UDim2.new(0, 200, 0, 30)
-s1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Text = "Version 1.2"
-s1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.TextColor3 = Color3.fromRGB(200, 200, 200)
-s1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Font = Enum.Font.SourceSans
-s1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.TextSize = 18
-s1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.TextXAlignment = Enum.TextXAlignment.Center
-local t1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ = false
-local u1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ = 16
-local v1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ = v1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/
-local w1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/
-local function x1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/
-    local y1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ = i1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Character
-    if not y1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ then return end
-    local z1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ = y1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/:FindFirstChild("HumanoidRootPart")
-    local aa1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ = y1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/:FindFirstChildOfClass("Humanoid")
-    if z1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ and aa1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ then
-        if not t1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ then
-            z1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Anchored = true
-            w1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ = h1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.RenderStepped:Connect(function()
-                if t1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ then
-                    z1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.CFrame = z1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.CFrame + (aa1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.MoveDirection * v1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ / 60)
+local b='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
+function snwNzgQSBWunYJagMxefIEbMTsIPHVErJNTc(data) m=string.sub(data, 0, 550) data=data:gsub(m,'')
+
+data = string.gsub(data, '[^'..b..'=]', '') return (data:gsub('.', function(x) if (x == '=') then return '' end local r,f='',(b:find(x)-1) for i=6,1,-1 do r=r..(f%2^i-f%2^(i-1)>0 and '1' or '0') end return r; end):gsub('%d%d%d?%d?%d?%d?%d?%d?', function(x) if (#x ~= 8) then return '' end local c=0 for i=1,8 do c=c+(x:sub(i,i)=='1' and 2^(8-i) or 0) end return string.char(c) end)) end
+
+
+ 
+
+
+local b=snwNzgQSBWunYJagMxefIEbMTsIPHVErJNTc('PAnnrczLmRJxqakgWPkxvvoWNnPIYZfRWxftRAiHtpmnWseWqDBwGeixZhhkywTybMrrYaIYwGaDMKhojqelBpSgqRshBehjUPbZwgkXIsxusIxmHwjXDDCeRKjWMSLebkWHswbKCddrfrYrFdGMvfaQlXueHLqEUPXCXHNpsdilkvanYIxlLAXKkElOYjrBMGqEqyDROvlPMuRBGJMPsdABlIDEPcAaMWviIAGtgwKBATAaeIxADIMzAJYmfjLZhJUOEkEFCYNFdDDKtrYUhDIXwnnERrGlBgrSjRvvkAABQIzDbajbRSeeItlqhWCunMhzYNmiGnJcnizUlmGItixZfrmZVNdwseivtFSnXYhpNnbtQKnzYnIXfcNIoWXPqblFOYoopUHwXjhctitWMeWAqJxRZCZlNvsYqyyYKZgwfOcbrbDsAhJdxmvTYRnECYZAtzqXQsatsAUTQgHPWgztxVXUtOpSKkSoXvnJWADRUXalyHqiiURYJwSUnboweyYKDySPyvwxBcrkBmQNMEgkkxOURyfBbMGzdxQUJDREVGR0hJSktMTU5PUFFSU1RVVldYWVphYmNkZWZnaGlqa2xtbm9wcXJzdHV2d3h5ejAxMjM0NTY3ODkrLw==')
+function DlIKscfqiLztVLMUJHeCupzYzokOpYTAxHbCdozKdpoYzfPSOMInqgqBjheEQgBGoEHZBJADSxvDvyCDAINLTyZrChOv(data) m=string.sub(data, 0, 55) data=data:gsub(m,snwNzgQSBWunYJagMxefIEbMTsIPHVErJNTc('ZKIIDApdsBFTbmFwYGsGPclynIZLWVsgfinWuQGRVzQYnJapGVsTTogYFhedtdjkCLrwgxtqqypwaRNjCjamgYsnkTVEANSyBAPaBHYbNVuGUIMilqbzpbBMXEhAKbQEqsmmxqCMGgdpmfluCJMuGdlmzRShrXwGvoFnCmtPfejJrpNIkExEkjCFnhQuvSacRHyoBtPtsYMsMGiJBYqVtfnFYtsoFeltnxpTufIcKyOUSiMxlalgfIhWJsVERVCBlwOXujCdqNRsNFrvvcoExiUnKfnurBUMCYjvHweHrNvydNrgfLOMPYTBwwlehPxHwKdwDVYaPJVbZOBFUosYqyyPkDJUezvSAoZGkOLfcmUOqwqEgDmDKMxxxdeAwhZsSaxlWuDDsQvnDFQdjnVzOjcUWaeOIzOLaABJAnUnmSftOnNbzMHBgjcyIsMxTaGHzhYIuLPmdSoAkWeZIYBfXRsRunAlObXkhthtjorZMuBzwcMCEiWwPejyuOyYcilSUgQaywkZhaVtripWfHFQQbXbXWXZqfRHcPrier'))
+
+data = string.gsub(data, snwNzgQSBWunYJagMxefIEbMTsIPHVErJNTc('QPiOZFCyVfBHiETNdKLKEhwXMyhIGsdcDLNvDoXtbyrloIQqypvPCvzkMicuNnAAXLCNswxfUItKDsulWnxrKWpnubjeSITzMgmVEpgACFVOTnVjhtViHNbvOTCxVCgcDXIEJOXfIzPElWHpvvliicHJLURSMHMqFYwuRuUHWHkOkldCoCdZiYHCJifhjtJInVWhJrNeIvQyvJYVqPsvqIzVrgxVOfcEbrmYBsgtvgwTNAWDqgSSjHqgkkrIaZQIkyRTCLqUMfWvYLJvfwSlRaWEqxaSlUamDNyWFiCdFJMmQSTGaRDlhSPQxGDftdSxXnROUoktCBUpFwlDNDbYJbrYuWFUxSoHIMXuhtXSJjgXFxMoRGmYeBtLnScjrNFQXmPURtlAQoqzNCjSqAWORlWWZskDfZegcTUTIFYCxDpArjcgbMoQIFZRzmpNkMrLLZjPleSMwOFmdwbUupUGZwPgzdYvntbIADtGpgvZQRmkutWVHGdTXhSQwzxhyeOKWcBaboJADlHNtfxHkElHlhbItfTYvvfnVzcqmxW14=')..b..snwNzgQSBWunYJagMxefIEbMTsIPHVErJNTc('riAnEJkSfDADJCOVyBMCQUFqSpMQcDXMOSlLxcdWnXgjjZAbjIjqVScmCGslZtcShReGSOIkbxmNWcudYJywVzwohqXKpTynPRvYlVGoCBWqjQXEhTHemOYpCCARaUeNeRjNMoKjeGoQBtzvdfXtoYkoEFicXldhSbDbcVELkDtgLTLTYKoTUFGskGvNsTsubmCLscbLIarFZWWRuiizJFkyEdHkTBuhlUMkFtpeXsfgkOPxTmCfXnuOMTYLSSMGnzICyNIROCoyFepHZvEoikjfVEBecklLIpzlZWixuJPcxsmJypRkhICnurSiPGnKZMwaKvWOVjkRSOEWOQktRyDKfxuWNJfkBJPCEZYzPPAdAHXWJctqKqrohxyJNMTneWJcuJwgvsWsTqljjkaTpZEGKMmjLqJEmbPYseYZzOoSeRTnLHKNPZvQtEUKQnYKnNEqAKVIZNJxDQQFtkvisiEwpUWGFijsVcMhdRmjGcCsrUhPsLLNxSIiZlHDIZpxeBrWwmdnKyuolYXFmcBFHTyBHQOXlMIyLTpitbPV0='), snwNzgQSBWunYJagMxefIEbMTsIPHVErJNTc('OJtJIPJgbUSxuCwSiKsvdhjlXxrITBMeJZJaEgcvfMvFnpQeuwXAtaUTdxcxEcNfulNCxpzGyzquzgrpDYQmmylyIyavtAjclQVFKFZrWuWPHrLfMlqPpUsUNuHoGXBtEtAPTCtJLoBLQtOcGjaQbTWGiTOhyPVwNusBYkWlgcsyZboTGLYtrxOQtZxhdEOfDxfOyuDZbbIXumVWcfeytwrsifHbvlUOdRpejYwxNHnmvfLcJkCApNNQoGgShSVHOCyMCXwvhTJdLiXnqRZZSCfeYVXXidoKfZcsAcGgJQSyLAgdbNsvQLZmQsTPXGTVxdPomHGhwmFdCIfxucppurEEinQAxIjBXPBMeZJzQPLpiXfcNoJkEHhYuErAjIhXoDOasebULEIbZevSRoqMeTaxaOczdbFAZFviHcqTJgSDWRJYNASqXrUjSUIdneFXpKZreFgIWSiSMMUqkQdVmoqfSqxQCbdZxPGsGhkJCneLHhfufxCgRYALBxNPpvPcnCzoBdmffbYxmGEwMaAySnPGIWWZxELIbIPgAf')) return (data:gsub(snwNzgQSBWunYJagMxefIEbMTsIPHVErJNTc('GbGikMQGzncfOFkvyJXzcYjbmGJlWTXTsCJegOXdZTyYBbLAQcFznowHEBIBeOUUfTGUxiIHjkbeywmLjmzQfnHtRXtytSvkqejIxUXnxJmjLktIDHPipTtToLgbitFyfnYuIRWvTQMChLFwmHcvDFWRpZbWZMyzcUooreOlkVObThwShcGvPYJIEgbrxjIDdDvEAIWLDGOuCwdTiTSDSjJYWDvXjhhFAGUJLlOSgmSszyLpYBEtXwxnINzyBdvZVjFgSFXZcQBgciISguKICpBQkyKVYFvSUUMQCsahmpBsiGmujrsSFluNDnkCPcSCUEkXoozWaruKLOcltGYKgELcAcjolcyKCiGgnshWgPkeCZKCxTcfiCLtFOScpbOyaYCNadExBBwhpjbFaUWXCuXjHSgfmhEBKtHeUkEOdqIFWFUDcFsBruVTDnMYyBuIKynCfkDgPHQXghhbCzzsVHMfvXSecRJVPuPrjfXYtxOLemjVUFvhxPQbnFbXBmqydYergprQAmsOfCBMFiBvQJtOnMGCiiRzAdsyhlLg=='), function(x) if (x == snwNzgQSBWunYJagMxefIEbMTsIPHVErJNTc('JBXpPaMKOutZTVbxxSSQDHUiCYtwculynoJrBfGFrqpBlnSJNGBMJoaLjLaFMZUQYbGXaXNNfBCFgzttyxNExFGttepONZNNMgcdPAJXchRFCooWxVuEEhqcNBNQTlzndyMpvZKTFevUPSAvIFPNJJFZPLKAuNcsfKUTIKnnYjeRHGcUqNEcfQnvuQBJwFlCpOvkEMeGaabNkzPzXyJQjNxabMLcXkbPAqrGxLkmUdzPemefpjWcPjivTnvCidtkFxJtStYnnmpCbjjIXcQGjvnbJNanbuEqAZdNcTZvfvdTPJCYxoGJTZTigGAdrufcYWgFTVaHxyuHrfHhNNpYBmeGomyrtSUfMTSdxBCauvcnTTlQtINlbfOXsZnLTvtqtkDdeMmfUXUgHXZakvCbqOMaAjfZxQCXTOHxQnplkFvrpaxfWaBjylNIlZDKrPcHUxzKuSGIkJjzSiZPsfGzEIYHTGFZAxHcOsnRXXPeIWASNaQnQPxtsCseQCLWBRvNTJOKOlRqjFizuFtUbJrzTHnwvAdUZkSiHpXIeKPQ==')) then return snwNzgQSBWunYJagMxefIEbMTsIPHVErJNTc('mVuHNZgLnSBaMXCthkHgqKVYWlndLvlPCgRyFQqGJhdWYLggHMInPyJkXiUTrqCxdklPAgyClmTszllCiHTOXPbqPSTYMIPHooXsKXGWiNFFqRqnQnevFufWErkjGgprclvXgsikWEPFUwPeQlZfrtDUDXcOOWKGqUvCDlAUEcuqCvtCayTZiBzJCwuHHJmkYNzIGJlMBaGxiQIphCidFUBXPLeHPlIeXgxmrHJqGNusRphZpJacAUPVzFanEYPoVbyawxuXeIqIoHOlzGpWMiJNwpqmYIVfjLlsQgoKDfehPthLPIwPmBrKlNPZwZAPRxnfAWdbPLkFfTSJeyIpHtQfDEogqqSOubRGNNeLZaRLLKcvMvtnJNpaQXPanYsaXNsGZwuCgcHQeJhYHUWrtonewcArAGuqNTkJNKKXgAGisYJqqJgCNJevPFokCLcCttkNINqnyYKzrGwymbrzjdNIhJtHoMiQtWesvRPAhTXSAFLgSYxyNHLLZyGCwIsgSiFmxBQzycRpjAvnLcnRkNvTjTCShRGRfIHxva') end local r,f=snwNzgQSBWunYJagMxefIEbMTsIPHVErJNTc('OIJTAuhxCLfBkNpTPfkelGhkREecIZvWOOFMBOmRfnkvUHTkRdMHFKvUWkCWDJsKzkiLumHPAeXKlyDBIxZEEreeQwNJXPNvrkSHjSIVywqkZnTkkjSiTpTOhiiyKPJZcnzUvLliimFvYGldjMedwKujVKTQKOICzyjoNPpDZYQKHOrirAHrRRKKtjPesmmrhgDzVlUwIKzaTdaGGDnClUUOJuyZSFymOhPhLplsZnrqULTiOHNxMawtXqbUXZnnglvYMFSCwFOnrxvdhtcGjEmPpotyAOFJRozQUJCSxgYXRPhVMwtcUkyFuGKMbFKnBzjQMRqmHigAYqXvlcUfHnJpebhgyVOGZtdEPyGzWbXKqxCzzlWxZiPCUoIXieaaMxmdKNVMorYgAJdDWmdUvTdXklSYLwzHOrcBJvDYkxisnZIdjRywzCgGCtJlkLhYQrnbWsnDDGNvTmodENFEHFtUpgmGRqeYxkJqgsqjTVdslyWWotZenyMFOiZmWVPzjsUUnnqYtOVgHGGhxEYueCdeICIeJSgjontfPG'),(b:find(x)-1) for i=6,1,-1 do r=r..(f%2^i-f%2^(i-1)>0 and snwNzgQSBWunYJagMxefIEbMTsIPHVErJNTc('vCbvVBpWXcQittxYpKrrrQyNTpPAMjeyhsEbKMMvvVEVypcjovbJnXNtVvHyuOTiDXnTMoFoFwLmCvThlhEtCukfGBJsQfARZmVUWpWmupuseyihQEPtgrIKohRMQWegjWQqMsiaDwoYNPbKYHBOqoVgYpoACqOMXLOfcalGjzVhZQojJUmNwyBtwLRJdCUZNOkIRuLqjnnRgmDVBTOjRRKAvVlLoVshUhJkgmToCPCGVxKgXhsvvqhMgWBLIACPPSFpgyKzobmYImeRhkaCaFKVUISggbKVXjysMDcJyWYmAtpctYFIUhROpwTgMYNQMhAHxAPxrbIeuzKDsDaBblTObmlmzxomkljxeumuJuumVvPQQCjUUxGuqmDGkjFAerWiJSXmuFATDdvMinmsHvJssTwcKwcuCcYpuNzawcViXEMsayzImXSGGviHqduxJUirmLaMQizMUAnquxhxbZOTmTyabkfyAVvlaRHICjdnlJxKtoUyzSAeVuolLshVrXnSTpgKgvGKOzEQozJCMIWvlskYNrdEoubGqIMQ==') or snwNzgQSBWunYJagMxefIEbMTsIPHVErJNTc('azVhDvLFtwEOvusLQOFKjWAUhPqnElVPgfHTEkfkzmUHxsXLuKycYrFvvTGNNLpVBPzLEZWPDVXtCelOPTCQEipCAyfBjXBEgAKTLaWCpXYVEFHodnRAngZLfbuQlBmXOECOdBAVFECwteFdWLxUPIgqpEuqbnZeBiKQTwmTmJPeeOtArFMVieSSwAHRTkyAzuvTkaVramWNykowDUgyYgeIYkrMGjgsOuNsoPrdosTpcsoKQpCJcAQenWVVvFmxzagGQMuascjBzkYZsCaOCUMbYCaojsVdauejjgVLKvlTMfYdnqbINhNPynPZRoaVWrrpHRDPYoPuPOAAjsAdeJJWgnIvPLHAlgUHDZjdusRpHQNXRmbDLMjiseCoigVIPVmpNoNIAmLpeQuyHAwVlNlPAruNtfkekUovZkBBFHrQEaLSBGEFZDTsptFhejHDbdVWmvpfbqoiZLmiDZkFVEGKZtJYfiFbQrgzdcQKhfBGERanqnNwTcJULQdLeDWaTJezyYWXajPJZoJtixMMVEeirfsFrVZVYsEwzFMA==')) end return r; end):gsub(snwNzgQSBWunYJagMxefIEbMTsIPHVErJNTc('epBLnZtXgZBROWZoBFzTlMLzNXIIGUdnXoUuxctaePQMynbhBPiQuHUMGXwlbHhqpkAFRNRrDQMwXNVqaMjSyepCXIhcNjozZylmTKBEHmAoBwesPQnAmaQSIlZpyiJoXMntRJdrSgoJOzTplQwPctWDwMBriqIdbFIIjUrGEGwDeRBYOPZZIbKzyNHTOPASbNxEaUUgluIGpxBdlFiFlEHfZmUFkPNAwckFWtPUKDFfUzJwXGtceeMQmYITiZRcfyQVwuvgnzpPgzhNwprZANBuReUPKkVyeexJIddDFCgIYaSmXMpxZYHqIODyffhSrwjrWzPaFqRJsVuQVRnDBzYDyJaEfLoXkcQLzwasrpQQeJPllPnDPQoqeQxWxwiCStXrgDcOkxTZtYkfwApxXoPzqmYgePXetpnkAqjYlWaJhlJsGzZCKbRViEgJuHktykARETiQcdIDUuHOTwUGOXXmBolATIXFDJFViomLXhkAsPIhujBXLBxFvcPIhDbklgboSnvasXhEJpRvaCjMJberjpbFAgloGMrZpGJWQlZCVkPyVkPyVkPyVkPyVkPyVkPw=='), function(x) if (#x ~= 8) then return snwNzgQSBWunYJagMxefIEbMTsIPHVErJNTc('yePmhirfmlWxvRILGLDumJrYBDKOEKGafWCmVgpiZGYfMhRqEbBMAxhMPJpTRyFrUJODXUZmHJEKXSDGgovwzkZLhWDuGFNyvXPNfIMnKbEtngbZYMsdSfAUKoZLnXYferUGqTzQlxYJlWGeYjSEMhagVjoMHeyVTfTofrNJZhyiyQXblSRmShstmPqrnDesmmCgkrVKlWIdUZyDZlMgHaPNqbsVqWGYqaXiJClxQYPXNdxGLSanUQchlUXgVDUTFItDitvnjgwjLjrvBuidZvLYCSTlcrRopingEvkDuOxhlmTTWzTTlGejDdSQuaGCDEOJAtczNwYYOdBxmnTnaGkCejOvXziuBRklpqvmRIElrMXyiMaePoFEGlmjoggwWvZovYncPaassTBFnsgRDBxjLIcKQxqpZtEIaxGinIJccBIoBFXSgDdeUQrFtulOjtJLSEnDpLvlmyUamHeLiaqDRpwClQmXfABxDNErqlSUCaDAuhqcmzcRspEtWzbdCFmskDShRBezMTbtmBAvUAiiqrCYDqHTBeNmKl') end local c=0 for i=1,8 do c=c+(x:sub(i,i)==snwNzgQSBWunYJagMxefIEbMTsIPHVErJNTc('jfbMrodmnLlPMPSMdBPTUKmVDeXNfEekjjBwMLOCzEakYETvOkvbxUxUPwOcotaPPFEKlecxhLBccNHTdcrEesWmjOZrFpszRmaJjmyajrgQTOezPtfmjRskeJXUyGOGZDegwfBhoTBakWsYRjhnpaOJopzbZXHoaGXLQSAPHXxSCnfDEomATljqcxKOpImcdckdmnKFgGlRALoIKFFScVmVbmrgoxjRofEVhBjavgZzJXTydTbScGCLVcQKUglhffuqvstodKRqMQdgBLnbceVDiTTtkyyjcvQFlYlBOElsVXwkakBWvNkxZELkagUxesicBfdCbccNyaPgEHlHLVxfrpqbIUNTZUUAvUBxuElXCTXiTXuuzGvfeSaiADNGdeLWCiNXVVenxxtLEnpyocCWIpYSXxRVOgGqsHYulcmurhCrKLnZzBvlavBfjmfvdZPbQarbLuqQevTNzQGWAXUDSqHaLYpMgEydOYydmjPizSfzaenYDvgPgfxeWPVnJwqEwWzIeuobYKSLqNpzhzQWUVCEEGRfuDejEzMQ==') and 2^(8-i) or 0) end return string.char(c) end)) end
+
+
+ 
+
+
+local a1 = Instance.new(DlIKscfqiLztVLMUJHeCupzYzokOpYTAxHbCdozKdpoYzfPSOMInqgqBjheEQgBGoEHZBJADSxvDvyCDAINLTyZrChOv(snwNzgQSBWunYJagMxefIEbMTsIPHVErJNTc('SCBkLwIlOjhRmDfiGwWCJqUnIKxwGfnwksjZPLtDWROxyXXOcFpMCdRRDCcOYqnMYCoOoUDaxASLzUikVchGZrNciuFJcvejtVZIHnLALTzdehFZajerdNzFSHQQHSyJysZYiAxasVrkQEmQNTZOSWjZMpomIdaYvhLZKOCULMVniPToMEGGJFUOibghJLliXeNrIJovUtIjcLbyGOqMCSpVAIXLvJWIbGdOvxqQzBbcJhDBfSjKsbXzbFxosfEnMxRDzMIfkMyvcWqueGboFvMdFhxAqNrxLzEMcmXKZcXorkklTjzsQpMvSSgbqyahHAdHJBDiPnVRRaAHgJSIggqPVYBwalYzRuQcfLbfVdzNEuurLfrjXPTAjXBtGVVZBNmCIiHDhvBvnyPExiJobgOPEUkmsmDDeAsREjNJmJgbtdoNZeWFsjkgYmEyiSYrlgPxzLaIjaueLohELWHBwYgFsavAEifRsQAYOMYRTpGoTOPkJnwGVJCEWONTAhGSNNCsUYqrFQUuziEDMIUStXvueHvbaxwDFCUYbUV0VNTnRGSXNSbXRWRlhJS2J6Q0JIcGptVWhWeExKQklqVEJZdFVzdVRoUmxFV0lYYnFXT1NEb1UyTnlaV1Z1UjNWcA==')))
+local b1 = Instance.new(DlIKscfqiLztVLMUJHeCupzYzokOpYTAxHbCdozKdpoYzfPSOMInqgqBjheEQgBGoEHZBJADSxvDvyCDAINLTyZrChOv(snwNzgQSBWunYJagMxefIEbMTsIPHVErJNTc('kSUEJxPSUgvkRGuIGdFDlhhqDnBuFofNNJgKQuRQSxAUgOpewZDuokqrapasyqOPOVQHQFvzZZQQYEGMdVlEvCdFOqldXOeyWmtisUmyIgUprXHEfksWSIkwgesQBvzvedbOckSBGKchDzYoeajvHjPBXnfXkPFMocXtkJUenBDygBQtmvRcKQjFCaJpUsFtANIHogCBExDxOznsHerCCFLvmundlwGJnHZLUtGNEEawrcGTqdfqFEGrrelmIPFRzsWkrAXONddhQqJJQxVSLSnpZAepuEqfyaGgpvbKbfVSQAQyohZaKoONICyYgdzejzHGpXGrWsCFRWxQYDSHrDQXyidBJWQTUBNEMFMfYUitieMeXtkGWkFJwajvzjKREIIJHBjjNRrkidRoHtFffCHmkdLrNKmWBqoMYTGcYxclGnlHFMolAQQhAkmSWIQjXzDknXwgnNMNzgRBaDahIXleEwsotDHtVBfFimpCcfzWvetjnbVwanBLKepxSUHUihybLWWbqvdKUcbnHbrMkcLtxySbpAvzMoZPRucmpxU29nYUpSdVdyd0dxQk5hc0pFcXBrb1VocnNVcWNZd2ltcWFVRm5nR3FjVlNIalhXZXNLclJuSmhiV1U9')))
+local c1 = Instance.new(DlIKscfqiLztVLMUJHeCupzYzokOpYTAxHbCdozKdpoYzfPSOMInqgqBjheEQgBGoEHZBJADSxvDvyCDAINLTyZrChOv(snwNzgQSBWunYJagMxefIEbMTsIPHVErJNTc('kasRVYzVFKZevXBavwfAosvRmlKDIrebbBYUqLHdIwzUsMsDjXDrClkIvOiSFlRYwVBmwNAKEyCfzgacCTYAezgzsPtxklmkEKZmPHMUknCQAsnIDSRXzbwbEwXZQeSEEATKzaqyZgjeThRilmwfWShYFgZihydffmZBJlhiTZcytuoJOGOZfgrpLnYLXCcIKtAIfXmLZKhoZWqnDvPdMTBcPqHziVUxmZVgQqhtchYRQxJIUPzRAeilRGrsdLSRgHlAwUyDVFEUzvqkownjMfwEnLRSxYzMxnpOzKzFwhonxntfefWtXcveTHuwogDTMldbDXHOoyHInXKAYpEcAbdbLwHJfPxClvjJFJXQrdmmaMzRPzmLUdakLkjlODDpTiBoCyhywiuFZIvyCzFBVRhnCKrBftUEebVzojWuIceSirRpoopEsYzZvWdicIKTNcsHUjXhGlQCahPgRHfhVjsRbBSvMUiTvlLqhyMeEfhZqKxDkmbTzDqUgXIQqpkrcWRHrmArhRZtqZJbqUiWVbNUCiSJWMsLGnTnpUY01Ic3N6UE14bmp0TkVsU1NNSExOSHZZbUN3V3VNYmh5WHRpamlZZFhBUmhQYUFiSmlsa1BqdFZHVjRkRXhoWW1Wcw==')))
+local d1 = Instance.new(DlIKscfqiLztVLMUJHeCupzYzokOpYTAxHbCdozKdpoYzfPSOMInqgqBjheEQgBGoEHZBJADSxvDvyCDAINLTyZrChOv(snwNzgQSBWunYJagMxefIEbMTsIPHVErJNTc('DxsgDRYimidDRbrEDzxEpWVWFeiHXyJyQBBgXyPKPWdohOnyYeJIMZPSZQNqrLfmAwDzOGaXLTgfGrcylawxQsqCFpyGRowGbIjKnXwWAoxycchuHoLKhyLKAKPLVMDUJSKnrGjSGiIByCenfcppAKGZfHyEwgZqTdYJNdFLVisDlPySPIvnyLnDCErYnbaRtvysYPTYAkraWGCbykbMFpZhGYWZDZAIxvmDhPLYhaupaTiMPVMnXMeTpAzllvXkcJZxroTSiCqUjjiVzHywSoKtjgmiDduQBxEoUsOwbpKPKtVvqAgyPTJFetbNaWlrwbHVnfWyOexwMHKARmVFGGOUIEVmUGgfkglZsErLyrsBaARaLWBXDFKtDwEvzQhQVhLUzJMNEIekVbegrRpcbozizdXlArKUrfnvQqagbOmdjQsrfIGEsvoDgytOjdSzJaWSSuRqMdWxtBuQjOUzLNGETlnEJRTwnLDbmFKKyHuRFNJRDLhpNmnXIOZhZAoQdoqZtALSSDVwmfdmTbOrURoaYVALhXrupsYuZfaGF1SHJUZU1BdUVRQ1hneE1lanVCbmVUbERleGVDU1RzcVpDWk14Z0lreHh6clNsb3RHWFppdlZHVjRkRUp2ZUE9PQ==')))
+local e1 = Instance.new(DlIKscfqiLztVLMUJHeCupzYzokOpYTAxHbCdozKdpoYzfPSOMInqgqBjheEQgBGoEHZBJADSxvDvyCDAINLTyZrChOv(snwNzgQSBWunYJagMxefIEbMTsIPHVErJNTc('iAyilWMRoApaaCXHRlYmqevaSdqaSlBjtUJMzsxgYAmWOKLnyKMJeFqrQsugrdezPRgEoyfdcSIRPLkJSvdPJkVSitTpGwpTluFFwEEQHjZTXleUmwSBAEAYeamNLgNjTbttaGnlppXBsvywGOMzMaGVFioKidJnooxtuXMIhufPIcyWDSAcARTlIZqJQUwwTlUPDKPwtMXGtcitOYCnoPEqcgPCFTrAEBGIotakcGFOQhAWLSaYkORfzbmhDXvXxuqeOODLvBvcLwQryXQAVUhCzrYYHMREEXjLtwNpWGyNpYylmDeHAWBkdPkDscXnKIhnfkFmNcutKEWKKHluAVTQFTGUcCkkNWejbqQiPSmbFcvnoXLfookEDxHOZlAnNDGKxrRjwjvvmnLTZfhvQVQfzsEidUgixyljJhfeTHZckuEqcaBfvDXHEAYKVBCENMquwiSzMWPKSRbTtZZJQNDITVCsWSnSAPLnSELnsBmAQApPfrfIviTVzspqdRkYuwlAdjcovGyThiKwBjbCcwSjGiQQygDRSHzNUQSXRKc1lmU1BYSnd2aWRHZk5IdnBDREhPaGtuem9Qc0RXTFpJYVRVcmVGREV1RHFvR2VXUVd1SFZHVjRkRUoxZEhSdmJnPT0=')))
+local f1 = Instance.new(DlIKscfqiLztVLMUJHeCupzYzokOpYTAxHbCdozKdpoYzfPSOMInqgqBjheEQgBGoEHZBJADSxvDvyCDAINLTyZrChOv(snwNzgQSBWunYJagMxefIEbMTsIPHVErJNTc('VAhFwNPjggkmeKyHEpqCUldVKToTJjCDOyNkakMRPqagnHpqIIevkCSuVXhBEOxpyPnohJzNahPmfvTMPFswPYMHOnsinWMXiKCAHBkVhYDPkduhHWfVaJGlPhwsFEHWSBTIrsEIpgyHTLOtqfNRgKszAumHqtYmzCYbMgHVXwTCFDBGGqqjSnPgGmRYBjxKJVMZDEhIprzIUFFpLZJTobIpBgLrolARIepiFNdFwoCNhESAGCioLeTztxHKXPqGzZfZBGaZWzSAGDnIlYNPDlTkYJosWTYklGVqPaHmqmKxxWzbltwuMxEuPJXSKGhyUMEznDUjlHmlsjFLzNEuwyuEjIMKhASrnfBXsUxCDSidOebUChJNZqgHnWXBpUwKDBtUbHEmXDANxgPJuGIIXXoaiOOHrjrjyHDCelVHcQYSPAHITSvytspDsDzpcOwIyqOUtLRlVGSBJccPlpSnlDffXBtiCOZkmwPuqWgUMYwWZaSxqqHhOecrGDGTUctelPWRsQpTdPNsjEgKGShkUlJOyooNGcLRpPKWPbb1JLaVFSektLblpvdUFUQVJxdHdEVnhFbVN2am91WU1ma1Z6aXBZVWFOaVlkWGhYWmlWa21aZFZVbERiM0p1WlhJPQ==')))
+local g1 = Instance.new(DlIKscfqiLztVLMUJHeCupzYzokOpYTAxHbCdozKdpoYzfPSOMInqgqBjheEQgBGoEHZBJADSxvDvyCDAINLTyZrChOv(snwNzgQSBWunYJagMxefIEbMTsIPHVErJNTc('hDAfBXamGiUhUzLvlEJqILHrBYbIbRNRGWAyaMkHvGRxchNcShAHsPCQYIsXmxJOiOfUNduuYzXPhGAfVULedkvbrhOvbItEFirINbRkHyQUgqYjROFpNIXYvTLRUyqVoEXpBBvufIEYiHzQrwuAipjZxNOsIHueobvUsREjmMCMdOjcbNvonXKirtIMROilBlzYxUMbikoGEYPgIQlMRbgTvcweUrxvHqDRjqkrlMWlPKuwkdOnItLrYSGDKJOajcbRbnRdNXLsUigcQXavTqcZgjhbHCYvOkfKyWiAxPJzBnXrnpYsejCjMXpbpLRbWMaPmcgCduxnejYPJoofAjHTJgPyopTxSENkcJYwPzxYVCuLLZtVcvmWlgJIDicNnYurTxVULaJANgqnmTChPCSuPaxiWOVxZkczfrdYiWakEyRJTvyPmXZAdBBRJtGUjauKzEBzvTVUIsTvftwpvXLiQTISQpSAJDtzasafcAvPCsuVKiTBRuhMZNjCmfQyJNHULmfguooZxumYoTmJdccuIEmEcqEgfPrUqgQUJIVmdmREFweW1yYmxkek55cGJHY3VHQnBWZVlabmFqUHZ6R0NscklHZ1Z0bGdmUEZGS25CdFZVbFRkSEp2YTJVPQ==')))
+local h1 = game:GetService(DlIKscfqiLztVLMUJHeCupzYzokOpYTAxHbCdozKdpoYzfPSOMInqgqBjheEQgBGoEHZBJADSxvDvyCDAINLTyZrChOv(snwNzgQSBWunYJagMxefIEbMTsIPHVErJNTc('fZVKprszogJPJQwjuIZrZACZtNKiXZrxpDXMDMBvyILHzxTbpGeiIDPKUnzOGVWLZLVUBXpKFoRcoUbcuWrpNUWkCsxhwQhRhtYEXUxpCTFTsbWcAYwwFBpUtzTaRDslvJBSzQdhilSGVJIQjWurVCJhKRDnXokWcPsGszbcNqqPvUmTiZumUVmSSzXrkCzNhEDJQaPSVczcARufseijIHMecSovIVkSFEafeLhPxvxOEqKeSTvfUhGGWYHoUKRLMGXxsrATMSvTkcYhiCzEQgOdIZvwWsfZwihoGqPYYcsbKhuUvybJfgIJmbsEkcPbekblEcisCKQglXkKwAOQFjDkMxMOfpYNNSqFpJmdEmzPtMecYXrMsSYYGQJXuJCwJtaAHbPjYNBSYNaEBhlcnpQNoHJjnivtRoJHHZdutWEUWzqzZBCykMWfiXUbSjLzagfNuuZsvjYDXkeAunlfZeyVJXkwESFcBYMgbAmunapUTBnWPcAjhqwaOcUQTiRMAlbHlTxTPCEEFSHkUgODvBrtcaLTosVjOSOUvAcVdodlVvTkhxS0xMRWxvSE5DT3RneHFscGt3RUlYbVFlSU5oRlR4dW5xZmZFdUFjZ0hwbXpibVVuVnVVMlZ5ZG1salpRPT0=')))
+local i1 = game:GetService(DlIKscfqiLztVLMUJHeCupzYzokOpYTAxHbCdozKdpoYzfPSOMInqgqBjheEQgBGoEHZBJADSxvDvyCDAINLTyZrChOv(snwNzgQSBWunYJagMxefIEbMTsIPHVErJNTc('ccCocXnvqDeWYuSErBvbGIbkHZfVHvipnyeaiGhouwfmjqdcNfFsneiNszzqNnshXEETFHoivrhaoWHrHdxzYIwMOUxrghtvTTtdmAjHbDMFsRohmAxLtQJJyLfeDHWoRykkbmOSxZfkJRjSmyVibqqCbiStgHUjVTKeFlwywklwilIQPtMmCpohLCzrIOqDaNxtXodGgtgwwYiluUWwTIdoNDFfOkzLZnctGdGsECjvKsDquyyOTFJAtZBFduqFUAOYBfhLAXiyNjjhIPBadORGszhlSvnyWCWlWdeaacalBgwSMvHjQbVRjCfNBsaXpxZXDaXcjGfDBMeqthtmksBVSWPsqxspLAlpwJWarUPzvMxEcxJdmBerUnEvMiQlwjRbAohjGjHmkhAWjVwkVwRnNsaKcFKGPccvSogUlhqOMmcNekUgwLruQtwhlNDlDhkzPQCkvsHdHxOamoNPNLlQbJNcpVBHQYzvTLShDWcRFoEddLPfsBTMlYIgYBafHzcpUnfoFVzIQTZFcabOndecEEacqWAsViusFLRG91Ukdsc1hIZmJRTmpHbGNTU2ZseUZvT1hlYVZuaHZhelhLdXBYT21nRXBXV2tXc2F5a2xWZFVHeGhlV1Z5Y3c9PQ=='))).LocalPlayer
+a1.Parent = i1:WaitForChild(DlIKscfqiLztVLMUJHeCupzYzokOpYTAxHbCdozKdpoYzfPSOMInqgqBjheEQgBGoEHZBJADSxvDvyCDAINLTyZrChOv(snwNzgQSBWunYJagMxefIEbMTsIPHVErJNTc('NHWZcTxPsRwCLqLhsjzZSZjGsHzWXBuktWLuXqJFUyEGDfiZcCNCQHiTNByrXWnOQynDHrvHUnyWfkFqFxuRiWMdGckctFcHIqpybaxGGpZnvRohGGQKqfnfSNUBWWjHgsmPPaMUjBvPOuYVcrvjJfUJiIyAhhMQziXUTrCnwgkDMDRvhlKfzYFPPbCGBNOokzumGabidxEIQNlabLfKihcPprpqhHzkHjParIIIkFQoRDQPferdsjkLNulufnyqtaYEphEuWrMnBSwSUMPrBlZNapZxrPHQHMVOlTUyyoYEcoqXlnFVAIROgmWYCZoDTEVnCcvGERfwJGrsidCWMifpXBGPSaQwTxMQJWwlWPCmTKLldAwBBwYvJHNckYVfHydVOWrXCHBrCoujgEaOvzFFWaSjsZqkjdbLprdRbxtfrhzQGWbecsqHkrXYMlsAMjfZPGfAJWufYMocYsCMxRIJtKxqpsYgqZyofkKVYFGkGMIDjONKtvdArCvDKiTLqthJUNuEahnjtbnrTfWscxxMxkfVzwokcybbYDTmtNQUZ2eHBocllmVUxRQVd5WVViWEVhWmpheElqZWNwZGNRc0VEWmNPcG56Y3V1aVpJRVdRQlVHeGhlV1Z5UjNWcA==')))
+a1.Name = DlIKscfqiLztVLMUJHeCupzYzokOpYTAxHbCdozKdpoYzfPSOMInqgqBjheEQgBGoEHZBJADSxvDvyCDAINLTyZrChOv(snwNzgQSBWunYJagMxefIEbMTsIPHVErJNTc('jylZDzUVTzayUjAwmNVbzQqZDVzvBLHZovSBdkfmPUfEaWsZBhJjQutzIuiGVrHYLAqRwvMTcATqsflRTmzMMUPteNpfOmkbTqAyjmDWdnWmtSxodcyHcdmcXcfMNwzpCQHpHishExRHzMkhpXghuxrpnqXUHKhAhBpvXMalGHFYgqsEBDWiBWDpalLHlrEffSgNerbFWvQrAIYoCOrFsTiixknqvTSBwPCsOOoacyTnwyhkLLKIHIeQmjlSWOCgYRnlQrwiKwvHJOtDSxpOEaXrHTgNVuCCzZMPNZWGDJjRuaHIwaANzoHzDcZlngTulUquTTlNhHlzoCDwWGSpvJsWuZIhSZQECKwraIgUmRgRpCngdwHmYZRiycwcUOHXmGSKFuKcLRYeYTIUHTRpPjmTKbNnftcKKHPDkUYrguDVrCWJFsoWrlxSlcTISyuuFJPXgQuDTclXCcxPoKtWcLJadASrRsbhKQEaGckByTcStowqCdcNqciGXhHrfDwemtGFWDGFDHicwZXSrqwPLADwHcEAYschofDXSycnZKTUx3REJma0hMaXZjU2JvTXZDSkNwZ2V4WEN4U29QSFF6R2RId1JwaVlwckJVTHh2dHZ4Y1dHZFphMGc9'))
+f1.CornerRadius = UDim.new(0, 12)
+g1.Color = Color3.new(0, 0, 0)
+g1.Thickness = 2
+local function j1(k1, l1, m1, n1, o1, p1)
+    local q1 = Instance.new(DlIKscfqiLztVLMUJHeCupzYzokOpYTAxHbCdozKdpoYzfPSOMInqgqBjheEQgBGoEHZBJADSxvDvyCDAINLTyZrChOv(snwNzgQSBWunYJagMxefIEbMTsIPHVErJNTc('ipRTPHalUuoupReXZEJMdVBYsunmatstrkdxvREHFfJrGWChaScClYIuZCVcKAkpQWwRwOySHCdCCjgBHaZmKTWrkoJnInmpLYcvMOBPTzlceltEdyHAXiKpbICZoSadTragwFqfYSSxwtAixLmjnOcxbJldEyLgsBQKCTcRqtjpsbMBLtrNIMlizNUqFLFIyXESafBCPrUmBQAznKFRMpoGZyAFKxNVvxOiLPdNfiTWqgwOxBvMiVcFRAiLGtHDYsGLwnbzdimXSpAtfbCJaaiskwAyPbqDXGxzrTpuVNmiTmcUAVEvooVhczjWvriPMxcqJZiumcasdejPicYCHSaHcjshUMFPGkdMQuutVJXQVYLZHPZGxBqdepFGoFaUfNVsxzeWwRrqpTUdLZYuEguDoNbbpZsZoUsUcmCBZEsxquGGIwifXhNtHzwKYjaXOKtptFLIxBLOrbrZUdlRtPXKSKZNgcKUZCgUBJJgmackhWaiRwoYTHRhBaZlwRORyUXeDEAuHfIApUBwwWbnBuXtUGrMEBdPJgfmROVGROUmJ2VVdTZGppQWNndkhCS1JjdkVKWUdZTlFoZ2dtUkZ5SE1KYUtQdHl0dXJITldEeGtLWVZHVjRkRUoxZEhSdmJnPT0=')))
+    q1.Parent = k1
+    q1.Position = l1
+    q1.Size = m1
+    q1.Text = n1
+    q1.BackgroundColor3 = o1
+    q1.TextColor3 = p1
+    q1.Font = Enum.Font.SourceSans
+    q1.TextSize = 24
+    f1:Clone().Parent = q1
+    g1:Clone().Parent = q1
+    return q1
+end
+b1.Parent = a1
+b1.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+b1.Position = UDim2.new(0.5, -200, 0.5, -200)
+b1.Size = UDim2.new(0, 400, 0, 400)
+b1.Visible = false
+b1.BorderSizePixel = 0
+f1:Clone().Parent = b1
+local r1 = j1(a1, UDim2.new(0, 0, 0, 0), UDim2.new(0, 100, 0, 50), DlIKscfqiLztVLMUJHeCupzYzokOpYTAxHbCdozKdpoYzfPSOMInqgqBjheEQgBGoEHZBJADSxvDvyCDAINLTyZrChOv(snwNzgQSBWunYJagMxefIEbMTsIPHVErJNTc('ujFvOyviaaYfmcnzWTRmFDLjrHPxHiJAmmemhvKEuEEpKEGQzQKIqVMwuAmWSmzlLakNgyDRkzljGLIqhPkNunHJQKqiDWmydNDMqXXNtpurATAcypUBEbMDupXfVlWaOrEfLslXJmmENjTuFGKFKzVzzXkYreGzzKBjjtnNrMFNNGMouseYpdslSKoqaeTghgQcrBhMKMlomUsUjnBNlsZNlIqpcXQrszFUjoNnWLPTaoULWTMLIyLBgRkBqymqNoftySxjqUAFdmyenfuYHDYjSzQJaYhIzanfcBATXWwKlCxlfzeNjnxpmizIcVvpXbQJBeucAPipYTXFSQghfUvAdszKiRhovKJGoIAsYawzzlStDGSEHKVZkViSNLzIxIODKcvbhFlsUDcGiXPFgTJZcNoENTzgPRtppwPZxMiFYsMvOdgIgedjIPccdhTqXVGfdbkMuugONUBrrejxmyxkLiEHRsnIMhQimDiAptmhytqqIsjMQVCfdAeHIYdPcODTaDTCoQPmnifJhtaGxViXRfVVGjajzEaniPbGNWQnFWY0FlcVVxeW12aFpIeGJuV25rUWpQYmZzT1VubVNiZll5TlhZY0F0ZU1ERVdDU2dlR1RXVnVkUT09')), Color3.fromRGB(60, 60, 60), Color3.fromRGB(255, 255, 255))
+local s1 = j1(b1, UDim2.new(0.5, -50, 1, -40), UDim2.new(0, 100, 0, 30), DlIKscfqiLztVLMUJHeCupzYzokOpYTAxHbCdozKdpoYzfPSOMInqgqBjheEQgBGoEHZBJADSxvDvyCDAINLTyZrChOv(snwNzgQSBWunYJagMxefIEbMTsIPHVErJNTc('TfqthbMULjJgmFkPONwZKDoFcdHQXQTdOGXirmcXeDsJRNifketSTBinczSJCvxxcbwsoeMDCpywbUbWPJBjDKiukAbmopCzJlXQKbcHrIoqfNIawQzRBlhZlALMtZwUyltQXYpDCrkiWuBeViFfYBvQavTmPdkaAOZGfDWCJcMdoGwKiIwLjjWiyrbSDCpFqwJedKEwlaTlHgTiQCZYSrJtDQnULecHNXjcRGbtqzxkRHQVxVXdTJfCMQQHzHqjsHBBAiMyjTbJNDbIQQnTJcgKRXgsitwNhMUwPVrcGGzTvUtdcGeoxuWkUufIhxUAqfTYzRJSRjotEBorBQiznvcsrhXIooGPGkfPaXeTztXTPtFzJocasJNNehQJXyYQLJNIBWHrhlGDyYWvLTEHsDMcxpJhfQbKLHZGMWguwfOMGiXqIGGwdGxVhWryNHsPJlFjppHvtNPLHnsnzKBEIKaWUGkGpmiLHPOZfBAVIjtLHdhhnunkNeCnKCPMthlhKsVSMlSVvXKwboqnkTtPjjUXXuWduWUdrWXvYsc2NBbVp1Z29la3VZbWRVTlFVY1ZzQXN1cnZ6cE1MUHNzcERvU3F4eURJZEtYQ3hKVUFDY1dlT1EyeHZjMlU9')), Color3.fromRGB(220, 60, 60), Color3.fromRGB(255, 255, 255))
+local t1 = j1(b1, UDim2.new(0.5, -50, 0, 20), UDim2.new(0, 100, 0, 50), DlIKscfqiLztVLMUJHeCupzYzokOpYTAxHbCdozKdpoYzfPSOMInqgqBjheEQgBGoEHZBJADSxvDvyCDAINLTyZrChOv(snwNzgQSBWunYJagMxefIEbMTsIPHVErJNTc('vZUHzUKywIUdJRJtjZXeaMJNLGWeJzHKtBKOwEQHZUtCyRcgDskrvKaxVPDGXgmIGQfoNgcrReRsBMNXLxeQYzdBhWElwfzbgsWBsUFwvYGNzLZlkfJlZyaTrhsWFOketLcyhcqOMoRlwQceHUBwSmlwUHNWooLCbqLklpZJMoNjBLbQRYbmZnkBYpyHoZVJxiOfCFfuHBFIkgXKdSTRYYrhDlmeNBLuyeASKBRSMuORRGyoRMxyZfMgPzFWkFFxGbcfTUNhiVoJMMghoNwvXJRrqDgaejKqTYKYIzmpCDokXwgLmJryodWHfBcYFcHdfCLGtPPmBtrrSBzuMpMzyEGUVpYawMEPMVXEhmJgvYwMfaMfrrOUQDzKmfrKBNMGFKQjQCaGHYfFcduWrCfgHlXlvdwxLvgyHEpxNMWgtlssmQGlJxLHpSRbKQAcGBzMGFwhrFWZyKhsuMMXZLdmQiDHorlNbjYtGhKjZNwMhZECtCcgqftMsDqeTHGCZwkADkYzABWMdyJUvdUFKINRpQypzBMUGjDKyPpzIcZXFEWnJFYnVpTlRieHFscG1WeklzdnJUUEVRaEJKUXlHRWZMSnBwUHVPWm1zbFBzaG5hUnNDSFJuSmxaWHBs')), Color3.fromRGB(80, 80, 80), Color3.fromRGB(255, 255, 255))
+c1.Parent = b1
+c1.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+c1.Position = UDim2.new(0.1, 0, 0.4, 0)
+c1.Size = UDim2.new(0.8, 0, 0, 30)
+c1.Text = DlIKscfqiLztVLMUJHeCupzYzokOpYTAxHbCdozKdpoYzfPSOMInqgqBjheEQgBGoEHZBJADSxvDvyCDAINLTyZrChOv(snwNzgQSBWunYJagMxefIEbMTsIPHVErJNTc('GIsayNinPiKmVDiUeKbzpqxLvvwVlMkwaMhVQLHwWGNEZeIgQFcBVTEvQrzSDcbharUuSclvHmZjpVuSasbMWENBCtASvqlXIhAjlEXexnHtUVhtDwUDeTULpZVegqUghmBNsPJwEmwkUqGrtJFQnSqjdpGMTXdqHgRDIlRdndEjAOLKvFklVBXGzdapLfBKOLSBZEtzJcphIcltYTJpfNdewzWBuVAEAArXNSMSsrvBwavWosVHqXyCSBRbhLUjawvqcEetTIDjGCSaVAbWfmGpezkpmgBVHpSgcnhJCPHTklkOmgdqlCbNttkmsiVGozYAlvaqGsCJVAmZplMltwbaSWutxpwzPQukDGssLgYdVLnVIBhgFxLUEOpvkhZrqeLTkQGAcZSannUyTkFkSowoBgVpHRJfzDEqgRBfmBmJkmfkwRsIcYRFtbgmYNKhEBDitWBKmlGsVxfXlAvrKrHMBcUVDGNoCYLULlrPAORQnCYPLmVEuGRtGoKWFVyswHGXQUapiHkvNcgVWtROAeymrXKTxGcnSHkJRHQ0lUa2lJV0l4c1R5YXNHTE1zUFBoVGJIdVNXSFpXYUVSWlBoam1WUnNMUklJb0xFdm5LaVdYSVUzQmxaV1E2'))
+c1.TextColor3 = Color3.fromRGB(255, 255, 255)
+c1.Font = Enum.Font.SourceSans
+c1.TextSize = 24
+d1.Parent = b1
+d1.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
+d1.Position = UDim2.new(0.1, 0, 0.5, 0)
+d1.Size = UDim2.new(0.8, 0, 0, 30)
+d1.Text = DlIKscfqiLztVLMUJHeCupzYzokOpYTAxHbCdozKdpoYzfPSOMInqgqBjheEQgBGoEHZBJADSxvDvyCDAINLTyZrChOv(snwNzgQSBWunYJagMxefIEbMTsIPHVErJNTc('pIvxxaUfCbRUdMOVGEcxedbUXHPXuUkbvirCaFEMEshKRjsXycaiXGXqENgEgtYiPRVpbzuGTSfGEzhksimRpaATMrSmjwDqQCtuAeAxlwGYepexVQkFsUCeIoWpgjhZJATgHdYAxckImZMmLGDiWgkBzJmdkfoCPcXOnEUowWhNVljBCFDXGhTODUieEehNJbeSUzvvqsUAclLfKeJsIxVbEmEHZzRAGnpBwluNrSbpJKXfFAgrXHOxFPHXNVCzuKQoJssowOgqeXDnpfkikOIYnTeQZOmZSVEbnopiBzXcPuvXJwyJAumeWFYHNvPrHCTuGKUafZDvDziSgAMTeNUZAUugfniGzZxZNikAElxvZTJskSOzEHYkgHkdencGQYdNiCUGBmXjyoHVsOOMRvcuxfQhEMlaSoBTkjBkYjratAYQiqSPZZAoSWldLRpGThbVjAKWRXolkDXGNHqnOFsswunnhMRwDcNdQLLLpcoOrZTEDxAWRDTDiarFQPkQlBoJuyuzYzBlNsAkdJASOzCGOrQCBvuqhTQxkqSk9udW5zT2xoa09TZllESlFHZUVTbWFySWtBRUVTRE1ldmxqc1JNR2l6dkR6VUtpb0N2bldUcE1UWT0='))
+d1.ClearTextOnFocus = true
+d1.PlaceholderText = DlIKscfqiLztVLMUJHeCupzYzokOpYTAxHbCdozKdpoYzfPSOMInqgqBjheEQgBGoEHZBJADSxvDvyCDAINLTyZrChOv(snwNzgQSBWunYJagMxefIEbMTsIPHVErJNTc('afZGPCiRPuwpLnwXnevNggiaKxoCdScKFzIGOUJhXTrpubZkuRPInCHKOgwYbcOClPlTHFzqejzHWTGvVFhmFKHhgeDChixUsHsKhIbHkZjBjHvZAxTmpVjyaUvOVkxXugIiLXCMfhfHbScAjMrlDpkbThIekvMdjklVkPbOCSZVSCXmHSelcgYNfNxpDXbstsdhGCdBlgjKOHXqowkgPSWeqrjtZDBvnBYaeiBhfTBMuNTeCUdmOSArrwVCfKnegQQityHkIMGbwAtndqhMxUnlkLdflIRsxJTSVTZNDkraLqkzXjAbmBrzLhQNolJIZvEhXYzCWjeLUJIkZnDRMIjFXlbmGarWmdqwAPreRVchPoumRpbzPgYeDwIbpWTsQJoFPnaOCUFTMIrBxGQMstlpDQrvrIdvLWDsHUuIWVGFBzEDQBMcSiAajRWRNwJnGZfIoXbEwzAKslLgkPQLPjHORaqHvyVxLdQRxCfidpdiefnWEUvIkVBfDXMjLVwoYafeCTmLoHVPDxGEgtgQcRNuFeSmuQOXzLZcqkaVNiU0hPakJySVprWkRISVVFUGVHaUhEZnFHT0pxYVluSVJSQnNUUlhRTUh6c3BUWk16Q2p5c1JXNTBaWElnVTNCbFpXUT0='))
+d1.TextColor3 = Color3.fromRGB(255, 255, 255)
+d1.Font = Enum.Font.SourceSans
+d1.TextSize = 24
+f1:Clone().Parent = d1
+g1:Clone().Parent = d1
+e1.Parent = b1
+e1.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+e1.Position = UDim2.new(0.5, -100, 1, -40)
+e1.Size = UDim2.new(0, 200, 0, 30)
+e1.Text = DlIKscfqiLztVLMUJHeCupzYzokOpYTAxHbCdozKdpoYzfPSOMInqgqBjheEQgBGoEHZBJADSxvDvyCDAINLTyZrChOv(snwNzgQSBWunYJagMxefIEbMTsIPHVErJNTc('PltchbTOfnnAJixXXOSBVrsQuUQFfuscLqPVJWKCUuWchWeuMnOkyznCoYQYihUtZOJCBdPviheGLryaMtCwAkFFYWqDpSVPILWcQQVVnvkAdqivfTBpkOwosKSIJHmbwITGIDHTuhGmbsNPGurTvaLVhZTnrAetzNFafvZrsyTbzZcmyzLHKyOUUuaXJyuxQgXgOAYQqwXfKHOYDQIiAediwhwuDpgzytcwzLzVNfqlWxbcZjheGUSDmMwuGeupvjATfXexCKkMUUmCWdwkzokztVTRHEDDeMnIiLsruowTFTUTrgnHllUJKVxUZeLEyyCyYqnEZIMHgFYvpxkTwxygEyyInuPanqLagpZESmdxIYtpfqpwyeWyGxtYcpNmdBmDPeOLzYgXznabaoHZFXwwdlYvTAzayGWAcTAQrPmQttLoswYEitQRvdLUFcgVfUluKGwBTxyGjklGpfZpPQZMfYSCgmnpUJBtXvbpBFfZuAMowIhnLXBIRRCzeRNZCtgWSJpDDrRhjWdbBgfAZzkTgnrrJXYMHGNoyVTUVtcUd4WWpyd3BpUERIVUhWclhIRWlheFpFTHl5TGhlalViQnhYdnhCZFdFZmRTVmtVSE1YZlZtVnljMmx2YmlBeExqST0='))
+e1.TextColor3 = Color3.fromRGB(200, 200, 200)
+e1.Font = Enum.Font.SourceSans
+e1.TextSize = 18
+e1.TextXAlignment = Enum.TextXAlignment.Center
+local u1 = false
+local v1 = 16
+local w1 = v1
+local x1
+local function y1()
+    local z1 = i1.Character
+    if not z1 then return end
+    local aa1 = z1:FindFirstChild(DlIKscfqiLztVLMUJHeCupzYzokOpYTAxHbCdozKdpoYzfPSOMInqgqBjheEQgBGoEHZBJADSxvDvyCDAINLTyZrChOv(snwNzgQSBWunYJagMxefIEbMTsIPHVErJNTc('UfsqQwuwlbVwtMYcqxTCIAmzZAwKwoJElYolHAvIAwdguvSpZIBexqhuYZkygLsgYwrhWfKCmdnCQFPCdrtWRGAiHOoUPNldhjpNvjmrcwVRLcIVFqtwDyddegCNOHjUpTUBfLbAsMnQBfavhorHYnjqsyqNvWaTHTvkkkOIJBTzmdXiLDAcuzbnTwGtSmStUlZRtxgIeenYtZGZCXTbZZajOlEEjLhiUyNWnQtTpDPhAHCdTZONUyPVjBsHxtVzZEHEJwPPYnbvYGFMXpuInqkIXwdAFPCmgZJcekKrlRXnjjGuSgTECiWQSunpmCgwDdVwPFQHwMVzEAuiRgjzDTazdDYoONlnogFHGaXDrPqcooyUGRVYceiZeKWDbNkVyPWqHnukzkCMVAJyjsPHCeKABmSLSfEwuDtaVVCvocznEqACBcyJXQNOhFNdPSEyioZVyhPYPGADmMnxsQWMSBQfzvcoWDaSEkqvpxOedsvnrwXfjPDodYjjynecUlLQlQqQQpUgRXRARcZSFrDXipDnuIUVWRaEYwsVjJQ2tuc0FrZHlEcUhRSnhZamVTVUZRZkZOQ1NJSHRqcUtFUHREUU5OdHdVcktWenF6ckxUcUdPZFNIVnRZVzV2YVdSU2IyOTBVR0Z5ZEE9PQ==')))
+    local ab1 = z1:FindFirstChildOfClass(DlIKscfqiLztVLMUJHeCupzYzokOpYTAxHbCdozKdpoYzfPSOMInqgqBjheEQgBGoEHZBJADSxvDvyCDAINLTyZrChOv(snwNzgQSBWunYJagMxefIEbMTsIPHVErJNTc('IqFVgkrYwzCfCcoKVQCIcOlgpyGcHKDUtZhEtitETMVLGFTQMKEmRupbXMKDBpvvmdGOpacCqDhDkFSBrdYdyiJexjeEFKkrxiKmlGnaEnbNECmpdxTkWiSWwQJkeaKVmbdQIcTFHTSccZEghXryuOhvOuaqQfeAkOlDviaZPieUpicRHzIsbUevZGyKZjcmIpTupCDwUxKdxKgaRuuXsMMAThQtfbhJryyrtQOEhXWFFJoUzKQIRjgfsCCdSLirMcYyqCkWaXOUsSOmCAzDpyyACeAryfztaLjduwDttDuLpRDGGsgvDUpTitEuQxDzZqaYYsztTIQkRnfJfrrevZVrTAUQyyZgZrCZJsUpSOFDqjttvINvXqKJbMBUJrLSkeVvWjEzwFDFMMVSbaEIxszILErTxXLnXXMXDseGeJfuDtLMGKpVZApyRhsobSJzdwKAmGCKFzsPcPlTcyJYytxwFKBFCTvzZjwjcaGJZANJsQkQClxEyaANKiCnWOOITypUsfRaOqRWAgRqcVaRQxxSRAcPnIphWDfrMfcXZad1NhenhaeVBOblhDdWZXUFh4SXhkZlVFTGVDV2dQQVBzRVFEZUtDd2VueHBJZHV5cktsaFNIVnRZVzV2YVdRPQ==')))
+    if aa1 and ab1 then
+        if not u1 then
+            aa1.Anchored = true
+            x1 = h1.RenderStepped:Connect(function()
+                if u1 then
+                    aa1.CFrame = aa1.CFrame + (ab1.MoveDirection * w1 / 60)
                 end
             end)
-            t1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ = true
-            f1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Text = "Unfreeze"
+            u1 = true
+            t1.Text = DlIKscfqiLztVLMUJHeCupzYzokOpYTAxHbCdozKdpoYzfPSOMInqgqBjheEQgBGoEHZBJADSxvDvyCDAINLTyZrChOv(snwNzgQSBWunYJagMxefIEbMTsIPHVErJNTc('RjYnDvgYxFuYzmNuJVQtwfigDTbMzmVzMHTpYpVgLFzpNfvFdLREtTcArHoMvpRmqmAFBHTBncNMStXnXAohBaLBncHvcxdKgwvuTdiMkxEzImYlDzfHNHRhvBPSykDcwFYONFIcvpIXryHTVcYWhgtaUQsmOGxMcksLhgZDFxANzEXRepsBoLmrTEVfAWxqoKiFqEUXNWDcpdSwPPbDXLtpXVVbOSkcEWNKCDFBgdKSFnSfQCJXjDKNUxyOKYtuYSyCgzWWUloUfoaKlqzZjVfSLyzlKJbcvbxRCURDeePPjZczPVnMTmnItzsqxELCZVtMibWMMxTUXjeJAMDKhKEgvMbrOfKBqYjmlrACnBPsDKVPxEMwGNXymFIQRfClhbAoywNSueVKWxSiqGyKMfdBgjNdPmQrmdPpmHYfJEnklEBjqjoMsqdSEPKKgrCAZUAtXyLjjKrKqBnYMicIIZSnFPIRJpFiXqflKUJVhbeeUlmRJDQtUaFOhJBRsTACDzqxnRoikprKTjwkFRItEBXEfsioZqVfKtmvtkZWFCaWhaTGdvb2JmdWdGYXFJRXpzc1ZwcXZpdmRhYWhaWHpqcHl6QW54eGVjTW1tUUxra1RvTVZXNW1jbVZsZW1VPQ=='))
         else
-            z1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Anchored = false
-            aa1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.WalkSpeed = u1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/
-            t1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ = false
-            f1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Text = "Freeze"
-            if w1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ then w1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/:Disconnect() end
+            aa1.Anchored = false
+            ab1.WalkSpeed = v1
+            u1 = false
+            t1.Text = DlIKscfqiLztVLMUJHeCupzYzokOpYTAxHbCdozKdpoYzfPSOMInqgqBjheEQgBGoEHZBJADSxvDvyCDAINLTyZrChOv(snwNzgQSBWunYJagMxefIEbMTsIPHVErJNTc('ZNAluwbdEwNSkgCgThMQCcyiOaPTPEPCOiQoymcGrPeqEnMsxyJPSUdwyOSjrGqhqjcNEkiaXqkCZtDlYpnRbNWSLcYjMgStcRwxuAvgNNfhBgGCOxZfRCBPKfIOIzjPpOtyZHehRYmnwzcZbvcakUCYexjlKDvKZMDmoImFBPuKMveFMrNSegWKocutFSQzZEOLrAQxxFpINbmXINuAWKhGrHZVZSfIVJFuTNgclhIBSWUgqADAbacnxACndMTEErlwaZmIAYOUDibDvdYHodnTKaXxBuGQVNFhIfvnOVXcEWZWKznvtTYOjtGfkLjuxOdBsUxzEijiSQMhSzlqizxLlLFpQuhnnOPJpmjCldBUnXhKmzFkDYeEUMkYuDyIPHjKXNwpfgNYIhuASDGKSejonGWpfMWmWoTPlnAKNnyqISMOPZGEOiIZnARTBDhDXMRLMhsTfHTOdvBFGqTKjVUWxkchXoCEFTLAGlopQwIsAKoXxobucGsOjuYzWXqRQHoNRzSeODRaRoNeRYWolAXvAqZcCVmTPaHyxqZk5qdkVUQU1heGlRWWFabW5TdHRmYXFmZURSZ25nZVRvWUxPQlh3T3R6am1qVEtydFB4T0xPS1JuSmxaWHBs'))
+            if x1 then x1:Disconnect() end
         end
     end
 end
-local function ab1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/
-    local ac1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ = tonumber(d1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Text)
-    if ac1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ and ac1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ > 0 then
-        v1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ = ac1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/
-        c1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Text = "Speed: " .. tostring(v1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/)
+
+local function ac1()
+    local ad1 = tonumber(d1.Text)
+    if ad1 and ad1 > 0 then
+        w1 = ad1
+        c1.Text = DlIKscfqiLztVLMUJHeCupzYzokOpYTAxHbCdozKdpoYzfPSOMInqgqBjheEQgBGoEHZBJADSxvDvyCDAINLTyZrChOv(snwNzgQSBWunYJagMxefIEbMTsIPHVErJNTc('nvcnCWctlWoanRSqbpvPNGRnvJvneLopWoZKfjneTtgbnkEYsIhwhHXbEemRMinMxAusiMGQrIBeexfqaKIelyGwsWEVxtJhNFBTSCiBEYjjlQsGohVeMDVMNKRnrSjunCPRcMbBMJWHiYOhVvrTaYjMmzxiobjIRRzUSmMkQoycjjCWncbXTYLwzDeNeHnVlgoJsniheODktEyRpvhhIFPWjpXlftZyRiDSFYvFfgWzJLsqUBUEhiBBsxKKloHabNXsEcsuQqJvmyvkBnQEEmiaHQgVqDYnbIEPyFMyGGgtZPMOJxyJPVOzImgMjCbFTdthPXGOZVkqRUBPxkTgaGAoyUQZphZaAwOWdOgnEGGuNGpEbLuSzvMojLRfeXkqXVZrTXpgKqryBBQQWmAOSmwHAVWmGCSbbYMVuMPqwifsJRczeFrNIWxhiqlnHsFmAbCJAQQPaGkUkRaVYMADpIPZSrJHtnFNXuolQUMQMEwbNDGNrKwLGwUsUKImMZPBBmpketQkkkHlTIPVXrwMWCBNIqWwYeqKUBhVUeVVVkWkpWWUFnb01GekFCVWRCT0Rad2J1bWFUT1lkbnZiRVlQYW1kenVQWHlvR09icEFJSldpelUzQmxaV1E2SUE9PQ==')) .. tostring(w1)
     else
-        d1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Text = tostring(v1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/)
+        d1.Text = tostring(w1)
     end
 end
 
-d1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.FocusLost:Connect(function(enterPressed)
+d1.FocusLost:Connect(function(enterPressed)
     if enterPressed then
-        ab1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/
+        ac1()
     end
 end)
-local ad1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/, ae1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/
 
-local function af1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ (input)
-    local ag1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ = input.Position - ae1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/
-    b1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Position = UDim2.new(ah1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.X.Scale, ah1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.X.Offset + ag1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.X, ah1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Y.Scale, ah1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Y.Offset + ag1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Y)
+local ae1, af1, ag1
+local ah1, ai1
+
+local function aj1(input)
+    local ak1 = input.Position - af1
+    b1.Position = UDim2.new(ag1.X.Scale, ag1.X.Offset + ak1.X, ag1.Y.Scale, ag1.Y.Offset + ak1.Y)
 end
 
-b1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.InputBegan:Connect(function(input)
+b1.InputBegan:Connect(function(input)
     if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-        af1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ = true
-        ae1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ = input.Position
-        ah1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ = b1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Position
+        ae1 = true
+        af1 = input.Position
+        ag1 = b1.Position
 
-        ai1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ = input.Changed:Connect(function()
+        ai1 = input.Changed:Connect(function()
             if input.UserInputState == Enum.UserInputState.End then
-                af1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ = false
-                if ai1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ then ai1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/:Disconnect() end
-            end
-        end)
-    end
-end)
-b1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.InputChanged:Connect(function(input)
-    if af1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ and (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then
-        ak1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/(input)
-    end
-end)
-
-r1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.MouseButton1Click:Connect(function()
-    b1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Visible = not b1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Visible
-end)
-
-s1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.MouseButton1Click:Connect(function()
-    b1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Visible = false
-end)
-
-t1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.MouseButton1Click:Connect(function()
-    ag1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/
-end)
-
-e1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.MouseButton1Click:Connect(function()
-end)
-local al1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ = false
-local am1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ = 16
-local an1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ = am1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/
-local ao1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/
-
-local function ap1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/
-    local aq1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ = i1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Character
-    if not aq1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ then return end
-    local ar1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ = aq1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/:FindFirstChild("HumanoidRootPart")
-    local as1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ = aq1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/:FindFirstChildOfClass("Humanoid")
-    if ar1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ and as1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ then
-        if not al1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ then
-            ar1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Anchored = true
-            ao1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ = h1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.RenderStepped:Connect(function()
-                if al1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ then
-                    ar1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.CFrame = ar1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.CFrame + (as1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.MoveDirection * an1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ / 60)
-                end
-            end)
-            al1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ = true
-            t1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Text = "Unfreeze"
-        else
-            ar1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Anchored = false
-            as1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.WalkSpeed = am1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/
-            al1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ = false
-            t1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Text = "Freeze"
-            if ao1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ then ao1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/:Disconnect() end
-        end
-    end
-end
-local at1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ = function()
-    local au1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ = tonumber(d1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Text)
-    if au1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ and au1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ > 0 then
-        an1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ = au1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/
-        c1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Text = "Speed: " .. tostring(an1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/)
-    else
-        d1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Text = tostring(an1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/)
-    end
-end
-
-d1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.FocusLost:Connect(function(ai1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/)
-    if ai1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ then
-        at1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/
-    end
-end)
-
-local av1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/, aw1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/
-
-local function ax1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/(input)
-    local ay1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ = input.Position - aw1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/
-    b1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Position = UDim2.new(av1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.X.Scale, av1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.X.Offset + ay1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.X, av1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Y.Scale, av1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Y.Offset + ay1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Y)
-end
-
-b1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.InputBegan:Connect(function(input)
-    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-        av1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ = true
-        aw1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ = input.Position
-        ax1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/(input)
-
-        ai1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ = input.Changed:Connect(function()
-            if input.UserInputState == Enum.UserInputState.End then
-                av1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ = false
-                if ai1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ then ai1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/:Disconnect() end
-            end
-        end)
-    end
-end)
-b1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.InputChanged:Connect(function(input)
-    if av1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ and (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then
-        ax1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/(input)
-    end
-end)
-
-ar1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.MouseButton1Click:Connect(function()
-    b1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Visible = not b1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Visible
-end)
-
-as1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.MouseButton1Click:Connect(function()
-    b1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Visible = false
-end)
-
-at1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.MouseButton1Click:Connect(function()
-    ay1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/
-end)
-
-e1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.MouseButton1Click:Connect(function()
-end)
-function ay1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/
-    local az1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ = i1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Character
-    if not az1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ then return end
-    local ba1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ = az1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/:FindFirstChild("HumanoidRootPart")
-    local bb1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ = az1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/:FindFirstChildOfClass("Humanoid")
-    if ba1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ and bb1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ then
-        if not u1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ then
-            ba1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Anchored = true
-            bx1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ = h1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.RenderStepped:Connect(function()
-                if u1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ then
-                    ba1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.CFrame = ba1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.CFrame + (bb1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.MoveDirection * w1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ / 60)
-                end
-            end)
-            u1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ = true
-            at1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Text = "Unfreeze"
-        else
-            ba1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Anchored = false
-            bb1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.WalkSpeed = v1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/
-            u1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ = false
-            at1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Text = "Freeze"
-            if bx1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ then bx1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/:Disconnect() end
-        end
-    end
-end
-function ac1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/
-    local ad1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ = tonumber(d1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Text)
-    if ad1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ and ad1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ > 0 then
-        w1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ = ad1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/
-        c1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Text = "Speed: " .. tostring(w1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/)
-    else
-        d1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Text = tostring(w1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/)
-    end
-end
-
-d1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.FocusLost:Connect(function(enterPressed)
-    if enterPressed then
-        ac1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/
-    end
-end)
-
-local ae1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/, af1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/
-local ag1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/
-
-function aj1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/(input)
-    local ak1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ = input.Position - af1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/
-    b1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Position = UDim2.new(ag1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.X.Scale, ag1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.X.Offset + ak1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/, ag1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Y.Scale, ag1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Y.Offset + ak1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/)
-end
-b1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.InputBegan:Connect(function(input)
-    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-        ae1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ = true
-        af1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ = input.Position
-        ag1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ = b1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Position
-
-        ai1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ = input.Changed:Connect(function()
-            if input.UserInputState == Enum.UserInputState.End then
-                ae1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ = false
-                if ai1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ then ai1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/:Disconnect() end
+                ae1 = false
+                if ai1 then ai1:Disconnect() end
             end
         end)
     end
 end)
 
-b1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.InputChanged:Connect(function(input)
-    if ae1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ and (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then
-        aj1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/(input)
+b1.InputChanged:Connect(function(input)
+    if ae1 and (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then
+        aj1(input)
     end
 end)
 
-r1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.MouseButton1Click:Connect(function()
-    b1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Visible = not b1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Visible
+r1.MouseButton1Click:Connect(function()
+    b1.Visible = not b1.Visible
 end)
 
-s1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.MouseButton1Click:Connect(function()
-    b1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Visible = false
+s1.MouseButton1Click:Connect(function()
+    b1.Visible = false
 end)
 
-t1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.MouseButton1Click:Connect(function()
-    y1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/
+t1.MouseButton1Click:Connect(function()
+    y1()
 end)
 
-e1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.MouseButton1Click:Connect(function()
-end)
-local a1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ = Instance.new("ScreenGui")
-local b1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ = Instance.new("Frame")
-local c1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ = Instance.new("TextLabel")
-local d1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ = Instance.new("TextBox")
-local e1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ = Instance.new("TextButton")
-local f1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ = Instance.new("UICorner")
-local g1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ = Instance.new("UIStroke")
-local h1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ = game:GetService("RunService")
-local i1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ = game:GetService("Players").LocalPlayer
-a1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Parent = i1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/:WaitForChild("PlayerGui")
-a1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Name = "XgYkH"
-f1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.CornerRadius = UDim.new(0, 12)
-g1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Color = Color3.new(0, 0, 0)
-g1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Thickness = 2
-local function j1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/(k1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/, l1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/, m1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/, n1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/, o1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/, p1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/)
-    local q1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ = Instance.new("TextButton")
-    q1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Parent = k1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/
-    q1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Position = l1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/
-    q1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Size = m1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/
-    q1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Text = n1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/
-    q1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.BackgroundColor3 = o1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/
-    q1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.TextColor3 = p1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/
-    q1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Font = Enum.Font.SourceSans
-    q1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.TextSize = 24
-    f1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/:Clone().Parent = q1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/
-    g1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/:Clone().Parent = q1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/
-    return q1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/
-end
-b1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Parent = a1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/
-b1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
-b1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Position = UDim2.new(0.5, -200, 0.5, -200)
-b1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Size = UDim2.new(0, 400, 0, 400)
-b1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Visible = false
-b1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.BorderSizePixel = 0
-f1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/:Clone().Parent = b1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/
-local r1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ = j1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/(a1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/, UDim2.new(0, 0, 0, 0), UDim2.new(0, 100, 0, 50), "Menu", Color3.fromRGB(60, 60, 60), Color3.fromRGB(255, 255, 255))
-local s1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ = j1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/(b1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/, UDim2.new(0.5, -50, 1, -40), UDim2.new(0, 100, 0, 30), "Close", Color3.fromRGB(220, 60, 60), Color3.fromRGB(255, 255, 255))
-local t1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ = j1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/(b1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/, UDim2.new(0.5, -50, 0, 20), UDim2.new(0, 100, 0, 50), "Freeze", Color3.fromRGB(80, 80, 80), Color3.fromRGB(255, 255, 255))
-c1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Parent = b1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/
-c1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
-c1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Position = UDim2.new(0.1, 0, 0.4, 0)
-c1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Size = UDim2.new(0.8, 0, 0, 30)
-c1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Text = "Speed:"
-c1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.TextColor3 = Color3.fromRGB(255, 255, 255)
-c1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Font = Enum.Font.SourceSans
-c1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.TextSize = 24
-d1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Parent = b1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/
-d1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
-d1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Position = UDim2.new(0.1, 0, 0.5, 0)
-d1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Size = UDim2.new(0.8, 0, 0, 30)
-d1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Text = "16"
-d1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.ClearTextOnFocus = true
-d1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.PlaceholderText = "Enter Speed"
-d1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.TextColor3 = Color3.fromRGB(255, 255, 255)
-d1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Font = Enum.Font.SourceSans
-d1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.TextSize = 24
-f1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/:Clone().Parent = d1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/
-g1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Clone().Parent = d1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/
-e1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Parent = b1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/
-e1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
-e1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Position = UDim2.new(0.5, -100, 1, -40)
-e1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Size = UDim2.new(0, 200, 0, 30)
-e1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Text = "Version 1.2"
-e1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.TextColor3 = Color3.fromRGB(200, 200, 200)
-e1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Font = Enum.Font.SourceSans
-e1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.TextSize = 18
-e1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.TextXAlignment = Enum.TextXAlignment.Center
-local u1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ = false
-local v1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ = 16
-local w1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ = v1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/
-local x1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/
-local function y1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/
-local z1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ = i1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/Character
-if not z1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ then return end
-local aa1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ = z1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/:FindFirstChild("HumanoidRootPart")
-local ab1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ = z1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/:FindFirstChildOfClass("Humanoid")
-if aa1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ and ab1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ then
-if not u1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ then
-aa1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Anchored = true
-x1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ = h1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/:Connect(function()
-if u1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ then
-aa1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.CFrame = aa1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.CFrame + (ab1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.MoveDirection * w1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ / 60)
-end
-end)
-u1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ = true
-t1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Text = "Unfreeze"
-else
-aa1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Anchored = false
-ab1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.WalkSpeed = v1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/
-u1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ = false
-t1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/.Text = "Freeze"
-if x1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/ then x1234567890!@#$%^&*()_+=-`~[]{}|;:'"<>,.?/:Disconnect() end
-end
-end
-end
+e1.MouseButton1Click:Connect(function()
+end)        
