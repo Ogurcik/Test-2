@@ -1,4 +1,3 @@
-
 local a = Instance.new("ScreenGui")
 local b = Instance.new("Frame")
 local f = Instance.new("TextLabel")
@@ -45,7 +44,7 @@ local e = createButton(b, UDim2.new(0.5, -50, 0, 20), UDim2.new(0, 100, 0, 50), 
 
 f.Parent = b
 f.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
-f.Position = UDim2.new(0.1, 0, 0.4, 0)
+f.Position = UDim2.new(0.1, 0, 0.7, 0)
 f.Size = UDim2.new(0.8, 0, 0, 30)
 f.Text = "Speed:"
 f.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -54,7 +53,7 @@ f.TextSize = 24
 
 g.Parent = b
 g.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
-g.Position = UDim2.new(0.1, 0, 0.5, 0)
+g.Position = UDim2.new(0.1, 0, 0.8, 0)
 g.Size = UDim2.new(0.8, 0, 0, 30)
 g.Text = "16"
 g.ClearTextOnFocus = true
@@ -74,15 +73,13 @@ h.TextColor3 = Color3.fromRGB(255, 255, 255)
 h.Font = Enum.Font.SourceSans
 h.TextSize = 18
 h.TextXAlignment = Enum.TextXAlignment.Center
-
-local hitboxExpanderButton = createButton(b, UDim2.new(0.5, 50, 0, 80), UDim2.new(0, 100, 0, 50), "HitboxExpander", Color3.fromRGB(60, 60, 60), Color3.fromRGB(255, 255, 255))
-
+local hitboxExpanderButton = createButton(b, UDim2.new(0.5, -50, 0, 80), UDim2.new(0, 100, 0, 50), "HitboxExpander", Color3.fromRGB(60, 60, 60), Color3.fromRGB(255, 255, 255))
 local teleportTabButton = createButton(b, UDim2.new(0.5, -50, 0, 140), UDim2.new(0, 100, 0, 50), "Teleport", Color3.fromRGB(60, 60, 60), Color3.fromRGB(255, 255, 255))
 
 local teleportFrame = Instance.new("Frame")
 teleportFrame.Parent = b
 teleportFrame.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
-teleportFrame.Position = UDim2.new(0, 0, 0, 140)
+teleportFrame.Position = UDim2.new(0, 0, 0, 200)
 teleportFrame.Size = UDim2.new(1, 0, 0, 180)
 teleportFrame.Visible = false
 teleportFrame.ClipsDescendants = true
@@ -113,6 +110,19 @@ for i, location in ipairs(locations) do
         LocalPlayer.Character:SetPrimaryPartCFrame(CFrame.new(location.position))
     end)
 end
+
+local closeButton = Instance.new("TextButton")
+closeButton.Parent = teleportFrame
+closeButton.Size = UDim2.new(0, 30, 0, 30)
+closeButton.Position = UDim2.new(1, -35, 0, 5)
+closeButton.Text = "X"
+closeButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+closeButton.BackgroundColor3 = Color3.fromRGB(255, 50, 50)
+closeButton.Font = Enum.Font.SourceSans
+closeButton.TextSize = 24
+closeButton.MouseButton1Click:Connect(function()
+    teleportFrame.Visible = false
+end)
 
 teleportTabButton.MouseButton1Click:Connect(function()
     teleportFrame.Visible = not teleportFrame.Visible
@@ -162,26 +172,17 @@ local function updateSpeed()
     local newSpeed = tonumber(g.Text)
     if newSpeed and newSpeed > 0 then
         speed = newSpeed
-        f.Text = "Speed: " .. tostring(speed)
     else
         g.Text = tostring(speed)
     end
 end
 
-g.FocusLost:Connect(function(enterPressed)
-    if enterPressed then
-        updateSpeed()
-    end
-end)
-
-e.MouseButton1Click:Connect(function()
-    toggleFreeze()
+g.FocusLost:Connect(function()
+    updateSpeed()
 end)
 
 c.MouseButton1Click:Connect(function()
     b.Visible = not b.Visible
 end)
 
-d.MouseButton1Click:Connect(function()
-    b.Visible = false
-end)
+e.MouseButton1Click:Connect(toggleFreeze)
