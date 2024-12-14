@@ -6,9 +6,17 @@ local UserInputService = game:GetService("UserInputService")
 local CameraActive = false
 local CameraSpeed = 50
 local CameraHeightSpeed = 10
+local Humanoid = Player.Character and Player.Character:FindFirstChild("Humanoid")
 
-local ScreenGui = Instance.new("ScreenGui")
-ScreenGui.Parent = game.CoreGui
+if not Humanoid then
+    warn("Humanoid not found!")
+    return
+end
+
+local HiddenGui = Instance.new("ScreenGui")
+HiddenGui.ResetOnSpawn = false
+HiddenGui.Name = "Hidden_" .. tostring(math.random(1, 10000))
+HiddenGui.Parent = game.CoreGui
 
 local MenuFrame = Instance.new("Frame")
 MenuFrame.Size = UDim2.new(0, 200, 0, 150)
@@ -16,7 +24,7 @@ MenuFrame.Position = UDim2.new(0.5, -100, 0.5, -75)
 MenuFrame.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
 MenuFrame.BorderSizePixel = 0
 MenuFrame.Visible = true
-MenuFrame.Parent = ScreenGui
+MenuFrame.Parent = HiddenGui
 
 local CameraButton = Instance.new("TextButton")
 CameraButton.Size = UDim2.new(1, 0, 0, 40)
@@ -31,11 +39,11 @@ CameraButton.MouseButton1Click:Connect(function()
     CameraActive = not CameraActive
     if CameraActive then
         Camera.CameraType = Enum.CameraType.Scriptable
-        Player.Character:WaitForChild("Humanoid").WalkSpeed = 0
+        Humanoid.WalkSpeed = 0
         CameraButton.Text = "Disable Camera"
     else
         Camera.CameraType = Enum.CameraType.Custom
-        Player.Character:WaitForChild("Humanoid").WalkSpeed = 16
+        Humanoid.WalkSpeed = 16
         CameraButton.Text = "Enable Camera"
     end
 end)
