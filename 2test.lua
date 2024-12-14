@@ -21,14 +21,14 @@ local function EnableFreeCamera()
     CameraEnabled = true
     Camera.CameraType = Enum.CameraType.Scriptable
     Humanoid.PlatformStand = true
-    Humanoid.Health = 0
+    Humanoid.WalkSpeed = 0
 end
 
 local function DisableFreeCamera()
     CameraEnabled = false
     Camera.CameraType = Enum.CameraType.Custom
     Humanoid.PlatformStand = false
-    Humanoid.Health = 100
+    Humanoid.WalkSpeed = 16
 end
 
 local function CreateMenu()
@@ -115,41 +115,45 @@ local function CreateMenu()
 
     RunService.RenderStepped:Connect(function()
         if CameraEnabled then
-            local delta = UserInputService:GetMouseDelta()
-            RotationX = RotationX - delta.Y * RotationSpeed
-            RotationY = RotationY - delta.X * RotationSpeed
-            Camera.CFrame = CFrame.new(Camera.CFrame.Position) * CFrame.Angles(math.rad(RotationX), math.rad(RotationY), 0)
-
-            local forward = Camera.CFrame.LookVector
-            local right = Camera.CFrame.RightVector
-            MoveVector = Vector3.zero
-
+            -- Управление движением камеры
             if UserInputService:IsKeyDown(Enum.KeyCode.W) then
-                MoveVector = MoveVector + forward
+                MoveVector = Camera.CFrame.LookVector * Speed
+            elseif UserInputService:IsKeyDown(Enum.KeyCode.S) then
+                MoveVector = -Camera.CFrame.LookVector * Speed
+            elseif UserInputService:IsKeyDown(Enum.KeyCode.A) then
+                MoveVector = -Camera.CFrame.RightVector * Speed
+            elseif UserInputService:IsKeyDown(Enum.KeyCode.D) then
+                MoveVector = Camera.CFrame.RightVector * Speed
+            else
+                MoveVector = Vector3.zero
             end
-            if UserInputService:IsKeyDown(Enum.KeyCode.S) then
-                MoveVector = MoveVector - forward
-            end
-            if UserInputService:IsKeyDown(Enum.KeyCode.A) then
-                MoveVector = MoveVector - right
-            end
-            if UserInputService:IsKeyDown(Enum.KeyCode.D) then
-                MoveVector = MoveVector + right
-            end
+
+            -- Управление поворотом камеры
             if UserInputService:IsKeyDown(Enum.KeyCode.Up) then
+                RotationX = RotationX - RotationSpeed
+            elseif UserInputService:IsKeyDown(Enum.KeyCode.Down) then
                 RotationX = RotationX + RotationSpeed
             end
-            if UserInputService:IsKeyDown(Enum.KeyCode.Down) then
-                RotationX = RotationX - RotationSpeed
-            end
+
             if UserInputService:IsKeyDown(Enum.KeyCode.Left) then
+                RotationY = RotationY - RotationSpeed
+            elseif UserInputService:IsKeyDown(Enum.KeyCode.Right) then
                 RotationY = RotationY + RotationSpeed
             end
-            if UserInputService:IsKeyDown(Enum.KeyCode.Right) then
-                RotationY = RotationY - RotationSpeed
+
+            -- Управление подъемом камеры
+            if UserInputService:IsKeyDown(Enum.KeyCode.Space) then
+                Camera.CFrame = Camera.CFrame * CFrame.new(0, Speed * RunService.Heartbeat:Wait(), 0)
             end
 
-            Camera.CFrame = Camera.CFrame + MoveVector * Speed * RunService.RenderStepped:Wait()
+            -- Управление спуском камеры
+            if UserInputService:IsKeyDown(Enum.KeyCode.LeftControl) then
+                Camera.CFrame = Camera.CFrame * CFrame.new(0, -Speed * RunService.Heartbeat:Wait(), 0)
+            end
+
+            -- Обновление позиции камеры
+            Camera.CFrame = Camera.CFrame * CFrame.new(MoveVector)
+            Camera.CFrame = Camera.CFrame * CFrame.Angles(math.rad(RotationX), math.rad(RotationY), 0)
         end
     end)
 end
