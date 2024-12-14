@@ -1,163 +1,79 @@
+local Players = game:GetService("Players")
 local UserInputService = game:GetService("UserInputService")
 local RunService = game:GetService("RunService")
-local Players = game:GetService("Players")
 
-local Camera = workspace.CurrentCamera
-local LocalPlayer = Players.LocalPlayer
-local Character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
-local CameraEnabled = false
-local Speed = 50
-local RotationSpeed = 2
-local MoveVector = Vector3.zero
-local RotationX = 0
-local RotationY = 0
-local MenuVisible = true
-local Dragging = false
-local DragStart = Vector2.new(0, 0)
-local StartPos = UDim2.new(0, 10, 0, 10)
+local player = Players.LocalPlayer
+local camera = workspace.CurrentCamera
 
-local function EnableFreeCamera()
-    CameraEnabled = true
-    Camera.CameraType = Enum.CameraType.Scriptable
+-- Настройки камеры
+local speed = 50
+local rotationSpeed = math.rad(45) -- Скорость поворота (в радианах)
+local active = false
+
+-- Положение и повороты
+local cameraRotationX = 0
+local cameraRotationY = 0
+
+-- Включение/выключение свободной камеры
+function toggleFreeCamera()
+    active = not active
+    if active then
+        camera.CameraType = Enum.CameraType.Scriptable
+    else
+        camera.CameraType = Enum.CameraType.Custom
+    end
 end
 
-local function DisableFreeCamera()
-    CameraEnabled = false
-    Camera.CameraType = Enum.CameraType.Custom
+-- Перемещение камеры
+function moveCamera(dt)
+    if not active then return end
+
+    -- Перемещение по осям
+    local movement = Vector3.new()
+    if UserInputService:IsKeyDown(Enum.KeyCode.W) then
+        movement = movement + Vector3.new(0, 0, -1)
+    end
+    if UserInputService:IsKeyDown(Enum.KeyCode.S) then
+        movement = movement + Vector3.new(0, 0, 1)
+    end
+    if UserInputService:IsKeyDown(Enum.KeyCode.A) then
+        movement = movement + Vector3.new(-1, 0, 0)
+    end
+    if UserInputService:IsKeyDown(Enum.KeyCode.D) then
+        movement = movement + Vector3.new(1, 0, 0)
+    end
+    if UserInputService:IsKeyDown(Enum.KeyCode.Q) then
+        movement = movement + Vector3.new(0, -1, 0)
+    end
+    if UserInputService:IsKeyDown(Enum.KeyCode.E) then
+        movement = movement + Vector3.new(0, 1, 0)
+    end
+
+    -- Повороты через стрелки
+    if UserInputService:IsKeyDown(Enum.KeyCode.Left) then
+        cameraRotationY = cameraRotationY - rotationSpeed * dt
+    end
+    if UserInputService:IsKeyDown(Enum.KeyCode.Right) then
+        cameraRotationY = cameraRotationY + rotationSpeed * dt
+    end
+    if UserInputService:IsKeyDown(Enum.KeyCode.Up) then
+        cameraRotationX = math.clamp(cameraRotationX - rotationSpeed * dt, -math.pi / 2, math.pi / 2)
+    end
+    if UserInputService:IsKeyDown(Enum.KeyCode.Down) then
+        cameraRotationX = math.clamp(cameraRotationX + rotationSpeed * dt, -math.pi / 2, math.pi / 2)
+    end
+
+    -- Обновление позиции и поворота камеры
+    local rotation = CFrame.Angles(cameraRotationX, cameraRotationY, 0)
+    camera.CFrame = CFrame.new(camera.CFrame.Position) * rotation + (movement * speed * dt)
 end
 
-local function CreateMenu()
-    local ScreenGui = Instance.new("ScreenGui")
-    ScreenGui.Name = "FreeCameraMenu"
-    ScreenGui.Parent = LocalPlayer:WaitForChild("PlayerGui")
+-- Горячая клавиша для переключения камеры
+UserInputService.InputBegan:Connect(function(input)
+    if input.KeyCode == Enum.KeyCode.P then -- Нажмите "P", чтобы включить/выключить
+        toggleFreeCamera()
+    end
+end)
 
-    local MenuFrame = Instance.new("Frame")
-    MenuFrame.Name = "MenuFrame"
-    MenuFrame.Size = UDim2.new(0, 200, 0, 150)
-    MenuFrame.Position = StartPos
-    MenuFrame.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
-    MenuFrame.BorderSizePixel = 0
-    MenuFrame.Visible = MenuVisible
-    MenuFrame.Parent = ScreenGui
-
-    local CloseButton = Instance.new("TextButton")
-    CloseButton.Name = "CloseButton"
-    CloseButton.Size = UDim2.new(0, 25, 0, 25)
-    CloseButton.Position = UDim2.new(1, -30, 0, 5)
-    CloseButton.Text = "X"
-    CloseButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-    CloseButton.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
-    CloseButton.Parent = MenuFrame
-
-    local ToggleCameraButton = Instance.new("TextButton")
-    ToggleCameraButton.Name = "ToggleCameraButton"
-    ToggleCameraButton.Size = UDim2.new(0, 180, 0, 30)
-    ToggleCameraButton.Position = UDim2.new(0, 10, 0, 40)
-    ToggleCameraButton.Text = "Enable Free Camera"
-    ToggleCameraButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-    ToggleCameraButton.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
-    ToggleCameraButton.Parent = MenuFrame
-
-    local SpeedInput = Instance.new("TextBox")
-    SpeedInput.Name = "SpeedInput"
-    SpeedInput.Size = UDim2.new(0, 180, 0, 30)
-    SpeedInput.Position = UDim2.new(0, 10, 0, 80)
-    SpeedInput.Text = "Speed: " .. Speed
-    SpeedInput.TextColor3 = Color3.fromRGB(255, 255, 255)
-    SpeedInput.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
-    SpeedInput.Parent = MenuFrame
-
-    CloseButton.MouseButton1Click:Connect(function()
-        MenuVisible = not MenuVisible
-        MenuFrame.Visible = MenuVisible
-    end)
-
-    ToggleCameraButton.MouseButton1Click:Connect(function()
-        if CameraEnabled then
-            DisableFreeCamera()
-            ToggleCameraButton.Text = "Enable Free Camera"
-        else
-            EnableFreeCamera()
-            ToggleCameraButton.Text = "Disable Free Camera"
-        end
-    end)
-
-    SpeedInput.FocusLost:Connect(function(enterPressed)
-        if enterPressed then
-            local newSpeed = tonumber(SpeedInput.Text:match("%d+"))
-            if newSpeed then
-                Speed = newSpeed
-                SpeedInput.Text = "Speed: " .. Speed
-            else
-                SpeedInput.Text = "Speed: " .. Speed
-            end
-        end
-    end)
-
-    MenuFrame.InputBegan:Connect(function(input)
-        if input.UserInputType == Enum.UserInputType.MouseButton1 then
-            Dragging = true
-            DragStart = input.Position
-            StartPos = MenuFrame.Position
-        end
-    end)
-
-    MenuFrame.InputChanged:Connect(function(input)
-        if Dragging and input.UserInputType == Enum.UserInputType.MouseMovement then
-            local Delta = input.Position - DragStart
-            MenuFrame.Position = UDim2.new(StartPos.X.Scale, StartPos.X.Offset + Delta.X, StartPos.Y.Scale, StartPos.Y.Offset + Delta.Y)
-        end
-    end)
-
-    MenuFrame.InputEnded:Connect(function(input)
-        if input.UserInputType == Enum.UserInputType.MouseButton1 then
-            Dragging = false
-        end
-    end)
-
-    RunService.RenderStepped:Connect(function()
-        if CameraEnabled then
-            -- Управление движением камеры
-            if UserInputService:IsKeyDown(Enum.KeyCode.W) then
-                MoveVector = Camera.CFrame.LookVector * Speed
-            elseif UserInputService:IsKeyDown(Enum.KeyCode.S) then
-                MoveVector = -Camera.CFrame.LookVector * Speed
-            elseif UserInputService:IsKeyDown(Enum.KeyCode.A) then
-                MoveVector = -Camera.CFrame.RightVector * Speed
-            elseif UserInputService:IsKeyDown(Enum.KeyCode.D) then
-                MoveVector = Camera.CFrame.RightVector * Speed
-            else
-                MoveVector = Vector3.zero
-            end
-
-            -- Управление поворотом камеры
-            if UserInputService:IsKeyDown(Enum.KeyCode.Up) then
-                RotationX = RotationX - RotationSpeed
-            elseif UserInputService:IsKeyDown(Enum.KeyCode.Down) then
-                RotationX = RotationX + RotationSpeed
-            end
-
-            if UserInputService:IsKeyDown(Enum.KeyCode.Left) then
-                RotationY = RotationY - RotationSpeed
-            elseif UserInputService:IsKeyDown(Enum.KeyCode.Right) then
-                RotationY = RotationY + RotationSpeed
-            end
-
-            -- Управление подъемом камеры
-            if UserInputService:IsKeyDown(Enum.KeyCode.Space) then
-                Camera.CFrame = Camera.CFrame * CFrame.new(0, Speed * RunService.Heartbeat:Wait(), 0)
-            end
-
-            -- Управление спуском камеры
-            if UserInputService:IsKeyDown(Enum.KeyCode.LeftControl) then
-                Camera.CFrame = Camera.CFrame * CFrame.new(0, -Speed * RunService.Heartbeat:Wait(), 0)
-            end
-
-            -- Обновление позиции камеры
-            Camera.CFrame = Camera.CFrame * CFrame.new(MoveVector)
-            Camera.CFrame = Camera.CFrame * CFrame.Angles(math.rad(RotationX), math.rad(RotationY), 0)
-        end
-    end)
-end
-
-CreateMenu()
+-- Постоянное обновление
+RunService.RenderStepped:Connect(moveCamera)
