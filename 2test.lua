@@ -1,167 +1,208 @@
-local player = game.Players.LocalPlayer
-local gui = Instance.new("ScreenGui")
-gui.Name = "RadioSpamControl"
-gui.Parent = player:WaitForChild("PlayerGui")
+local a = Instance.new("ScreenGui")
+local b = Instance.new("Frame")
+local f = Instance.new("TextLabel")
+local g = Instance.new("TextBox")
+local h = Instance.new("TextButton")
+local i = Instance.new("UICorner")
+local j = Instance.new("UIStroke")
+local l = game:GetService("RunService")
+local LocalPlayer = game:GetService("Players").LocalPlayer
 
-local frame = Instance.new("Frame", gui)
-frame.Size = UDim2.new(0, 300, 0, 400)
-frame.Position = UDim2.new(0.5, -150, 0.5, -200)
-frame.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
-frame.BorderSizePixel = 0
+a.Parent = LocalPlayer:WaitForChild("PlayerGui")
+a.Name = "MainMenuGui"
 
-local corner = Instance.new("UICorner", frame)
-corner.CornerRadius = UDim.new(0, 15)
+i.CornerRadius = UDim.new(0, 12)
+j.Color = Color3.new(0, 0, 0)
+j.Thickness = 2
 
-local title = Instance.new("TextLabel", frame)
-title.Size = UDim2.new(1, 0, 0, 40)
-title.Text = "Radio Spam Control"
-title.TextColor3 = Color3.fromRGB(255, 255, 255)
-title.Font = Enum.Font.SourceSansBold
-title.TextSize = 18
-title.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
-local titleCorner = Instance.new("UICorner", title)
-titleCorner.CornerRadius = UDim.new(0, 15)
+local function createButton(parent, position, size, text, bgColor, textColor)
+    local button = Instance.new("TextButton")
+    button.Parent = parent
+    button.Position = position
+    button.Size = size
+    button.Text = text
+    button.BackgroundColor3 = bgColor
+    button.TextColor3 = textColor
+    button.Font = Enum.Font.SourceSans
+    button.TextSize = 24
+    i:Clone().Parent = button
+    j:Clone().Parent = button
+    return button
+end
 
-local scrollingFrame = Instance.new("ScrollingFrame", frame)
-scrollingFrame.Size = UDim2.new(1, -20, 1, -80)
-scrollingFrame.Position = UDim2.new(0, 10, 0, 50)
-scrollingFrame.BackgroundTransparency = 1
-scrollingFrame.CanvasSize = UDim2.new(0, 0, 0, 300)
-scrollingFrame.ScrollBarThickness = 8
+b.Parent = a
+b.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+b.Position = UDim2.new(0.5, -200, 0.5, -200)
+b.Size = UDim2.new(0, 400, 0, 400)
+b.Visible = false
+b.BorderSizePixel = 0
+i:Clone().Parent = b
 
-local listLayout = Instance.new("UIListLayout", scrollingFrame)
-listLayout.SortOrder = Enum.SortOrder.LayoutOrder
-listLayout.Padding = UDim.new(0, 10)
+local c = createButton(a, UDim2.new(0, 0, 0, 0), UDim2.new(0, 100, 0, 50), "Menu", Color3.fromRGB(60, 60, 60), Color3.fromRGB(255, 255, 255))
+local d = createButton(b, UDim2.new(0.5, -50, 1, -40), UDim2.new(0, 100, 0, 30), "Close", Color3.fromRGB(220, 60, 60), Color3.fromRGB(255, 255, 255))
+local e = createButton(b, UDim2.new(0.5, -50, 0, 20), UDim2.new(0, 100, 0, 50), "Freeze", Color3.fromRGB(80, 80, 80), Color3.fromRGB(255, 255, 255))
 
-local radioLabel = Instance.new("TextLabel", scrollingFrame)
-radioLabel.Size = UDim2.new(1, 0, 0, 30)
-radioLabel.Text = "Radio:"
-radioLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-radioLabel.Font = Enum.Font.SourceSansBold
-radioLabel.TextSize = 16
-radioLabel.BackgroundTransparency = 1
+f.Parent = b
+f.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+f.Position = UDim2.new(0.1, 0, 0.4, 0)
+f.Size = UDim2.new(0.8, 0, 0, 30)
+f.Text = "Speed:"
+f.TextColor3 = Color3.fromRGB(255, 255, 255)
+f.Font = Enum.Font.SourceSans
+f.TextSize = 24
 
-local radioDropdown = Instance.new("TextButton", scrollingFrame)
-radioDropdown.Size = UDim2.new(1, 0, 0, 30)
-radioDropdown.Text = "Select Radio"
-radioDropdown.TextColor3 = Color3.fromRGB(255, 255, 255)
-radioDropdown.Font = Enum.Font.SourceSansBold
-radioDropdown.TextSize = 16
-radioDropdown.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
-local radioDropdownCorner = Instance.new("UICorner", radioDropdown)
-radioDropdownCorner.CornerRadius = UDim.new(0, 8)
+g.Parent = b
+g.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
+g.Position = UDim2.new(0.1, 0, 0.5, 0)
+g.Size = UDim2.new(0.8, 0, 0, 30)
+g.Text = "16"
+g.ClearTextOnFocus = true
+g.PlaceholderText = "Enter Speed"
+g.TextColor3 = Color3.fromRGB(255, 255, 255)
+g.Font = Enum.Font.SourceSans
+g.TextSize = 24
+i:Clone().Parent = g
+j:Clone().Parent = g
 
-local selectedRadio = "RadioCOR"
-local radios = {"RadioCOR", "RadioFE"}
+h.Parent = b
+h.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+h.Position = UDim2.new(0.5, -100, 1, -40)
+h.Size = UDim2.new(0, 200, 0, 30)
+h.Text = "Version 1.0"
+h.TextColor3 = Color3.fromRGB(200, 200, 200)
+h.Font = Enum.Font.SourceSans
+h.TextSize = 18
+h.TextXAlignment = Enum.TextXAlignment.Center
 
-radioDropdown.MouseButton1Click:Connect(function()
-    if selectedRadio == "RadioCOR" then
-        selectedRadio = "RadioFE"
-    else
-        selectedRadio = "RadioCOR"
+local hitTab = Instance.new("Frame")
+hitTab.Parent = b
+hitTab.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+hitTab.Position = UDim2.new(0, 0, 0, 80)
+hitTab.Size = UDim2.new(1, 0, 1, -80)
+hitTab.Visible = false
+
+local hitboxButton = createButton(hitTab, UDim2.new(0.1, 0, 0, 10), UDim2.new(0.8, 0, 0, 40), "Hitbox Expander", Color3.fromRGB(80, 80, 80), Color3.fromRGB(255, 255, 255))
+
+local otherTab = Instance.new("Frame")
+otherTab.Parent = b
+otherTab.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+otherTab.Position = UDim2.new(0, 0, 0, 80)
+otherTab.Size = UDim2.new(1, 0, 1, -80)
+otherTab.Visible = false
+
+local teleportButton = createButton(otherTab, UDim2.new(0.1, 0, 0, 10), UDim2.new(0.35, -10, 0, 40), "Teleports", Color3.fromRGB(80, 80, 80), Color3.fromRGB(255, 255, 255))
+local ammoHackButton = createButton(otherTab, UDim2.new(0.55, 10, 0, 10), UDim2.new(0.35, -10, 0, 40), "AmmoHack", Color3.fromRGB(80, 80, 80), Color3.fromRGB(255, 255, 255))
+
+local isFrozen = false
+local defaultSpeed = 16
+local speed = defaultSpeed
+local moveConnection
+
+local function toggleFreeze()
+    local character = LocalPlayer.Character
+    if not character then return end
+    local humanoidRootPart = character:FindFirstChild("HumanoidRootPart")
+    local humanoid = character:FindFirstChildOfClass("Humanoid")
+    if humanoidRootPart and humanoid then
+        if not isFrozen then
+            humanoidRootPart.Anchored = true
+            moveConnection = l.RenderStepped:Connect(function()
+                if isFrozen then
+                    humanoidRootPart.CFrame = humanoidRootPart.CFrame + (humanoid.MoveDirection * speed / 60)
+                end
+            end)
+            isFrozen = true
+            e.Text = "Unfreeze"
+        else
+            humanoidRootPart.Anchored = false
+            humanoid.WalkSpeed = defaultSpeed
+            isFrozen = false
+            e.Text = "Freeze"
+            if moveConnection then moveConnection:Disconnect() end
+        end
     end
-    radioDropdown.Text = "Radio: " .. selectedRadio
+end
+
+local function updateSpeed()
+    local newSpeed = tonumber(g.Text)
+    if newSpeed and newSpeed > 0 then
+        speed = newSpeed
+        f.Text = "Speed: " .. tostring(speed)
+    else
+        g.Text = tostring(speed)
+    end
+end
+
+g.FocusLost:Connect(function(enterPressed)
+    if enterPressed then
+        updateSpeed()
+    end
 end)
 
-local messageLabel = Instance.new("TextLabel", scrollingFrame)
-messageLabel.Size = UDim2.new(1, 0, 0, 30)
-messageLabel.Text = "Message:"
-messageLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-messageLabel.Font = Enum.Font.SourceSansBold
-messageLabel.TextSize = 16
-messageLabel.BackgroundTransparency = 1
+local dragging, dragStart, startPos
+local dragConnection, changeConnection
 
-local messageBox = Instance.new("TextBox", scrollingFrame)
-messageBox.Size = UDim2.new(1, 0, 0, 30)
-messageBox.Text = ""
-messageBox.PlaceholderText = "Enter message"
-messageBox.TextColor3 = Color3.fromRGB(255, 255, 255)
-messageBox.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
-messageBox.Font = Enum.Font.SourceSans
-messageBox.TextSize = 16
+local function updateDrag(input)
+    local delta = input.Position - dragStart
+    b.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+end
 
-local messageCountLabel = Instance.new("TextLabel", scrollingFrame)
-messageCountLabel.Size = UDim2.new(1, 0, 0, 30)
-messageCountLabel.Text = "Message Count:"
-messageCountLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-messageCountLabel.Font = Enum.Font.SourceSansBold
-messageCountLabel.TextSize = 16
-messageCountLabel.BackgroundTransparency = 1
-
-local messageCountBox = Instance.new("TextBox", scrollingFrame)
-messageCountBox.Size = UDim2.new(1, 0, 0, 30)
-messageCountBox.Text = "1"
-messageCountBox.PlaceholderText = "Enter count"
-messageCountBox.TextColor3 = Color3.fromRGB(255, 255, 255)
-messageCountBox.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
-messageCountBox.Font = Enum.Font.SourceSans
-messageCountBox.TextSize = 16
-messageCountBox.ClearTextOnFocus = false
-
-local sendButton = Instance.new("TextButton", scrollingFrame)
-sendButton.Size = UDim2.new(1, 0, 0, 30)
-sendButton.Text = "Send Message"
-sendButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-sendButton.Font = Enum.Font.SourceSansBold
-sendButton.TextSize = 16
-sendButton.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
-
-local sendButtonCorner = Instance.new("UICorner", sendButton)
-sendButtonCorner.CornerRadius = UDim.new(0, 8)
-
-local closeButton = Instance.new("TextButton", frame)
-closeButton.Size = UDim2.new(0, 30, 0, 30)
-closeButton.Position = UDim2.new(1, -35, 0, 5)
-closeButton.Text = "X"
-closeButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-closeButton.Font = Enum.Font.SourceSansBold
-closeButton.TextSize = 18
-closeButton.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
-local closeButtonCorner = Instance.new("UICorner", closeButton)
-closeButtonCorner.CornerRadius = UDim.new(0, 8)
-
-closeButton.MouseButton1Click:Connect(function()
-    gui:Destroy()
-end)
-
-local dragging = false
-local dragStart = nil
-local startPos = nil
-
-frame.InputBegan:Connect(function(input)
+b.InputBegan:Connect(function(input)
     if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
         dragging = true
         dragStart = input.Position
-        startPos = frame.Position
-    end
-end)
-
-frame.InputEnded:Connect(function(input)
-    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-        dragging = false
-    end
-end)
-
-frame.InputChanged:Connect(function(input)
-    if dragging then
-        local delta = input.Position - dragStart
-        frame.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
-    end
-end)
-
-sendButton.MouseButton1Click:Connect(function()
-    local message = messageBox.Text
-    local count = tonumber(messageCountBox.Text) or 1
-    if message ~= "" and count > 0 then
-        local radio = workspace:FindFirstChild(selectedRadio)
-        if radio then
-            for i = 1, count do
-                radio.chat:FireServer("Anonim: " .. message)
+        startPos = b.Position
+        changeConnection = input.Changed:Connect(function()
+            if input.UserInputState == Enum.UserInputState.End then
+                dragging = false
+                if changeConnection then changeConnection:Disconnect() end
             end
-        else
-            warn("Radio not found: " .. selectedRadio)
-        end
-    else
-        warn("Invalid input!")
+        end)
     end
+end)
+
+b.InputChanged:Connect(function(input)
+    if dragging and (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then
+        updateDrag(input)
+    end
+end)
+
+c.MouseButton1Click:Connect(function()
+    b.Visible = not b.Visible
+end)
+
+d.MouseButton1Click:Connect(function()
+    b.Visible = false
+end)
+
+e.MouseButton1Click:Connect(function()
+    toggleFreeze()
+end)
+
+hitboxButton.MouseButton1Click:Connect(function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Vcsk/RobloxScripts/main/HitboxExpander.lua"))()
+end)
+
+teleportButton.MouseButton1Click:Connect(function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Ogurcik222/Tph.VR.Sc/refs/heads/main/teleporkana.lua"))()
+end)
+
+ammoHackButton.MouseButton1Click:Connect(function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Ogurcik222/Ammo.Vr.SC/refs/heads/main/Ammocheatscript.lua"))()
+end)
+
+local function toggleTab(tab)
+    hitTab.Visible = (tab == "hit")
+    otherTab.Visible = (tab == "other")
+end
+
+local hitTabButton = createButton(a, UDim2.new(0.1, 0, 0, 60), UDim2.new(0.8, 0, 0, 50), "Hit", Color3.fromRGB(60, 60, 60), Color3.fromRGB(255, 255, 255))
+local otherTabButton = createButton(a, UDim2.new(0.1, 0, 0, 120), UDim2.new(0.8, 0, 0, 50), "Other", Color3.fromRGB(60, 60, 60), Color3.fromRGB(255, 255, 255))
+
+hitTabButton.MouseButton1Click:Connect(function()
+    toggleTab("hit")
+end)
+
+otherTabButton.MouseButton1Click:Connect(function()
+    toggleTab("other")
 end)
