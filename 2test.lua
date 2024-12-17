@@ -10,6 +10,7 @@ local LocalPlayer = game:GetService("Players").LocalPlayer
 
 a.Parent = LocalPlayer:WaitForChild("PlayerGui")
 a.Name = "MainMenuGui"
+a.ResetOnSpawn = false
 
 i.CornerRadius = UDim.new(0, 12)
 j.Color = Color3.new(0, 0, 0)
@@ -198,8 +199,4 @@ end)
 
 aimEspButton.MouseButton1Click:Connect(function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/tbao143/thaibao/main/TbaoHubRivals"))()
-end)
-
-game.Players.LocalPlayer.CharacterAdded:Connect(function()
-    b.Visible = true
 end)
