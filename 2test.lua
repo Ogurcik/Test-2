@@ -111,14 +111,8 @@ local function createDropdown(options, default, callback)
     return dropdown
 end
 
-local radios = {}
-for _, child in ipairs(workspace:GetChildren()) do
-    if child:FindFirstChild("chat") then
-        table.insert(radios, child.Name)
-    end
-end
-
-local selectedRadio = radios[1] or "RadioCOR"
+local radios = {"RadioCOR", "RadioFE"}
+local selectedRadio = radios[1]
 
 local radioLabel = createLabel("Select Radio:")
 radioLabel.Parent = scrollingFrame
