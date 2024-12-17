@@ -68,8 +68,8 @@ local scrollingFrame = Instance.new("ScrollingFrame")
 scrollingFrame.Parent = b
 scrollingFrame.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
 scrollingFrame.Position = UDim2.new(0, 0, 0.5, 0)
-scrollingFrame.Size = UDim2.new(0, 500, 0, 100) -- Увеличена ширина
-scrollingFrame.CanvasSize = UDim2.new(0, 0, 0, 200)
+scrollingFrame.Size = UDim2.new(0, 400, 0, 160)
+scrollingFrame.CanvasSize = UDim2.new(0, 0, 0, 250)
 scrollingFrame.ScrollBarThickness = 10
 scrollingFrame.VerticalScrollBarPosition = Enum.VerticalScrollBarPosition.Right
 
