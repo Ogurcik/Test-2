@@ -73,53 +73,134 @@ h.TextColor3 = Color3.fromRGB(200, 200, 200)
 h.Font = Enum.Font.SourceSans
 h.TextSize = 18
 h.TextXAlignment = Enum.TextXAlignment.Center
-local function toggleMenu()
-    if b.Visible then
-        b.Visible = false
-    else
-        b.Visible = true
+
+local scrollingFrame = Instance.new("ScrollingFrame")
+scrollingFrame.Parent = b
+scrollingFrame.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+scrollingFrame.Position = UDim2.new(0, 0, 0.7, 10)
+scrollingFrame.Size = UDim2.new(0, 400, 0, 150)
+scrollingFrame.CanvasSize = UDim2.new(0, 0, 0, 200)
+scrollingFrame.ScrollBarThickness = 10
+scrollingFrame.VerticalScrollBarPosition = Enum.VerticalScrollBarPosition.Right
+
+local teleportButton = createButton(scrollingFrame, UDim2.new(0.1, 0, 0, 0), UDim2.new(0.35, -10, 0, 40), "Teleports", Color3.fromRGB(80, 80, 80), Color3.fromRGB(255, 255, 255))
+local ammoHackButton = createButton(scrollingFrame, UDim2.new(0.55, 10, 0, 0), UDim2.new(0.35, -10, 0, 40), "AmmoHack", Color3.fromRGB(80, 80, 80), Color3.fromRGB(255, 255, 255))
+local hitboxButton = createButton(scrollingFrame, UDim2.new(0.1, 0, 0, 50), UDim2.new(0.8, 0, 0, 40), "Hitbox Expander", Color3.fromRGB(80, 80, 80), Color3.fromRGB(255, 255, 255))
+local corArmorButton = createButton(scrollingFrame, UDim2.new(0.1, 0, 0, 100), UDim2.new(0.35, -10, 0, 40), "CorArmor", Color3.fromRGB(80, 80, 80), Color3.fromRGB(255, 255, 255))
+local radioSpamButton = createButton(scrollingFrame, UDim2.new(0.55, 10, 0, 100), UDim2.new(0.35, -10, 0, 40), "RadioSpam", Color3.fromRGB(80, 80, 80), Color3.fromRGB(255, 255, 255))
+local aimEspButton = createButton(scrollingFrame, UDim2.new(0.1, 0, 0, 150), UDim2.new(0.8, 0, 0, 40), "Aim&Esp", Color3.fromRGB(80, 80, 80), Color3.fromRGB(255, 255, 255))
+
+local isFrozen = false
+local defaultSpeed = 16
+local speed = defaultSpeed
+local moveConnection
+
+local function toggleFreeze()
+    local character = LocalPlayer.Character
+    if not character then return end
+    local humanoidRootPart = character:FindFirstChild("HumanoidRootPart")
+    local humanoid = character:FindFirstChildOfClass("Humanoid")
+    if humanoidRootPart and humanoid then
+        if not isFrozen then
+            humanoidRootPart.Anchored = true
+            moveConnection = l.RenderStepped:Connect(function()
+                if isFrozen then
+                    humanoidRootPart.CFrame = humanoidRootPart.CFrame + (humanoid.MoveDirection * speed / 60)
+                end
+            end)
+            isFrozen = true
+            e.Text = "Unfreeze"
+        else
+            humanoidRootPart.Anchored = false
+            humanoid.WalkSpeed = defaultSpeed
+            isFrozen = false
+            e.Text = "Freeze"
+            if moveConnection then moveConnection:Disconnect() end
+        end
     end
 end
 
-c.MouseButton1Click:Connect(toggleMenu)
+local function updateSpeed()
+    local newSpeed = tonumber(g.Text)
+    if newSpeed and newSpeed > 0 then
+        speed = newSpeed
+        f.Text = "Speed: " .. tostring(speed)
+    else
+        g.Text = tostring(speed)
+    end
+end
+
+g.FocusLost:Connect(function(enterPressed)
+    if enterPressed then
+        updateSpeed()
+    end
+end)
+
+local dragging, dragStart, startPos
+local dragConnection, changeConnection
+
+local function updateDrag(input)
+    local delta = input.Position - dragStart
+    b.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+end
+
+b.InputBegan:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+        dragging = true
+        dragStart = input.Position
+        startPos = b.Position
+        changeConnection = input.Changed:Connect(function()
+            if input.UserInputState == Enum.UserInputState.End then
+                dragging = false
+                if changeConnection then changeConnection:Disconnect() end
+            end
+        end)
+    end
+end)
+
+b.InputChanged:Connect(function(input)
+    if dragging and (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then
+        updateDrag(input)
+    end
+end)
+
+c.MouseButton1Click:Connect(function()
+    b.Visible = not b.Visible
+end)
 
 d.MouseButton1Click:Connect(function()
     b.Visible = false
 end)
 
 e.MouseButton1Click:Connect(function()
-    -- Функция для замораживания/размораживания персонажа
-    local character = LocalPlayer.Character
-    if character and character:FindFirstChild("Humanoid") then
-        local humanoid = character.Humanoid
-        if humanoid.PlatformStand then
-            humanoid.PlatformStand = false
-        else
-            humanoid.PlatformStand = true
-        end
-    end
+    toggleFreeze()
 end)
 
-g.FocusLost:Connect(function(enterPressed)
-    if enterPressed then
-        local speed = tonumber(g.Text)
-        if speed and speed > 0 then
-            LocalPlayer.Character.Humanoid.WalkSpeed = speed
-        else
-            g.Text = "16"
-        end
-    end
+teleportButton.MouseButton1Click:Connect(function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Ogurcik222/Tph.VR.Sc/refs/heads/main/teleporkana.lua"))()
 end)
 
--- Обновление скорости по умолчанию
-LocalPlayer.CharacterAdded:Connect(function(character)
-    local humanoid = character:WaitForChild("Humanoid")
-    humanoid.WalkSpeed = 16
+ammoHackButton.MouseButton1Click:Connect(function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Ogurcik222/Ammo.Vr.SC/refs/heads/main/Ammocheatscript.lua"))()
 end)
 
-l.Heartbeat:Connect(function()
-    if b.Visible then
-        -- Обновление позиции/размера кнопки в зависимости от размеров экрана
-        b.Position = UDim2.new(0.5, -b.Size.X.Offset / 2, 0.5, -b.Size.Y.Offset / 2)
-    end
+hitboxButton.MouseButton1Click:Connect(function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Vcsk/RobloxScripts/main/HitboxExpander.lua"))()
 end)
+
+corArmorButton.MouseButton1Click:Connect(function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Ogurcik222/CorArmorAN-Sc/refs/heads/main/CorArmor.lua"))()
+end)
+
+radioSpamButton.MouseButton1Click:Connect(function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Ogurcik222/Radiochat-spam.vrk/refs/heads/main/radiospam.lua"))()
+end)
+
+aimEspButton.MouseButton1Click:Connect(function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/tbao143/thaibao/main/TbaoHubRivals"))()
+end)
+
+game.Players.LocalPlayer.CharacterAdded:Connect(function()
+    b.Visible = true
+end)
+
