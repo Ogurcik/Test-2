@@ -96,6 +96,7 @@ messageCountBox.TextColor3 = Color3.fromRGB(255, 255, 255)
 messageCountBox.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
 messageCountBox.Font = Enum.Font.SourceSans
 messageCountBox.TextSize = 16
+messageCountBox.ClearTextOnFocus = false
 
 local sendButton = Instance.new("TextButton", scrollingFrame)
 sendButton.Size = UDim2.new(1, 0, 0, 30)
