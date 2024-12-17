@@ -38,20 +38,6 @@ b.Visible = false
 b.BorderSizePixel = 0
 i:Clone().Parent = b
 
-local scrollFrame = Instance.new("ScrollingFrame")
-scrollFrame.Parent = b
-scrollFrame.BackgroundTransparency = 1
-scrollFrame.Position = UDim2.new(0, 0, 0, 50)
-scrollFrame.Size = UDim2.new(1, 0, 1, -50)
-scrollFrame.CanvasSize = UDim2.new(0, 0, 0, 500)
-scrollFrame.ScrollBarThickness = 8
-
-local function createScrollButton(parent, position, size, text, bgColor, textColor)
-    local button = createButton(parent, position, size, text, bgColor, textColor)
-    button.Size = UDim2.new(1, 0, 0, 40)
-    return button
-end
-
 local c = createButton(a, UDim2.new(0, 0, 0, 0), UDim2.new(0, 100, 0, 50), "Menu", Color3.fromRGB(60, 60, 60), Color3.fromRGB(255, 255, 255))
 local d = createButton(b, UDim2.new(0.5, -50, 1, -40), UDim2.new(0, 100, 0, 30), "Close", Color3.fromRGB(220, 60, 60), Color3.fromRGB(255, 255, 255))
 local e = createButton(b, UDim2.new(0.5, -50, 0, 20), UDim2.new(0, 100, 0, 50), "Freeze", Color3.fromRGB(80, 80, 80), Color3.fromRGB(255, 255, 255))
@@ -88,12 +74,21 @@ h.Font = Enum.Font.SourceSans
 h.TextSize = 18
 h.TextXAlignment = Enum.TextXAlignment.Center
 
-local teleportButton = createScrollButton(scrollFrame, UDim2.new(0, 0, 0, 0), UDim2.new(0, 100, 0, 50), "Teleports", Color3.fromRGB(80, 80, 80), Color3.fromRGB(255, 255, 255))
-local ammoHackButton = createScrollButton(scrollFrame, UDim2.new(0, 0, 0, 50), UDim2.new(0, 100, 0, 50), "AmmoHack", Color3.fromRGB(80, 80, 80), Color3.fromRGB(255, 255, 255))
-local hitboxButton = createScrollButton(scrollFrame, UDim2.new(0, 0, 0, 100), UDim2.new(0, 100, 0, 50), "Hitbox Expander", Color3.fromRGB(80, 80, 80), Color3.fromRGB(255, 255, 255))
-local corArmorButton = createScrollButton(scrollFrame, UDim2.new(0, 0, 0, 150), UDim2.new(0, 100, 0, 50), "CorArmor", Color3.fromRGB(80, 80, 80), Color3.fromRGB(255, 255, 255))
-local radioSpamButton = createScrollButton(scrollFrame, UDim2.new(0, 0, 0, 200), UDim2.new(0, 100, 0, 50), "RadioSpam", Color3.fromRGB(80, 80, 80), Color3.fromRGB(255, 255, 255))
-local aimEspButton = createScrollButton(scrollFrame, UDim2.new(0, 0, 0, 250), UDim2.new(0, 100, 0, 50), "Aim&Esp", Color3.fromRGB(80, 80, 80), Color3.fromRGB(255, 255, 255))
+local scrollingFrame = Instance.new("ScrollingFrame")
+scrollingFrame.Parent = b
+scrollingFrame.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+scrollingFrame.Position = UDim2.new(0, 0, 0.7, 10)
+scrollingFrame.Size = UDim2.new(0, 400, 0, 150)
+scrollingFrame.CanvasSize = UDim2.new(0, 0, 0, 200)
+scrollingFrame.ScrollBarThickness = 10
+scrollingFrame.VerticalScrollBarPosition = Enum.VerticalScrollBarPosition.Right
+
+local teleportButton = createButton(scrollingFrame, UDim2.new(0.1, 0, 0, 0), UDim2.new(0.35, -10, 0, 40), "Teleports", Color3.fromRGB(80, 80, 80), Color3.fromRGB(255, 255, 255))
+local ammoHackButton = createButton(scrollingFrame, UDim2.new(0.55, 10, 0, 0), UDim2.new(0.35, -10, 0, 40), "AmmoHack", Color3.fromRGB(80, 80, 80), Color3.fromRGB(255, 255, 255))
+local hitboxButton = createButton(scrollingFrame, UDim2.new(0.1, 0, 0, 50), UDim2.new(0.8, 0, 0, 40), "Hitbox Expander", Color3.fromRGB(80, 80, 80), Color3.fromRGB(255, 255, 255))
+local corArmorButton = createButton(scrollingFrame, UDim2.new(0.1, 0, 0, 100), UDim2.new(0.35, -10, 0, 40), "CorArmor", Color3.fromRGB(80, 80, 80), Color3.fromRGB(255, 255, 255))
+local radioSpamButton = createButton(scrollingFrame, UDim2.new(0.55, 10, 0, 100), UDim2.new(0.35, -10, 0, 40), "RadioSpam", Color3.fromRGB(80, 80, 80), Color3.fromRGB(255, 255, 255))
+local aimEspButton = createButton(scrollingFrame, UDim2.new(0.1, 0, 0, 150), UDim2.new(0.8, 0, 0, 40), "Aim&Esp", Color3.fromRGB(80, 80, 80), Color3.fromRGB(255, 255, 255))
 
 local isFrozen = false
 local defaultSpeed = 16
@@ -205,5 +200,6 @@ aimEspButton.MouseButton1Click:Connect(function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/tbao143/thaibao/main/TbaoHubRivals"))()
 end)
 
-
-
+game.Players.LocalPlayer.CharacterAdded:Connect(function()
+    b.Visible = true
+end)
