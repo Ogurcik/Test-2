@@ -199,10 +199,17 @@ end
 local hitTabButton = createButton(a, UDim2.new(0.1, 0, 0, 60), UDim2.new(0.8, 0, 0, 50), "Hit", Color3.fromRGB(60, 60, 60), Color3.fromRGB(255, 255, 255))
 local otherTabButton = createButton(a, UDim2.new(0.1, 0, 0, 120), UDim2.new(0.8, 0, 0, 50), "Other", Color3.fromRGB(60, 60, 60), Color3.fromRGB(255, 255, 255))
 
+local backButton = createButton(b, UDim2.new(0.5, -50, 1, -80), UDim2.new(0, 100, 0, 30), "Back", Color3.fromRGB(120, 120, 120), Color3.fromRGB(255, 255, 255))
+
 hitTabButton.MouseButton1Click:Connect(function()
     toggleTab("hit")
 end)
 
 otherTabButton.MouseButton1Click:Connect(function()
     toggleTab("other")
+end)
+
+backButton.MouseButton1Click:Connect(function()
+    hitTab.Visible = false
+    otherTab.Visible = false
 end)
