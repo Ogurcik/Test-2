@@ -32,19 +32,19 @@ end
 
 b.Parent = a
 b.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
-b.Position = UDim2.new(0.5, -250, 0.5, -200)
-b.Size = UDim2.new(0, 500, 0, 400)
+b.Position = UDim2.new(0.5, -200, 0.5, -200)
+b.Size = UDim2.new(0, 400, 0, 400)
 b.Visible = false
 b.BorderSizePixel = 0
 i:Clone().Parent = b
 
-local c = createButton(a, UDim2.new(0, 0, 0, 0), UDim2.new(0, 120, 0, 50), "Menu", Color3.fromRGB(60, 60, 60), Color3.fromRGB(255, 255, 255))
+local c = createButton(a, UDim2.new(0, 0, 0, 0), UDim2.new(0, 100, 0, 50), "Menu", Color3.fromRGB(60, 60, 60), Color3.fromRGB(255, 255, 255))
 local d = createButton(b, UDim2.new(0.5, -50, 1, -40), UDim2.new(0, 100, 0, 30), "Close", Color3.fromRGB(220, 60, 60), Color3.fromRGB(255, 255, 255))
-local e = createButton(b, UDim2.new(0.5, -50, 0, 20), UDim2.new(0, 100, 0, 50), "Freeze", Color3.fromRGB(80, 80, 80), Color3.fromRGB(255, 255, 255))
+local e = createButton(b, UDim2.new(0.1, 0, 0, 20), UDim2.new(0, 100, 0, 50), "Freeze", Color3.fromRGB(80, 80, 80), Color3.fromRGB(255, 255, 255))
 
 f.Parent = b
 f.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
-f.Position = UDim2.new(0.1, 0, 0.4, 0)
+f.Position = UDim2.new(0.1, 0, 0.2, 0)
 f.Size = UDim2.new(0.8, 0, 0, 30)
 f.Text = "Speed:"
 f.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -53,7 +53,7 @@ f.TextSize = 24
 
 g.Parent = b
 g.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
-g.Position = UDim2.new(0.1, 0, 0.5, 0)
+g.Position = UDim2.new(0.1, 0, 0.3, 0)
 g.Size = UDim2.new(0.8, 0, 0, 30)
 g.Text = "16"
 g.ClearTextOnFocus = true
@@ -64,21 +64,11 @@ g.TextSize = 24
 i:Clone().Parent = g
 j:Clone().Parent = g
 
-h.Parent = b
-h.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
-h.Position = UDim2.new(0.5, -100, 1, -40)
-h.Size = UDim2.new(0, 200, 0, 30)
-h.Text = "Version 1.1"
-h.TextColor3 = Color3.fromRGB(200, 200, 200)
-h.Font = Enum.Font.SourceSans
-h.TextSize = 18
-h.TextXAlignment = Enum.TextXAlignment.Center
-
 local scrollingFrame = Instance.new("ScrollingFrame")
 scrollingFrame.Parent = b
 scrollingFrame.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
-scrollingFrame.Position = UDim2.new(0, 0, 0.7, 10)
-scrollingFrame.Size = UDim2.new(0, 500, 0, 150)
+scrollingFrame.Position = UDim2.new(0, 0, 0.5, 0)
+scrollingFrame.Size = UDim2.new(0, 400, 0, 100)
 scrollingFrame.CanvasSize = UDim2.new(0, 0, 0, 200)
 scrollingFrame.ScrollBarThickness = 10
 scrollingFrame.VerticalScrollBarPosition = Enum.VerticalScrollBarPosition.Right
@@ -89,6 +79,16 @@ local hitboxButton = createButton(scrollingFrame, UDim2.new(0.1, 0, 0, 50), UDim
 local corArmorButton = createButton(scrollingFrame, UDim2.new(0.1, 0, 0, 100), UDim2.new(0.35, -10, 0, 40), "CorArmor", Color3.fromRGB(80, 80, 80), Color3.fromRGB(255, 255, 255))
 local radioSpamButton = createButton(scrollingFrame, UDim2.new(0.55, 10, 0, 100), UDim2.new(0.35, -10, 0, 40), "RadioSpam", Color3.fromRGB(80, 80, 80), Color3.fromRGB(255, 255, 255))
 local aimEspButton = createButton(scrollingFrame, UDim2.new(0.1, 0, 0, 150), UDim2.new(0.8, 0, 0, 40), "Aim&Esp", Color3.fromRGB(80, 80, 80), Color3.fromRGB(255, 255, 255))
+
+h.Parent = b
+h.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+h.Position = UDim2.new(0.5, -100, 1, -40)
+h.Size = UDim2.new(0, 200, 0, 30)
+h.Text = "Version 1.1"
+h.TextColor3 = Color3.fromRGB(200, 200, 200)
+h.Font = Enum.Font.SourceSans
+h.TextSize = 18
+h.TextXAlignment = Enum.TextXAlignment.Center
 
 local isFrozen = false
 local defaultSpeed = 16
