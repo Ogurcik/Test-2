@@ -1,213 +1,194 @@
 local player = game.Players.LocalPlayer
-local screenGui = Instance.new("ScreenGui")
-screenGui.Parent = player:WaitForChild("PlayerGui")
+local gui = Instance.new("ScreenGui", player:WaitForChild("PlayerGui"))
+gui.Name = "RadioSpamControl"
+gui.ResetOnSpawn = false
 
 local frame = Instance.new("Frame")
-frame.Size = UDim2.new(0, 500, 0, 600)
-frame.Position = UDim2.new(0.5, -250, 0.5, -300)
+frame.Size = UDim2.new(0, 400, 0, 500)
+frame.Position = UDim2.new(0.5, -200, 0.5, -250)
 frame.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
-frame.BackgroundTransparency = 0.2
 frame.BorderSizePixel = 0
-frame.ClipsDescendants = true
-frame.Parent = screenGui
+frame.Parent = gui
 
-local corner = Instance.new("UICorner")
+local corner = Instance.new("UICorner", frame)
 corner.CornerRadius = UDim.new(0, 15)
-corner.Parent = frame
 
-local titleLabel = Instance.new("TextLabel")
-titleLabel.Size = UDim2.new(1, 0, 0, 40)
-titleLabel.Text = "Radio Spam Control"
-titleLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-titleLabel.BackgroundTransparency = 1
-titleLabel.TextSize = 24
-titleLabel.TextAlign = Enum.TextAlign.Center
-titleLabel.Parent = frame
+local topBar = Instance.new("Frame", frame)
+topBar.Size = UDim2.new(1, 0, 0, 40)
+topBar.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
 
-local scrollFrame = Instance.new("ScrollingFrame")
-scrollFrame.Size = UDim2.new(1, 0, 0, 450)
-scrollFrame.Position = UDim2.new(0, 0, 0, 40)
-scrollFrame.CanvasSize = UDim2.new(0, 0, 0, 450)
-scrollFrame.ScrollBarThickness = 10
-scrollFrame.BackgroundTransparency = 1
-scrollFrame.Parent = frame
+local topBarCorner = Instance.new("UICorner", topBar)
+topBarCorner.CornerRadius = UDim.new(0, 15)
 
-local contentFrame = Instance.new("Frame")
-contentFrame.Size = UDim2.new(1, 0, 0, 450)
-contentFrame.BackgroundTransparency = 1
-contentFrame.Parent = scrollFrame
+local title = Instance.new("TextLabel", topBar)
+title.Text = "Radio Spam Control"
+title.Size = UDim2.new(1, -40, 1, 0)
+title.Position = UDim2.new(0, 10, 0, 0)
+title.TextColor3 = Color3.fromRGB(255, 255, 255)
+title.BackgroundTransparency = 1
+title.Font = Enum.Font.SourceSansBold
+title.TextSize = 18
+title.TextXAlignment = Enum.TextXAlignment.Left
 
-local function createButton(text, position, callback)
+local closeButton = Instance.new("TextButton", topBar)
+closeButton.Size = UDim2.new(0, 30, 0, 30)
+closeButton.Position = UDim2.new(1, -35, 0.5, -15)
+closeButton.BackgroundColor3 = Color3.fromRGB(255, 75, 75)
+closeButton.Text = "X"
+closeButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+closeButton.Font = Enum.Font.SourceSansBold
+closeButton.TextSize = 18
+
+local closeCorner = Instance.new("UICorner", closeButton)
+closeCorner.CornerRadius = UDim.new(0, 8)
+
+local scrollingFrame = Instance.new("ScrollingFrame", frame)
+scrollingFrame.Size = UDim2.new(1, 0, 1, -50)
+scrollingFrame.Position = UDim2.new(0, 0, 0, 50)
+scrollingFrame.BackgroundTransparency = 1
+scrollingFrame.ScrollBarThickness = 8
+scrollingFrame.CanvasSize = UDim2.new(0, 0, 2, 0)
+
+local listLayout = Instance.new("UIListLayout", scrollingFrame)
+listLayout.Padding = UDim.new(0, 10)
+listLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+listLayout.SortOrder = Enum.SortOrder.LayoutOrder
+
+local function createLabel(text)
+    local label = Instance.new("TextLabel")
+    label.Size = UDim2.new(0.9, 0, 0, 30)
+    label.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+    label.TextColor3 = Color3.fromRGB(255, 255, 255)
+    label.Text = text
+    label.Font = Enum.Font.SourceSansBold
+    label.TextSize = 16
+    label.TextWrapped = true
+
+    local labelCorner = Instance.new("UICorner", label)
+    labelCorner.CornerRadius = UDim.new(0, 8)
+
+    return label
+end
+
+local function createInputBox(placeholderText)
+    local box = Instance.new("TextBox")
+    box.Size = UDim2.new(0.9, 0, 0, 30)
+    box.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+    box.TextColor3 = Color3.fromRGB(255, 255, 255)
+    box.PlaceholderText = placeholderText
+    box.Font = Enum.Font.SourceSans
+    box.TextSize = 16
+
+    local boxCorner = Instance.new("UICorner", box)
+    boxCorner.CornerRadius = UDim.new(0, 8)
+
+    return box
+end
+
+local function createToggleButton(text, callback)
     local button = Instance.new("TextButton")
-    button.Size = UDim2.new(1, 0, 0, 40)
-    button.Position = position
-    button.Text = text
-    button.TextColor3 = Color3.fromRGB(255, 255, 255)
+    button.Size = UDim2.new(0.9, 0, 0, 30)
     button.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+    button.TextColor3 = Color3.fromRGB(255, 255, 255)
+    button.Text = text
+    button.Font = Enum.Font.SourceSansBold
     button.TextSize = 16
-    button.TextXAlignment = Enum.TextXAlignment.Left
-    button.Font = Enum.Font.SourceSans
-    button.Parent = contentFrame
 
-    local buttonCorner = Instance.new("UICorner")
-    buttonCorner.CornerRadius = UDim.new(0, 10)
-    buttonCorner.Parent = button
+    local buttonCorner = Instance.new("UICorner", button)
+    buttonCorner.CornerRadius = UDim.new(0, 8)
 
     button.MouseButton1Click:Connect(callback)
 
     return button
 end
 
-local radioButtons = {}
-local radios = {"RadioCOR", "RadioFE"}
-local selectedRadio = {}
-local radioStatus = {["RadioCOR"] = false, ["RadioFE"] = false}
+local nicknameLabel = createLabel("Nickname:")
+nicknameLabel.Parent = scrollingFrame
 
-for i, radio in ipairs(radios) do
-    radioButtons[radio] = createButton(radio, UDim2.new(0, 0, 0, 50 * i), function()
-        selectedRadio[radio] = not selectedRadio[radio]
-        radioStatus[radio] = selectedRadio[radio]
-    end)
-end
+local nicknameInput = createInputBox("Enter nickname")
+nicknameInput.Parent = scrollingFrame
 
-local nicknameLabel = Instance.new("TextLabel")
-nicknameLabel.Size = UDim2.new(1, 0, 0, 30)
-nicknameLabel.Position = UDim2.new(0, 0, 0, 240)
-nicknameLabel.Text = "Nickname:"
-nicknameLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-nicknameLabel.BackgroundTransparency = 1
-nicknameLabel.TextSize = 16
-nicknameLabel.TextXAlignment = Enum.TextXAlignment.Left
-nicknameLabel.Parent = contentFrame
+local messageLabel = createLabel("Message:")
+messageLabel.Parent = scrollingFrame
 
-local nicknameBox = Instance.new("TextBox")
-nicknameBox.Size = UDim2.new(1, 0, 0, 40)
-nicknameBox.Position = UDim2.new(0, 0, 0, 270)
-nicknameBox.PlaceholderText = "Enter nickname"
-nicknameBox.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
-nicknameBox.TextColor3 = Color3.fromRGB(255, 255, 255)
-nicknameBox.TextSize = 14
-nicknameBox.TextWrapped = true
-nicknameBox.Font = Enum.Font.SourceSans
-nicknameBox.Parent = contentFrame
+local messageInput = createInputBox("Enter message")
+messageInput.Parent = scrollingFrame
 
-local messageLabel = Instance.new("TextLabel")
-messageLabel.Size = UDim2.new(1, 0, 0, 30)
-messageLabel.Position = UDim2.new(0, 0, 0, 320)
-messageLabel.Text = "Message:"
-messageLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-messageLabel.BackgroundTransparency = 1
-messageLabel.TextSize = 16
-messageLabel.TextXAlignment = Enum.TextXAlignment.Left
-messageLabel.Parent = contentFrame
+local countLabel = createLabel("Number of Messages:")
+countLabel.Parent = scrollingFrame
 
-local messageBox = Instance.new("TextBox")
-messageBox.Size = UDim2.new(1, 0, 0, 40)
-messageBox.Position = UDim2.new(0, 0, 0, 350)
-messageBox.PlaceholderText = "Enter message"
-messageBox.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
-messageBox.TextColor3 = Color3.fromRGB(255, 255, 255)
-messageBox.TextSize = 14
-messageBox.TextWrapped = true
-messageBox.Font = Enum.Font.SourceSans
-messageBox.Parent = contentFrame
+local countInput = createInputBox("Enter count")
+countInput.Text = "1"
+countInput.Parent = scrollingFrame
 
-local countLabel = Instance.new("TextLabel")
-countLabel.Size = UDim2.new(1, 0, 0, 30)
-countLabel.Position = UDim2.new(0, 0, 0, 400)
-countLabel.Text = "Number of Messages:"
-countLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-countLabel.BackgroundTransparency = 1
-countLabel.TextSize = 16
-countLabel.TextXAlignment = Enum.TextXAlignment.Left
-countLabel.Parent = contentFrame
+local intervalLabel = createLabel("Interval (Seconds):")
+intervalLabel.Parent = scrollingFrame
 
-local countBox = Instance.new("TextBox")
-countBox.Size = UDim2.new(1, 0, 0, 40)
-countBox.Position = UDim2.new(0, 0, 0, 430)
-countBox.PlaceholderText = "1"
-countBox.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
-countBox.TextColor3 = Color3.fromRGB(255, 255, 255)
-countBox.TextSize = 14
-countBox.TextWrapped = true
-countBox.Font = Enum.Font.SourceSans
-countBox.Parent = contentFrame
+local intervalInput = createInputBox("Enter interval")
+intervalInput.Text = "1"
+intervalInput.Parent = scrollingFrame
 
-local intervalLabel = Instance.new("TextLabel")
-intervalLabel.Size = UDim2.new(1, 0, 0, 30)
-intervalLabel.Position = UDim2.new(0, 0, 0, 480)
-intervalLabel.Text = "Interval (Seconds):"
-intervalLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-intervalLabel.BackgroundTransparency = 1
-intervalLabel.TextSize = 16
-intervalLabel.TextXAlignment = Enum.TextXAlignment.Left
-intervalLabel.Parent = contentFrame
-
-local intervalBox = Instance.new("TextBox")
-intervalBox.Size = UDim2.new(1, 0, 0, 40)
-intervalBox.Position = UDim2.new(0, 0, 0, 510)
-intervalBox.PlaceholderText = "1"
-intervalBox.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
-intervalBox.TextColor3 = Color3.fromRGB(255, 255, 255)
-intervalBox.TextSize = 14
-intervalBox.TextWrapped = true
-intervalBox.Font = Enum.Font.SourceSans
-intervalBox.Parent = contentFrame
-
-local sendButton = Instance.new("TextButton")
-sendButton.Size = UDim2.new(1, 0, 0, 40)
-sendButton.Position = UDim2.new(0, 0, 0, 550)
-sendButton.Text = "Send Messages"
-sendButton.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
-sendButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-sendButton.TextSize = 18
-sendButton.TextAlign = Enum.TextAlign.Center
-sendButton.Parent = contentFrame
-
-local closeButton = Instance.new("TextButton")
-closeButton.Size = UDim2.new(0, 40, 0, 40)
-closeButton.Position = UDim2.new(1, -40, 0, 0)
-closeButton.Text = "X"
-closeButton.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
-closeButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-closeButton.TextSize = 18
-closeButton.Parent = frame
-
-closeButton.MouseButton1Click:Connect(function()
-    screenGui:Destroy()
+local radioToggle = createToggleButton("Toggle RadioCOR", function()
+    print("RadioCOR toggled!")
 end)
+radioToggle.Parent = scrollingFrame
 
-sendButton.MouseButton1Click:Connect(function()
-    local nickname = nicknameBox.Text == "" and "Anonim" or nicknameBox.Text
-    local spamMessage = nickname .. ": " .. messageBox.Text
-    local sendCount = tonumber(countBox.Text) or 1
-    local interval = tonumber(intervalBox.Text) or 1
-    local totalSent = 0
+local sendButton = createToggleButton("Send Messages", function()
+    local nickname = nicknameInput.Text == "" and "Anonim" or nicknameInput.Text
+    local message = messageInput.Text
+    local count = tonumber(countInput.Text) or 1
+    local interval = tonumber(intervalInput.Text) or 1
 
-    if sendCount < 1 then
-        print("Error: Number of sends must be greater than 0!")
+    if message == "" then
+        print("Message is empty!")
         return
     end
 
-    for i = 1, sendCount do
-        local anyRadioAvailable = false
-        for radio, isActive in pairs(radioStatus) do
-            if isActive then
-                anyRadioAvailable = true
-                workspace[radio].chat:FireServer(spamMessage)
-                totalSent = totalSent + 1
-            end
-        end
-        
-        if not anyRadioAvailable then
-            print("No radio selected, sending the message globally.")
-            workspace:FindFirstChild("RadioCOR")?.chat:FireServer(spamMessage)
-            workspace:FindFirstChild("RadioFE")?.chat:FireServer(spamMessage)
-            totalSent = totalSent + 2
-        end
-
+    for i = 1, count do
+        workspace.RadioCOR.chat:FireServer(nickname .. ": " .. message)
         wait(interval)
     end
+end)
+sendButton.Parent = scrollingFrame
 
-    print("Messages sent: " .. totalSent)
+local function makeDraggable(frame, handle)
+    local dragging, dragInput, dragStart, startPos
+
+    handle.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 then
+            dragging = true
+            dragStart = input.Position
+            startPos = frame.Position
+
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragging = false
+                end
+            end)
+        end
+    end)
+
+    handle.InputChanged:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseMovement then
+            dragInput = input
+        end
+    end)
+
+    game:GetService("UserInputService").InputChanged:Connect(function(input)
+        if input == dragInput and dragging then
+            local delta = input.Position - dragStart
+            frame.Position = UDim2.new(
+                startPos.X.Scale,
+                startPos.X.Offset + delta.X,
+                startPos.Y.Scale,
+                startPos.Y.Offset + delta.Y
+            )
+        end
+    end)
+end
+
+makeDraggable(frame, topBar)
+
+closeButton.MouseButton1Click:Connect(function()
+    gui:Destroy()
 end)
