@@ -1,14 +1,13 @@
 local player = game.Players.LocalPlayer
-local gui = Instance.new("ScreenGui", player:WaitForChild("PlayerGui"))
+local gui = Instance.new("ScreenGui")
 gui.Name = "RadioSpamControl"
-gui.ResetOnSpawn = false
+gui.Parent = player:WaitForChild("PlayerGui")
 
-local frame = Instance.new("Frame")
-frame.Size = UDim2.new(0, 400, 0, 500)
-frame.Position = UDim2.new(0.5, -200, 0.5, -250)
+local frame = Instance.new("Frame", gui)
+frame.Size = UDim2.new(0, 300, 0, 400)
+frame.Position = UDim2.new(0.5, -150, 0.5, -200)
 frame.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
 frame.BorderSizePixel = 0
-frame.Parent = gui
 
 local corner = Instance.new("UICorner", frame)
 corner.CornerRadius = UDim.new(0, 15)
@@ -43,11 +42,11 @@ local closeCorner = Instance.new("UICorner", closeButton)
 closeCorner.CornerRadius = UDim.new(0, 8)
 
 local scrollingFrame = Instance.new("ScrollingFrame", frame)
-scrollingFrame.Size = UDim2.new(1, 0, 1, -50)
-scrollingFrame.Position = UDim2.new(0, 0, 0, 50)
+scrollingFrame.Size = UDim2.new(1, -10, 1, -60)
+scrollingFrame.Position = UDim2.new(0, 5, 0, 50)
 scrollingFrame.BackgroundTransparency = 1
 scrollingFrame.ScrollBarThickness = 8
-scrollingFrame.CanvasSize = UDim2.new(0, 0, 2, 0)
+scrollingFrame.CanvasSize = UDim2.new(0, 0, 1, 0)
 
 local listLayout = Instance.new("UIListLayout", scrollingFrame)
 listLayout.Padding = UDim.new(0, 10)
@@ -85,6 +84,27 @@ local function createInputBox(placeholderText)
     return box
 end
 
+local function createDropdown(options, default, callback)
+    local dropdown = Instance.new("TextButton")
+    dropdown.Size = UDim2.new(0.9, 0, 0, 30)
+    dropdown.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+    dropdown.TextColor3 = Color3.fromRGB(255, 255, 255)
+    dropdown.Text = "Select: " .. default
+    dropdown.Font = Enum.Font.SourceSansBold
+    dropdown.TextSize = 16
+
+    local dropdownCorner = Instance.new("UICorner", dropdown)
+    dropdownCorner.CornerRadius = UDim.new(0, 8)
+
+    dropdown.MouseButton1Click:Connect(function()
+        local selected = options[math.random(1, #options)]
+        dropdown.Text = "Select: " .. selected
+        callback(selected)
+    end)
+
+    return dropdown
+end
+
 local function createToggleButton(text, callback)
     local button = Instance.new("TextButton")
     button.Size = UDim2.new(0.9, 0, 0, 30)
@@ -101,6 +121,17 @@ local function createToggleButton(text, callback)
 
     return button
 end
+
+local selectedRadio = "RadioCOR"
+local radios = { "RadioCOR", "RadioFE" }
+
+local radioLabel = createLabel("Select Radio:")
+radioLabel.Parent = scrollingFrame
+
+local radioDropdown = createDropdown(radios, selectedRadio, function(selected)
+    selectedRadio = selected
+end)
+radioDropdown.Parent = scrollingFrame
 
 local nicknameLabel = createLabel("Nickname:")
 nicknameLabel.Parent = scrollingFrame
@@ -121,74 +152,49 @@ local countInput = createInputBox("Enter count")
 countInput.Text = "1"
 countInput.Parent = scrollingFrame
 
-local intervalLabel = createLabel("Interval (Seconds):")
-intervalLabel.Parent = scrollingFrame
-
-local intervalInput = createInputBox("Enter interval")
-intervalInput.Text = "1"
-intervalInput.Parent = scrollingFrame
-
-local radioToggle = createToggleButton("Toggle RadioCOR", function()
-    print("RadioCOR toggled!")
-end)
-radioToggle.Parent = scrollingFrame
-
 local sendButton = createToggleButton("Send Messages", function()
     local nickname = nicknameInput.Text == "" and "Anonim" or nicknameInput.Text
     local message = messageInput.Text
     local count = tonumber(countInput.Text) or 1
-    local interval = tonumber(intervalInput.Text) or 1
 
     if message == "" then
-        print("Message is empty!")
+        warn("Message is empty!")
         return
     end
 
     for i = 1, count do
-        workspace.RadioCOR.chat:FireServer(nickname .. ": " .. message)
-        wait(interval)
+        local radio = workspace:FindFirstChild(selectedRadio)
+        if radio then
+            radio.chat:FireServer(nickname .. ": " .. message)
+        else
+            warn("Radio not found: " .. selectedRadio)
+        end
+        wait(0.5)
     end
 end)
 sendButton.Parent = scrollingFrame
 
-local function makeDraggable(frame, handle)
-    local dragging, dragInput, dragStart, startPos
-
-    handle.InputBegan:Connect(function(input)
-        if input.UserInputType == Enum.UserInputType.MouseButton1 then
-            dragging = true
-            dragStart = input.Position
-            startPos = frame.Position
-
-            input.Changed:Connect(function()
-                if input.UserInputState == Enum.UserInputState.End then
-                    dragging = false
-                end
-            end)
-        end
-    end)
-
-    handle.InputChanged:Connect(function(input)
-        if input.UserInputType == Enum.UserInputType.MouseMovement then
-            dragInput = input
-        end
-    end)
-
-    game:GetService("UserInputService").InputChanged:Connect(function(input)
-        if input == dragInput and dragging then
-            local delta = input.Position - dragStart
-            frame.Position = UDim2.new(
-                startPos.X.Scale,
-                startPos.X.Offset + delta.X,
-                startPos.Y.Scale,
-                startPos.Y.Offset + delta.Y
-            )
-        end
-    end)
-end
-
-makeDraggable(frame, topBar)
-
 closeButton.MouseButton1Click:Connect(function()
     gui:Destroy()
+end)
+
+local dragging, dragStart, startPos
+frame.InputBegan:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+        dragging = true
+        dragStart = input.Position
+        startPos = frame.Position
+        input.Changed:Connect(function()
+            if input.UserInputState == Enum.UserInputState.End then
+                dragging = false
+            end
+        end)
+    end
+end)
+
+frame.InputChanged:Connect(function(input)
+    if dragging and (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then
+        local delta = input.Position - dragStart
+        frame.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+    end
 end)
