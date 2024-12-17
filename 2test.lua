@@ -32,8 +32,8 @@ end
 
 b.Parent = a
 b.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
-b.Position = UDim2.new(0.5, -250, 0.5, -250)
-b.Size = UDim2.new(0, 500, 0, 500)
+b.Position = UDim2.new(0.5, -250, 0.5, -200)
+b.Size = UDim2.new(0, 500, 0, 400)
 b.Visible = false
 b.BorderSizePixel = 0
 i:Clone().Parent = b
@@ -78,8 +78,8 @@ local scrollingFrame = Instance.new("ScrollingFrame")
 scrollingFrame.Parent = b
 scrollingFrame.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
 scrollingFrame.Position = UDim2.new(0, 0, 0.7, 10)
-scrollingFrame.Size = UDim2.new(0, 500, 0, 230)
-scrollingFrame.CanvasSize = UDim2.new(0, 0, 0, 300)
+scrollingFrame.Size = UDim2.new(0, 500, 0, 150)
+scrollingFrame.CanvasSize = UDim2.new(0, 0, 0, 200)
 scrollingFrame.ScrollBarThickness = 10
 scrollingFrame.VerticalScrollBarPosition = Enum.VerticalScrollBarPosition.Right
 
