@@ -156,6 +156,17 @@ q.TextSize = 24
 i:Clone().Parent = q
 j:Clone().Parent = q
 
+-- Create Back Button for returning to Main Menu
+o.Parent = k
+o.Position = UDim2.new(0.5, -50, 1, -40)
+o.Size = UDim2.new(0, 100, 0, 30)
+o.Text = "Back"
+o.TextColor3 = Color3.fromRGB(255, 255, 255)
+o.Font = Enum.Font.SourceSans
+o.TextSize = 24
+i:Clone().Parent = o
+j:Clone().Parent = o
+
 -- Button Actions
 c.MouseButton1Click:Connect(function()
     b.Visible = not b.Visible
@@ -196,4 +207,9 @@ g.FocusLost:Connect(function(enterPressed)
             g.Text = "16"
         end
     end
+end)
+
+o.MouseButton1Click:Connect(function()
+    k.Visible = false
+    s.Visible = false
 end)
