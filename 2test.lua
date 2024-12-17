@@ -33,14 +33,14 @@ end
 b.Parent = a
 b.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
 b.Position = UDim2.new(0.5, -200, 0.5, -200)
-b.Size = UDim2.new(0, 400, 0, 400)
+b.Size = UDim2.new(0, 400, 0, 500)
 b.Visible = false
 b.BorderSizePixel = 0
 i:Clone().Parent = b
 
 local c = createButton(a, UDim2.new(0, 0, 0, 0), UDim2.new(0, 100, 0, 50), "Menu", Color3.fromRGB(60, 60, 60), Color3.fromRGB(255, 255, 255))
 local d = createButton(b, UDim2.new(0.5, -50, 1, -40), UDim2.new(0, 100, 0, 30), "Close", Color3.fromRGB(220, 60, 60), Color3.fromRGB(255, 255, 255))
-local e = createButton(b, UDim2.new(0.1, 0, 0, 20), UDim2.new(0, 100, 0, 50), "Freeze", Color3.fromRGB(80, 80, 80), Color3.fromRGB(255, 255, 255))
+local e = createButton(b, UDim2.new(0.5, -50, 0.3, 0), UDim2.new(0, 100, 0, 50), "Freeze", Color3.fromRGB(80, 80, 80), Color3.fromRGB(255, 255, 255))
 
 f.Parent = b
 f.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
@@ -68,8 +68,8 @@ local scrollingFrame = Instance.new("ScrollingFrame")
 scrollingFrame.Parent = b
 scrollingFrame.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
 scrollingFrame.Position = UDim2.new(0, 0, 0.5, 0)
-scrollingFrame.Size = UDim2.new(0, 400, 0, 100)
-scrollingFrame.CanvasSize = UDim2.new(0, 0, 0, 200)
+scrollingFrame.Size = UDim2.new(0, 400, 0, 120)
+scrollingFrame.CanvasSize = UDim2.new(0, 0, 0, 300)
 scrollingFrame.ScrollBarThickness = 10
 scrollingFrame.VerticalScrollBarPosition = Enum.VerticalScrollBarPosition.Right
 
