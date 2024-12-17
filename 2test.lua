@@ -100,13 +100,10 @@ local function createDropdown(options, default, callback)
     local selected = default
 
     dropdown.MouseButton1Click:Connect(function()
-        if isOpen then
-            isOpen = false
+        isOpen = not isOpen
+        if not isOpen then
             dropdown.Text = "Select: " .. selected
         else
-            isOpen = true
-            selected = options[math.random(1, #options)]
-            dropdown.Text = "Selected: " .. selected
             callback(selected)
         end
     end)
@@ -114,25 +111,14 @@ local function createDropdown(options, default, callback)
     return dropdown
 end
 
-local function createToggleButton(text, callback)
-    local button = Instance.new("TextButton")
-    button.Size = UDim2.new(0.9, 0, 0, 30)
-    button.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
-    button.TextColor3 = Color3.fromRGB(255, 255, 255)
-    button.Text = text
-    button.Font = Enum.Font.SourceSansBold
-    button.TextSize = 16
-
-    local buttonCorner = Instance.new("UICorner", button)
-    buttonCorner.CornerRadius = UDim.new(0, 8)
-
-    button.MouseButton1Click:Connect(callback)
-
-    return button
+local radios = {}
+for _, child in ipairs(workspace:GetChildren()) do
+    if child:FindFirstChild("chat") then
+        table.insert(radios, child.Name)
+    end
 end
 
-local selectedRadio = "RadioCOR"
-local radios = { "RadioCOR", "RadioFE" }
+local selectedRadio = radios[1] or "RadioCOR"
 
 local radioLabel = createLabel("Select Radio:")
 radioLabel.Parent = scrollingFrame
@@ -141,12 +127,6 @@ local radioDropdown = createDropdown(radios, selectedRadio, function(selected)
     selectedRadio = selected
 end)
 radioDropdown.Parent = scrollingFrame
-
-local nicknameLabel = createLabel("Nickname:")
-nicknameLabel.Parent = scrollingFrame
-
-local nicknameInput = createInputBox("Enter nickname")
-nicknameInput.Parent = scrollingFrame
 
 local messageLabel = createLabel("Message:")
 messageLabel.Parent = scrollingFrame
@@ -161,8 +141,19 @@ local countInput = createInputBox("Enter count")
 countInput.Text = "1"
 countInput.Parent = scrollingFrame
 
-local sendButton = createToggleButton("Send Messages", function()
-    local nickname = nicknameInput.Text == "" and "Anonim" or nicknameInput.Text
+local sendButton = Instance.new("TextButton")
+sendButton.Size = UDim2.new(0.9, 0, 0, 30)
+sendButton.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+sendButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+sendButton.Text = "Send Messages"
+sendButton.Font = Enum.Font.SourceSansBold
+sendButton.TextSize = 16
+
+local sendButtonCorner = Instance.new("UICorner", sendButton)
+sendButtonCorner.CornerRadius = UDim.new(0, 8)
+sendButton.Parent = scrollingFrame
+
+sendButton.MouseButton1Click:Connect(function()
     local message = messageInput.Text
     local count = tonumber(countInput.Text) or 1
 
@@ -174,14 +165,13 @@ local sendButton = createToggleButton("Send Messages", function()
     for i = 1, count do
         local radio = workspace:FindFirstChild(selectedRadio)
         if radio then
-            radio.chat:FireServer(nickname .. ": " .. message)
+            radio.chat:FireServer("Anonim: " .. message)
         else
             warn("Radio not found: " .. selectedRadio)
         end
         wait(0.5)
     end
 end)
-sendButton.Parent = scrollingFrame
 
 closeButton.MouseButton1Click:Connect(function()
     gui:Destroy()
