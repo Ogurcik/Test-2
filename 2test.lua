@@ -96,10 +96,19 @@ local function createDropdown(options, default, callback)
     local dropdownCorner = Instance.new("UICorner", dropdown)
     dropdownCorner.CornerRadius = UDim.new(0, 8)
 
+    local isOpen = false
+    local selected = default
+
     dropdown.MouseButton1Click:Connect(function()
-        local selected = options[math.random(1, #options)]
-        dropdown.Text = "Select: " .. selected
-        callback(selected)
+        if isOpen then
+            isOpen = false
+            dropdown.Text = "Select: " .. selected
+        else
+            isOpen = true
+            selected = options[math.random(1, #options)]
+            dropdown.Text = "Selected: " .. selected
+            callback(selected)
+        end
     end)
 
     return dropdown
