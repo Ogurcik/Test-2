@@ -194,27 +194,3 @@ end)
 game.Players.LocalPlayer.CharacterAdded:Connect(function()
     b.Visible = true
 end)
-local resizeButton = Instance.new("TextButton")
-resizeButton.Parent = b
-resizeButton.Size = UDim2.new(0, 40, 0, 40)
-resizeButton.Position = UDim2.new(1, -40, 0, 0)
-resizeButton.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
-resizeButton.Text = "+"
-resizeButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-resizeButton.Font = Enum.Font.SourceSans
-resizeButton.TextSize = 24
-resizeButton.TextButtonStyle = Enum.ButtonStyle.RobloxButton
-
-local isExpanded = false
-
-resizeButton.MouseButton1Click:Connect(function()
-    if not isExpanded then
-        b.Size = UDim2.new(0, 600, 0, 600)
-        resizeButton.Text = "-"
-        isExpanded = true
-    else
-        b.Size = UDim2.new(0, 400, 0, 400)
-        resizeButton.Text = "+"
-        isExpanded = false
-    end
-end)
