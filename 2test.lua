@@ -73,124 +73,53 @@ h.TextColor3 = Color3.fromRGB(200, 200, 200)
 h.Font = Enum.Font.SourceSans
 h.TextSize = 18
 h.TextXAlignment = Enum.TextXAlignment.Center
-
-local teleportButton = createButton(b, UDim2.new(0.1, 0, 0.6, 0), UDim2.new(0.35, -10, 0, 40), "Teleports", Color3.fromRGB(80, 80, 80), Color3.fromRGB(255, 255, 255))
-local ammoHackButton = createButton(b, UDim2.new(0.55, 10, 0.6, 0), UDim2.new(0.35, -10, 0, 40), "AmmoHack", Color3.fromRGB(80, 80, 80), Color3.fromRGB(255, 255, 255))
-local hitboxButton = createButton(b, UDim2.new(0.1, 0, 0.7, 10), UDim2.new(0.8, 0, 0, 40), "Hitbox Expander", Color3.fromRGB(80, 80, 80), Color3.fromRGB(255, 255, 255))
-local corArmorButton = createButton(b, UDim2.new(0.1, 0, 0.8, 10), UDim2.new(0.8, 0, 0, 40), "CorArmor", Color3.fromRGB(80, 80, 80), Color3.fromRGB(255, 255, 255))
-local radioSpamButton = createButton(b, UDim2.new(0.1, 0, 0.9, 10), UDim2.new(0.8, 0, 0, 40), "RadioSpam", Color3.fromRGB(80, 80, 80), Color3.fromRGB(255, 255, 255))
-local aimEspButton = createButton(b, UDim2.new(0.1, 0, 1, 10), UDim2.new(0.8, 0, 0, 40), "Aim & Esp", Color3.fromRGB(80, 80, 80), Color3.fromRGB(255, 255, 255))
-
-local isFrozen = false
-local defaultSpeed = 16
-local speed = defaultSpeed
-local moveConnection
-
-local function toggleFreeze()
-    local character = LocalPlayer.Character
-    if not character then return end
-    local humanoidRootPart = character:FindFirstChild("HumanoidRootPart")
-    local humanoid = character:FindFirstChildOfClass("Humanoid")
-    if humanoidRootPart and humanoid then
-        if not isFrozen then
-            humanoidRootPart.Anchored = true
-            moveConnection = l.RenderStepped:Connect(function()
-                if isFrozen then
-                    humanoidRootPart.CFrame = humanoidRootPart.CFrame + (humanoid.MoveDirection * speed / 60)
-                end
-            end)
-            isFrozen = true
-            e.Text = "Unfreeze"
-        else
-            humanoidRootPart.Anchored = false
-            humanoid.WalkSpeed = defaultSpeed
-            isFrozen = false
-            e.Text = "Freeze"
-            if moveConnection then moveConnection:Disconnect() end
-        end
-    end
-end
-
-local function updateSpeed()
-    local newSpeed = tonumber(g.Text)
-    if newSpeed and newSpeed > 0 then
-        speed = newSpeed
-        f.Text = "Speed: " .. tostring(speed)
+local function toggleMenu()
+    if b.Visible then
+        b.Visible = false
     else
-        g.Text = tostring(speed)
+        b.Visible = true
     end
 end
 
-g.FocusLost:Connect(function(enterPressed)
-    if enterPressed then
-        updateSpeed()
-    end
-end)
-
-local dragging, dragStart, startPos
-local dragConnection, changeConnection
-
-local function updateDrag(input)
-    local delta = input.Position - dragStart
-    b.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
-end
-
-b.InputBegan:Connect(function(input)
-    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-        dragging = true
-        dragStart = input.Position
-        startPos = b.Position
-        changeConnection = input.Changed:Connect(function()
-            if input.UserInputState == Enum.UserInputState.End then
-                dragging = false
-                if changeConnection then changeConnection:Disconnect() end
-            end
-        end)
-    end
-end)
-
-b.InputChanged:Connect(function(input)
-    if dragging and (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then
-        updateDrag(input)
-    end
-end)
-
-c.MouseButton1Click:Connect(function()
-    b.Visible = not b.Visible
-end)
+c.MouseButton1Click:Connect(toggleMenu)
 
 d.MouseButton1Click:Connect(function()
     b.Visible = false
 end)
 
 e.MouseButton1Click:Connect(function()
-    toggleFreeze()
+    -- Функция для замораживания/размораживания персонажа
+    local character = LocalPlayer.Character
+    if character and character:FindFirstChild("Humanoid") then
+        local humanoid = character.Humanoid
+        if humanoid.PlatformStand then
+            humanoid.PlatformStand = false
+        else
+            humanoid.PlatformStand = true
+        end
+    end
 end)
 
-teleportButton.MouseButton1Click:Connect(function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/Ogurcik222/Tph.VR.Sc/refs/heads/main/teleporkana.lua"))()
+g.FocusLost:Connect(function(enterPressed)
+    if enterPressed then
+        local speed = tonumber(g.Text)
+        if speed and speed > 0 then
+            LocalPlayer.Character.Humanoid.WalkSpeed = speed
+        else
+            g.Text = "16"
+        end
+    end
 end)
 
-ammoHackButton.MouseButton1Click:Connect(function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/Ogurcik222/Ammo.Vr.SC/refs/heads/main/Ammocheatscript.lua"))()
+-- Обновление скорости по умолчанию
+LocalPlayer.CharacterAdded:Connect(function(character)
+    local humanoid = character:WaitForChild("Humanoid")
+    humanoid.WalkSpeed = 16
 end)
 
-hitboxButton.MouseButton1Click:Connect(function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/Vcsk/RobloxScripts/main/HitboxExpander.lua"))()
-end)
-
-corArmorButton.MouseButton1Click:Connect(function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/Ogurcik222/CorArmorAN-Sc/refs/heads/main/CorArmor.lua"))()
-end)
-
-radioSpamButton.MouseButton1Click:Connect(function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/Ogurcik222/Radiochat-spam.vrk/refs/heads/main/radiospam.lua"))()
-end)
-
-aimEspButton.MouseButton1Click:Connect(function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/tbao143/thaibao/main/TbaoHubRivals"))()
-end)
-
-game.Players.LocalPlayer.CharacterAdded:Connect(function()
-    b.Visible = true
+l.Heartbeat:Connect(function()
+    if b.Visible then
+        -- Обновление позиции/размера кнопки в зависимости от размеров экрана
+        b.Position = UDim2.new(0.5, -b.Size.X.Offset / 2, 0.5, -b.Size.Y.Offset / 2)
+    end
 end)
