@@ -34,7 +34,7 @@ end
 b.Parent = a
 b.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
 b.Position = UDim2.new(0.5, -150, 0.5, -150)
-b.Size = UDim2.new(0, 300, 0, 300)
+b.Size = UDim2.new(0, 300, 0, 230)  -- Уменьшено пространство, уменьшена высота
 b.Visible = true
 b.BorderSizePixel = 0
 i:Clone().Parent = b
@@ -54,8 +54,8 @@ local e = createButton(b, UDim2.new(0.5, -50, 0, 20), UDim2.new(0, 100, 0, 40), 
 
 f.Parent = b
 f.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
-f.Position = UDim2.new(0.1, 0, 0.3, 0)
-f.Size = UDim2.new(0.8, 0, 0, 30)
+f.Position = UDim2.new(0.1, 0, 0.2, 0)  -- Уменьшены отступы
+f.Size = UDim2.new(0.8, 0, 0, 25)  -- Уменьшен размер метки
 f.Text = "Speed:"
 f.TextColor3 = Color3.fromRGB(255, 255, 255)
 f.Font = Enum.Font.SourceSans
@@ -63,8 +63,8 @@ f.TextSize = 18
 
 g.Parent = b
 g.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
-g.Position = UDim2.new(0.1, 0, 0.4, 0)
-g.Size = UDim2.new(0.8, 0, 0, 30)
+g.Position = UDim2.new(0.1, 0, 0.3, 0)  -- Уменьшены отступы
+g.Size = UDim2.new(0.8, 0, 0, 25)  -- Уменьшен размер поля ввода
 g.Text = "16"
 g.ClearTextOnFocus = true
 g.PlaceholderText = "Enter Speed"
