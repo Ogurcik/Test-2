@@ -1,133 +1,158 @@
--- Создаем меню, которое будет отображаться на экране
-local ScreenGui = Instance.new("ScreenGui")
-ScreenGui.Name = "CustomMenu"  -- Даем имя нашему меню
-ScreenGui.ResetOnSpawn = false  -- Меню не будет сбрасываться при перерождении игрока
-ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")  -- Привязываем меню к экрану игрока
+local a = Instance.new("ScreenGui")
+local b = Instance.new("Frame")
+local c = Instance.new("TextButton")
+local d = Instance.new("TextButton")
+local e = Instance.new("TextButton")
+local f = Instance.new("TextButton")
+local g = Instance.new("TextButton")
+local h = Instance.new("TextButton")
+local i = Instance.new("TextButton")
+local j = Instance.new("TextLabel")
+local k = Instance.new("TextBox")
+local l = Instance.new("UICorner")
+local m = Instance.new("UIStroke")
+local n = game:GetService("RunService")
+local LocalPlayer = game:GetService("Players").LocalPlayer
 
--- Основной контейнер для всех элементов меню
-local MainFrame = Instance.new("Frame")
-MainFrame.Size = UDim2.new(0, 500, 0, 450)  -- Размер контейнера (ширина 500, высота 450)
-MainFrame.Position = UDim2.new(0.5, -250, 0.5, -225)  -- Позиция по центру экрана
-MainFrame.BackgroundColor3 = Color3.fromRGB(30, 0, 0)  -- Темно-красный цвет фона контейнера
-MainFrame.BorderSizePixel = 0  -- Без границы
-MainFrame.Parent = ScreenGui  -- Добавляем контейнер в меню
+a.Parent = LocalPlayer:WaitForChild("PlayerGui")
+a.Name = "MainMenuGui"
+a.ResetOnSpawn = false
 
--- Добавляем светящийся эффект (RGB по краям)
-local BorderEffect = Instance.new("Frame")
-BorderEffect.Size = UDim2.new(1, 0, 1, 0)  -- Заполняет весь фрейм
-BorderEffect.Position = UDim2.new(0, 0, 0, 0)  -- Позиция по краям
-BorderEffect.BackgroundColor3 = Color3.fromRGB(255, 0, 0)  -- Красный цвет для подсветки
-BorderEffect.BorderSizePixel = 0  -- Без границы
-BorderEffect.Parent = MainFrame  -- Добавляем в основной фрейм
+l.CornerRadius = UDim.new(0, 12)
+m.Color = Color3.new(0, 0, 0)
+m.Thickness = 2
 
--- Используем UIGradient для плавного перехода RGB
-local Gradient = Instance.new("UIGradient")
-Gradient.Color = ColorSequence.new(
-    Color3.fromRGB(255, 0, 0),  -- Красный цвет
-    Color3.fromRGB(255, 100, 100)  -- Светлый красный
-)
-Gradient.Parent = BorderEffect  -- Добавляем градиент к эффекту подсветки
-
--- Закругленные углы для контейнера
-local UICorner = Instance.new("UICorner")
-UICorner.CornerRadius = UDim.new(0, 16)  -- Радиус закругления углов
-UICorner.Parent = MainFrame  -- Добавляем закругления к контейнеру
-
--- Заголовок в верхней части меню
-local Title = Instance.new("TextLabel")
-Title.Size = UDim2.new(1, 0, 0, 50)  -- Размер заголовка
-Title.Position = UDim2.new(0, 0, 0, 0)  -- Позиция заголовка
-Title.Text = "Virus Roleplay V1.1"  -- Текст заголовка
-Title.Font = Enum.Font.GothamBold  -- Шрифт заголовка
-Title.TextSize = 24  -- Размер шрифта
-Title.TextColor3 = Color3.fromRGB(255, 255, 255)  -- Белый цвет текста
-Title.BackgroundColor3 = Color3.fromRGB(30, 0, 0)  -- Цвет фона заголовка
-Title.BorderSizePixel = 0  -- Без границы
-Title.Parent = MainFrame  -- Добавляем заголовок в контейнер
-
--- Создаем место для вкладок
-local TabsFrame = Instance.new("Frame")
-TabsFrame.Size = UDim2.new(1, -20, 0, 50)  -- Размер области для вкладок
-TabsFrame.Position = UDim2.new(0, 10, 0.2, 0)  -- Позиция области для вкладок
-TabsFrame.BackgroundTransparency = 1  -- Делаем фрейм невидимым
-TabsFrame.BorderSizePixel = 0  -- Без границы
-TabsFrame.Parent = MainFrame  -- Добавляем область для вкладок в контейнер
-
--- Размещение кнопок вкладок по горизонтали
-local TabsLayout = Instance.new("UIListLayout")
-TabsLayout.FillDirection = Enum.FillDirection.Horizontal  -- Кнопки будут расположены горизонтально
-TabsLayout.SortOrder = Enum.SortOrder.LayoutOrder  -- Порядок кнопок
-TabsLayout.Padding = UDim.new(0, 10)  -- Отступ между кнопками
-TabsLayout.Parent = TabsFrame  -- Добавляем в область для вкладок
-
--- Список вкладок
-local Tabs = {"Главная", "Дополнительное", "Настройки"}
-local Buttons = {}  -- Список для кнопок вкладок
-
--- Создаем кнопки для каждой вкладки
-for _, tabName in ipairs(Tabs) do
-    local TabButton = Instance.new("TextButton")
-    TabButton.Size = UDim2.new(0, 120, 0, 40)  -- Размер кнопки (ширина 120)
-    TabButton.Text = tabName  -- Текст на кнопке (название вкладки)
-    TabButton.Font = Enum.Font.Gotham  -- Шрифт на кнопке
-    TabButton.TextSize = 18  -- Размер шрифта
-    TabButton.TextColor3 = Color3.fromRGB(255, 255, 255)  -- Белый цвет текста
-    TabButton.BackgroundColor3 = Color3.fromRGB(86, 1, 5)  -- Цвет фона кнопки
-    TabButton.BorderSizePixel = 0  -- Без границы
-    TabButton.Parent = TabsFrame  -- Добавляем кнопку в область вкладок
-
-    -- Закругленные углы для кнопок
-    local ButtonCorner = Instance.new("UICorner")
-    ButtonCorner.CornerRadius = UDim.new(0, 8)  -- Радиус закругления углов
-    ButtonCorner.Parent = TabButton  -- Добавляем закругления к кнопке
-
-    Buttons[tabName] = TabButton  -- Добавляем кнопку в список
+local function createButton(parent, position, size, text, bgColor, textColor)
+    local button = Instance.new("TextButton")
+    button.Parent = parent
+    button.Position = position
+    button.Size = size
+    button.Text = text
+    button.BackgroundColor3 = bgColor
+    button.TextColor3 = textColor
+    button.Font = Enum.Font.SourceSans
+    button.TextSize = 24
+    l:Clone().Parent = button
+    m:Clone().Parent = button
+    return button
 end
 
--- Функция для переключения между вкладками
-local function SwitchTab(tabName)
-    -- Скрываем все вкладки
-    for _, child in pairs(MainFrame:GetChildren()) do
-        if child:IsA("Frame") and child.Name ~= "Title" and child.Name ~= "TabsFrame" then
-            child.Visible = false  -- Скрываем вкладку
+b.Parent = a
+b.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+b.Position = UDim2.new(0.5, -200, 0.5, -200)
+b.Size = UDim2.new(0, 400, 0, 400)
+b.Visible = false
+b.BorderSizePixel = 0
+l:Clone().Parent = b
+
+local mainTab = createButton(b, UDim2.new(0, 0, 0, 0), UDim2.new(0, 100, 0, 50), "Главное", Color3.fromRGB(60, 60, 60), Color3.fromRGB(255, 255, 255))
+local teleportTab = createButton(b, UDim2.new(0, 0, 0, 60), UDim2.new(0, 100, 0, 50), "Телепортации", Color3.fromRGB(60, 60, 60), Color3.fromRGB(255, 255, 255))
+local radioSpamTab = createButton(b, UDim2.new(0, 0, 0, 120), UDim2.new(0, 100, 0, 50), "РадиоСпам", Color3.fromRGB(60, 60, 60), Color3.fromRGB(255, 255, 255))
+local ammoHackTab = createButton(b, UDim2.new(0, 0, 0, 180), UDim2.new(0, 100, 0, 50), "АммоХак", Color3.fromRGB(60, 60, 60), Color3.fromRGB(255, 255, 255))
+local additionalTab = createButton(b, UDim2.new(0, 0, 0, 240), UDim2.new(0, 100, 0, 50), "Дополнительно", Color3.fromRGB(60, 60, 60), Color3.fromRGB(255, 255, 255))
+
+j.Parent = b
+j.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+j.Position = UDim2.new(0.1, 0, 0.2, 0)
+j.Size = UDim2.new(0.8, 0, 0, 30)
+j.Text = "Скорость:"
+j.TextColor3 = Color3.fromRGB(255, 255, 255)
+j.Font = Enum.Font.SourceSans
+j.TextSize = 24
+
+k.Parent = b
+k.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
+k.Position = UDim2.new(0.1, 0, 0.3, 0)
+k.Size = UDim2.new(0.8, 0, 0, 30)
+k.Text = "16"
+k.ClearTextOnFocus = true
+k.PlaceholderText = "Введите скорость"
+k.TextColor3 = Color3.fromRGB(255, 255, 255)
+k.Font = Enum.Font.SourceSans
+k.TextSize = 24
+l:Clone().Parent = k
+m:Clone().Parent = k
+
+local isFrozen = false
+local defaultSpeed = 16
+local speed = defaultSpeed
+local moveConnection
+
+local function toggleFreeze()
+    local character = LocalPlayer.Character
+    if not character then return end
+    local humanoidRootPart = character:FindFirstChild("HumanoidRootPart")
+    local humanoid = character:FindFirstChildOfClass("Humanoid")
+    if humanoidRootPart and humanoid then
+        if not isFrozen then
+            humanoidRootPart.Anchored = true
+            moveConnection = n.RenderStepped:Connect(function()
+                if isFrozen then
+                    humanoidRootPart.CFrame = humanoidRootPart.CFrame + (humanoid.MoveDirection * speed / 60)
+                end
+            end)
+            isFrozen = true
+            e.Text = "Разморозить"
+        else
+            humanoidRootPart.Anchored = false
+            humanoid.WalkSpeed = defaultSpeed
+            isFrozen = false
+            e.Text = "Заморозить"
+            if moveConnection then moveConnection:Disconnect() end
         end
     end
-    
-    -- Показываем только выбранную вкладку
-    if MainFrame:FindFirstChild(tabName) then
-        MainFrame[tabName].Visible = true  -- Отображаем нужную вкладку
+end
+
+local function updateSpeed()
+    local newSpeed = tonumber(k.Text)
+    if newSpeed and newSpeed > 0 then
+        speed = newSpeed
+        j.Text = "Скорость: " .. tostring(speed)
+    else
+        k.Text = tostring(speed)
     end
 end
 
--- Генерация содержимого для вкладок
-for _, tabName in ipairs(Tabs) do
-    local TabContent = Instance.new("Frame")
-    TabContent.Name = tabName  -- Название фрейма для вкладки
-    TabContent.Size = UDim2.new(1, -20, 1, -80)  -- Размер содержимого вкладки
-    TabContent.Position = UDim2.new(0, 10, 0, 60)  -- Позиция для содержимого
-    TabContent.Visible = false  -- Сначала вкладка скрыта
-    TabContent.BackgroundColor3 = Color3.fromRGB(30, 0, 0)  -- Цвет фона содержимого
-    TabContent.BorderSizePixel = 0  -- Без границы
-    TabContent.Parent = MainFrame  -- Добавляем содержимое вкладки в основной фрейм
-    
-    -- Метка с текстом для содержимого вкладки
-    local Label = Instance.new("TextLabel")
-    Label.Size = UDim2.new(1, 0, 0, 30)  -- Размер метки
-    Label.Position = UDim2.new(0, 0, 0, 10)  -- Позиция метки
-    Label.Text = "Содержимое: " .. tabName  -- Текст с названием вкладки
-    Label.Font = Enum.Font.Gotham  -- Шрифт текста
-    Label.TextSize = 18  -- Размер шрифта
-    Label.TextColor3 = Color3.fromRGB(200, 200, 200)  -- Цвет текста
-    Label.BackgroundTransparency = 1  -- Прозрачный фон
-    Label.Parent = TabContent  -- Добавляем метку в содержимое вкладки
-end
+k.FocusLost:Connect(function(enterPressed)
+    if enterPressed then
+        updateSpeed()
+    end
+end)
 
--- Связываем кнопки с функцией переключения вкладок
-for tabName, button in pairs(Buttons) do
-    button.MouseButton1Click:Connect(function()
-        SwitchTab(tabName)  -- Переключаем на выбранную вкладку
+c.MouseButton1Click:Connect(function()
+    b.Visible = not b.Visible
+end)
+
+mainTab.MouseButton1Click:Connect(function()
+    toggleFreeze()
+end)
+
+teleportTab.MouseButton1Click:Connect(function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Ogurcik222/Tph.VR.Sc/refs/heads/main/teleporkana.lua"))()
+end)
+
+radioSpamTab.MouseButton1Click:Connect(function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Ogurcik222/Radiochat-spam.vrk/refs/heads/main/radiospam.lua"))()
+end)
+
+ammoHackTab.MouseButton1Click:Connect(function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Ogurcik222/Ammo.Vr.SC/refs/heads/main/Ammocheatscript.lua"))()
+end)
+
+additionalTab.MouseButton1Click:Connect(function()
+    local additionalFrame = Instance.new("Frame")
+    additionalFrame.Parent = b
+    additionalFrame.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+    additionalFrame.Size = UDim2.new(0, 350, 0, 160)
+    additionalFrame.Position = UDim2.new(0, 0, 0.5, 0)
+    local aimEspButton = createButton(additionalFrame, UDim2.new(0.1, 0, 0, 0), UDim2.new(0.8, 0, 0, 40), "Aim&Esp", Color3.fromRGB(80, 80, 80), Color3.fromRGB(255, 255, 255))
+    local hitboxButton = createButton(additionalFrame, UDim2.new(0.1, 0, 0, 50), UDim2.new(0.8, 0, 0, 40), "Hitbox Expander", Color3.fromRGB(80, 80, 80), Color3.fromRGB(255, 255, 255))
+
+    aimEspButton.MouseButton1Click:Connect(function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/tbao143/thaibao/main/TbaoHubRivals"))()
     end)
-end
 
--- По умолчанию показываем первую вкладку
-SwitchTab("Главная")
+    hitboxButton.MouseButton1Click:Connect(function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Vcsk/RobloxScripts/main/HitboxExpander.lua"))()
+    end)
+end)
