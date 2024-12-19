@@ -3,6 +3,7 @@ local b = Instance.new("Frame")
 local f = Instance.new("TextLabel")
 local g = Instance.new("TextBox")
 local h = Instance.new("TextButton")
+local closeButton = Instance.new("TextButton")
 local i = Instance.new("UICorner")
 local j = Instance.new("UIStroke")
 local l = game:GetService("RunService")
@@ -12,10 +13,10 @@ a.Parent = LocalPlayer:WaitForChild("PlayerGui")
 a.Name = "MainMenuGui"
 
 i.CornerRadius = UDim.new(0, 12)
-j.Color = Color3.new(0, 0, 0)
+j.Color = Color3.fromRGB(0, 0, 0)
 j.Thickness = 2
 
-local function createButton(parent, position, size, text, bgColor, textColor)
+local function createButton(parent, position, size, text, bgColor, textColor, fontSize)
     local button = Instance.new("TextButton")
     button.Parent = parent
     button.Position = position
@@ -23,28 +24,38 @@ local function createButton(parent, position, size, text, bgColor, textColor)
     button.Text = text
     button.BackgroundColor3 = bgColor
     button.TextColor3 = textColor
-    button.Font = Enum.Font.SourceSans
-    button.TextSize = 24
+    button.Font = Enum.Font.SourceSansBold
+    button.TextSize = fontSize
     i:Clone().Parent = button
     j:Clone().Parent = button
     return button
 end
 
 b.Parent = a
-b.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
-b.Position = UDim2.new(0.5, -200, 0.5, -200)
-b.Size = UDim2.new(0, 250, 0, 250)
+b.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+b.Position = UDim2.new(0.5, -150, 0.5, -150)
+b.Size = UDim2.new(0, 300, 0, 300)
 b.Visible = true
 b.BorderSizePixel = 0
 i:Clone().Parent = b
 
-local d = createButton(b, UDim2.new(0.5, -50, 1, -40), UDim2.new(0, 80, 0, 30), "Close", Color3.fromRGB(220, 60, 60), Color3.fromRGB(255, 255, 255))
-local e = createButton(b, UDim2.new(0.5, -50, 0, 20), UDim2.new(0, 80, 0, 30), "Freeze", Color3.fromRGB(80, 80, 80), Color3.fromRGB(255, 255, 255))
+closeButton.Parent = b
+closeButton.Position = UDim2.new(1, -35, 0, 5)
+closeButton.Size = UDim2.new(0, 30, 0, 30)
+closeButton.Text = "X"
+closeButton.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+closeButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+closeButton.Font = Enum.Font.SourceSansBold
+closeButton.TextSize = 20
+i:Clone().Parent = closeButton
+j:Clone().Parent = closeButton
+
+local e = createButton(b, UDim2.new(0.5, -50, 0, 20), UDim2.new(0, 100, 0, 40), "Freeze", Color3.fromRGB(90, 90, 90), Color3.fromRGB(255, 255, 255), 18)
 
 f.Parent = b
 f.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
-f.Position = UDim2.new(0.1, 0, 0.4, 0)
-f.Size = UDim2.new(0.8, 0, 0, 20)
+f.Position = UDim2.new(0.1, 0, 0.3, 0)
+f.Size = UDim2.new(0.8, 0, 0, 30)
 f.Text = "Speed:"
 f.TextColor3 = Color3.fromRGB(255, 255, 255)
 f.Font = Enum.Font.SourceSans
@@ -52,8 +63,8 @@ f.TextSize = 18
 
 g.Parent = b
 g.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
-g.Position = UDim2.new(0.1, 0, 0.5, 0)
-g.Size = UDim2.new(0.8, 0, 0, 20)
+g.Position = UDim2.new(0.1, 0, 0.4, 0)
+g.Size = UDim2.new(0.8, 0, 0, 30)
 g.Text = "16"
 g.ClearTextOnFocus = true
 g.PlaceholderText = "Enter Speed"
@@ -62,18 +73,6 @@ g.Font = Enum.Font.SourceSans
 g.TextSize = 18
 i:Clone().Parent = g
 j:Clone().Parent = g
-
-local closeButton = Instance.new("TextButton")
-closeButton.Parent = b
-closeButton.Size = UDim2.new(0, 30, 0, 30)
-closeButton.Position = UDim2.new(1, -40, 0, 10)
-closeButton.Text = "X"
-closeButton.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
-closeButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-closeButton.Font = Enum.Font.SourceSans
-closeButton.TextSize = 24
-i:Clone().Parent = closeButton
-j:Clone().Parent = closeButton
 
 local isFrozen = false
 local defaultSpeed = 16
@@ -152,14 +151,10 @@ b.InputChanged:Connect(function(input)
     end
 end)
 
-d.MouseButton1Click:Connect(function()
+closeButton.MouseButton1Click:Connect(function()
     b.Visible = false
 end)
 
 e.MouseButton1Click:Connect(function()
     toggleFreeze()
-end)
-
-closeButton.MouseButton1Click:Connect(function()
-    b.Visible = false
 end)
