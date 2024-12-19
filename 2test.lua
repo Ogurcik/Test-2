@@ -1,202 +1,128 @@
-local a = Instance.new("ScreenGui")
-local b = Instance.new("Frame")
-local f = Instance.new("TextLabel")
-local g = Instance.new("TextBox")
-local h = Instance.new("TextButton")
-local i = Instance.new("UICorner")
-local j = Instance.new("UIStroke")
-local l = game:GetService("RunService")
-local LocalPlayer = game:GetService("Players").LocalPlayer
+-- Создаем меню, которое будет отображаться на экране
+local ScreenGui = Instance.new("ScreenGui")
+ScreenGui.Name = "CustomMenu"  -- Даем имя нашему меню
+ScreenGui.ResetOnSpawn = false  -- Меню не будет сбрасываться при перерождении игрока
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")  -- Привязываем меню к экрану игрока
 
-a.Parent = LocalPlayer:WaitForChild("PlayerGui")
-a.Name = "MainMenuGui"
-a.ResetOnSpawn = false
+-- Основной контейнер для всех элементов меню
+local MainFrame = Instance.new("Frame")
+MainFrame.Size = UDim2.new(0, 401, 0, 357)  -- Размер контейнера (ширина 401, высота 357)
+MainFrame.Position = UDim2.new(0, 359, 0, 238)  -- Позиция по центру экрана
+MainFrame.BackgroundColor3 = Color3.fromRGB(29, 29, 29)  -- Цвет фона контейнера
+MainFrame.BorderSizePixel = 0  -- Без границы
+MainFrame.Parent = ScreenGui  -- Добавляем контейнер в меню
 
-i.CornerRadius = UDim.new(0, 12)
-j.Color = Color3.new(0, 0, 0)
-j.Thickness = 2
+-- Закругленные углы для контейнера
+local UICorner = Instance.new("UICorner")
+UICorner.CornerRadius = UDim.new(0, 8)  -- Радиус закругления углов
+UICorner.Parent = MainFrame  -- Добавляем закругления к контейнеру
 
-local function createButton(parent, position, size, text, bgColor, textColor)
-    local button = Instance.new("TextButton")
-    button.Parent = parent
-    button.Position = position
-    button.Size = size
-    button.Text = text
-    button.BackgroundColor3 = bgColor
-    button.TextColor3 = textColor
-    button.Font = Enum.Font.SourceSans
-    button.TextSize = 24
-    i:Clone().Parent = button
-    j:Clone().Parent = button
-    return button
+-- Заголовок в верхней части меню
+local Title = Instance.new("TextLabel")
+Title.Size = UDim2.new(1, 0, 0, 40)  -- Размер заголовка
+Title.Position = UDim2.new(0, 0, 0, 0)  -- Позиция заголовка
+Title.Text = "Virus Roleplay V1.1"  -- Текст заголовка
+Title.Font = Enum.Font.GothamBold  -- Шрифт заголовка
+Title.TextSize = 21  -- Размер шрифта
+Title.TextColor3 = Color3.fromRGB(255, 255, 255)  -- Цвет текста белый
+Title.BackgroundColor3 = Color3.fromRGB(30, 30, 30)  -- Цвет фона заголовка
+Title.BorderSizePixel = 0  -- Без границы
+Title.Parent = MainFrame  -- Добавляем заголовок в контейнер
+
+-- Создаем место для вкладок
+local TabsFrame = Instance.new("Frame")
+TabsFrame.Size = UDim2.new(1, 0, 0, 50)  -- Размер области для вкладок
+TabsFrame.Position = UDim2.new(0, 10, 0.25, -50)  -- Позиция области для вкладок, немного вправо
+TabsFrame.BackgroundColor3 = Color3.fromRGB(35, 35, 35)  -- Цвет фона области
+TabsFrame.BorderSizePixel = 0  -- Без границы
+TabsFrame.Parent = MainFrame  -- Добавляем область для вкладок в контейнер
+
+-- Размещение кнопок вкладок по горизонтали
+local TabsLayout = Instance.new("UIListLayout")
+TabsLayout.FillDirection = Enum.FillDirection.Horizontal  -- Кнопки будут расположены горизонтально
+TabsLayout.SortOrder = Enum.SortOrder.LayoutOrder  -- Порядок кнопок
+TabsLayout.Padding = UDim.new(0, 10)  -- Отступ между кнопками
+TabsLayout.Parent = TabsFrame  -- Добавляем в область для вкладок
+
+-- Контейнер для содержимого вкладок
+local ContentFrame = Instance.new("Frame")
+ContentFrame.Size = UDim2.new(1, -20, 1, -100)  -- Размер для содержимого вкладок
+ContentFrame.Position = UDim2.new(0, 10, 0, 100)  -- Позиция для содержимого
+ContentFrame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)  -- Цвет фона для содержимого
+ContentFrame.BorderSizePixel = 0  -- Без границы
+ContentFrame.Parent = MainFrame  -- Добавляем в основной контейнер
+
+-- Закругленные углы для содержимого
+local ContentCorner = Instance.new("UICorner")
+ContentCorner.CornerRadius = UDim.new(0, 8)  -- Радиус углов
+ContentCorner.Parent = ContentFrame  -- Добавляем закругления для содержимого
+
+-- Список вкладок
+local Tabs = {"Главная", "Дополнительное", "Настройки"}
+local Buttons = {}  -- Список для кнопок вкладок
+
+-- Создаем кнопки для каждой вкладки
+for _, tabName in ipairs(Tabs) do
+    local TabButton = Instance.new("TextButton")
+    TabButton.Size = UDim2.new(0, 120, 0, 30)  -- Размер кнопки (чуть больше для комфортного текста)
+    TabButton.Text = tabName  -- Текст на кнопке (название вкладки)
+    TabButton.Font = Enum.Font.Gotham  -- Шрифт на кнопке
+    TabButton.TextSize = 18  -- Размер шрифта
+    TabButton.TextColor3 = Color3.fromRGB(255, 255, 255)  -- Белый цвет текста
+    TabButton.BackgroundColor3 = Color3.fromRGB(86, 1, 5)  -- Цвет фона кнопки
+    TabButton.BorderSizePixel = 0  -- Без границы
+    TabButton.Parent = TabsFrame  -- Добавляем кнопку в область вкладок
+
+    -- Закругленные углы для кнопок
+    local ButtonCorner = Instance.new("UICorner")
+    ButtonCorner.CornerRadius = UDim.new(0, 8)  -- Радиус закругления углов
+    ButtonCorner.Parent = TabButton  -- Добавляем закругления к кнопке
+
+    Buttons[tabName] = TabButton  -- Добавляем кнопку в список
 end
 
-b.Parent = a
-b.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
-b.Position = UDim2.new(0.5, -200, 0.5, -200)
-b.Size = UDim2.new(0, 400, 0, 400)
-b.Visible = false
-b.BorderSizePixel = 0
-i:Clone().Parent = b
-
-local c = createButton(a, UDim2.new(0, 0, 0, 0), UDim2.new(0, 100, 0, 50), "Menu", Color3.fromRGB(60, 60, 60), Color3.fromRGB(255, 255, 255))
-local d = createButton(b, UDim2.new(0.5, -50, 1, -40), UDim2.new(0, 100, 0, 30), "Close", Color3.fromRGB(220, 60, 60), Color3.fromRGB(255, 255, 255))
-local e = createButton(b, UDim2.new(0.5, -50, 0, 20), UDim2.new(0, 100, 0, 50), "Freeze", Color3.fromRGB(80, 80, 80), Color3.fromRGB(255, 255, 255))
-
-f.Parent = b
-f.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
-f.Position = UDim2.new(0.1, 0, 0.2, 0)
-f.Size = UDim2.new(0.8, 0, 0, 30)
-f.Text = "Speed:"
-f.TextColor3 = Color3.fromRGB(255, 255, 255)
-f.Font = Enum.Font.SourceSans
-f.TextSize = 24
-
-g.Parent = b
-g.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
-g.Position = UDim2.new(0.1, 0, 0.3, 0)
-g.Size = UDim2.new(0.8, 0, 0, 30)
-g.Text = "16"
-g.ClearTextOnFocus = true
-g.PlaceholderText = "Enter Speed"
-g.TextColor3 = Color3.fromRGB(255, 255, 255)
-g.Font = Enum.Font.SourceSans
-g.TextSize = 24
-i:Clone().Parent = g
-j:Clone().Parent = g
-
-local scrollingFrame = Instance.new("ScrollingFrame")
-scrollingFrame.Parent = b
-scrollingFrame.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
-scrollingFrame.Position = UDim2.new(0, 0, 0.5, 0)
-scrollingFrame.Size = UDim2.new(0, 350, 0, 160)
-scrollingFrame.CanvasSize = UDim2.new(0, 0, 0, 250)
-scrollingFrame.ScrollBarThickness = 10
-scrollingFrame.VerticalScrollBarPosition = Enum.VerticalScrollBarPosition.Right
-
-local teleportButton = createButton(scrollingFrame, UDim2.new(0.1, 0, 0, 0), UDim2.new(0.35, -10, 0, 40), "Teleports", Color3.fromRGB(80, 80, 80), Color3.fromRGB(255, 255, 255))
-local ammoHackButton = createButton(scrollingFrame, UDim2.new(0.55, 10, 0, 0), UDim2.new(0.35, -10, 0, 40), "AmmoHack", Color3.fromRGB(80, 80, 80), Color3.fromRGB(255, 255, 255))
-local hitboxButton = createButton(scrollingFrame, UDim2.new(0.1, 0, 0, 50), UDim2.new(0.8, 0, 0, 40), "Hitbox Expander", Color3.fromRGB(80, 80, 80), Color3.fromRGB(255, 255, 255))
-local corArmorButton = createButton(scrollingFrame, UDim2.new(0.1, 0, 0, 100), UDim2.new(0.35, -10, 0, 40), "CorArmor", Color3.fromRGB(80, 80, 80), Color3.fromRGB(255, 255, 255))
-local radioSpamButton = createButton(scrollingFrame, UDim2.new(0.55, 10, 0, 100), UDim2.new(0.35, -10, 0, 40), "RadioSpam", Color3.fromRGB(80, 80, 80), Color3.fromRGB(255, 255, 255))
-local aimEspButton = createButton(scrollingFrame, UDim2.new(0.1, 0, 0, 150), UDim2.new(0.8, 0, 0, 40), "Aim&Esp", Color3.fromRGB(80, 80, 80), Color3.fromRGB(255, 255, 255))
-
-h.Parent = b
-h.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
-h.Position = UDim2.new(0.5, -100, 1, -40)
-h.Size = UDim2.new(0, 200, 0, 30)
-h.Text = "Version 1.1"
-h.TextColor3 = Color3.fromRGB(200, 200, 200)
-h.Font = Enum.Font.SourceSans
-h.TextSize = 18
-h.TextXAlignment = Enum.TextXAlignment.Center
-
-local isFrozen = false
-local defaultSpeed = 16
-local speed = defaultSpeed
-local moveConnection
-
-local function toggleFreeze()
-    local character = LocalPlayer.Character
-    if not character then return end
-    local humanoidRootPart = character:FindFirstChild("HumanoidRootPart")
-    local humanoid = character:FindFirstChildOfClass("Humanoid")
-    if humanoidRootPart and humanoid then
-        if not isFrozen then
-            humanoidRootPart.Anchored = true
-            moveConnection = l.RenderStepped:Connect(function()
-                if isFrozen then
-                    humanoidRootPart.CFrame = humanoidRootPart.CFrame + (humanoid.MoveDirection * speed / 60)
-                end
-            end)
-            isFrozen = true
-            e.Text = "Unfreeze"
-        else
-            humanoidRootPart.Anchored = false
-            humanoid.WalkSpeed = defaultSpeed
-            isFrozen = false
-            e.Text = "Freeze"
-            if moveConnection then moveConnection:Disconnect() end
+-- Функция для переключения между вкладками
+local function SwitchTab(tabName)
+    -- Скрываем все вкладки
+    for _, child in pairs(ContentFrame:GetChildren()) do
+        if child:IsA("Frame") then
+            child.Visible = false  -- Скрываем вкладку
         end
     end
-end
-
-local function updateSpeed()
-    local newSpeed = tonumber(g.Text)
-    if newSpeed and newSpeed > 0 then
-        speed = newSpeed
-        f.Text = "Speed: " .. tostring(speed)
-    else
-        g.Text = tostring(speed)
+    
+    -- Показываем только выбранную вкладку
+    if ContentFrame:FindFirstChild(tabName) then
+        ContentFrame[tabName].Visible = true  -- Отображаем нужную вкладку
     end
 end
 
-g.FocusLost:Connect(function(enterPressed)
-    if enterPressed then
-        updateSpeed()
-    end
-end)
-
-local dragging, dragStart, startPos
-local dragConnection, changeConnection
-
-local function updateDrag(input)
-    local delta = input.Position - dragStart
-    b.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+-- Генерация содержимого для вкладок
+for _, tabName in ipairs(Tabs) do
+    local TabContent = Instance.new("Frame")
+    TabContent.Name = tabName  -- Название фрейма для вкладки
+    TabContent.Size = UDim2.new(1, 0, 1, 0)  -- Размер содержимого вкладки
+    TabContent.Visible = false  -- Сначала вкладка скрыта
+    TabContent.BackgroundTransparency = 1  -- Прозрачный фон
+    TabContent.Parent = ContentFrame  -- Добавляем содержимое вкладки в область содержимого
+    
+    -- Метка с текстом для содержимого вкладки
+    local Label = Instance.new("TextLabel")
+    Label.Size = UDim2.new(1, 0, 0, 30)  -- Размер метки
+    Label.Position = UDim2.new(0, 0, 0, 10)  -- Позиция метки
+    Label.Text = "Содержимое: " .. tabName  -- Текст с названием вкладки
+    Label.Font = Enum.Font.Gotham  -- Шрифт текста
+    Label.TextSize = 18  -- Размер шрифта
+    Label.TextColor3 = Color3.fromRGB(200, 200, 200)  -- Цвет текста
+    Label.BackgroundTransparency = 1  -- Прозрачный фон
+    Label.Parent = TabContent  -- Добавляем метку в содержимое вкладки
 end
 
-b.InputBegan:Connect(function(input)
-    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-        dragging = true
-        dragStart = input.Position
-        startPos = b.Position
-        changeConnection = input.Changed:Connect(function()
-            if input.UserInputState == Enum.UserInputState.End then
-                dragging = false
-                if changeConnection then changeConnection:Disconnect() end
-            end
-        end)
-    end
-end)
+-- Связываем кнопки с функцией переключения вкладок
+for tabName, button in pairs(Buttons) do
+    button.MouseButton1Click:Connect(function()
+        SwitchTab(tabName)  -- Переключаем на выбранную вкладку
+    end)
+end
 
-b.InputChanged:Connect(function(input)
-    if dragging and (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then
-        updateDrag(input)
-    end
-end)
-
-c.MouseButton1Click:Connect(function()
-    b.Visible = not b.Visible
-end)
-
-d.MouseButton1Click:Connect(function()
-    b.Visible = false
-end)
-
-e.MouseButton1Click:Connect(function()
-    toggleFreeze()
-end)
-
-teleportButton.MouseButton1Click:Connect(function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/Ogurcik222/Tph.VR.Sc/refs/heads/main/teleporkana.lua"))()
-end)
-
-ammoHackButton.MouseButton1Click:Connect(function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/Ogurcik222/Ammo.Vr.SC/refs/heads/main/Ammocheatscript.lua"))()
-end)
-
-hitboxButton.MouseButton1Click:Connect(function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/Vcsk/RobloxScripts/main/HitboxExpander.lua"))()
-end)
-
-corArmorButton.MouseButton1Click:Connect(function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/Ogurcik222/CorArmorAN-Sc/refs/heads/main/CorArmor.lua"))()
-end)
-
-radioSpamButton.MouseButton1Click:Connect(function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/Ogurcik222/Radiochat-spam.vrk/refs/heads/main/radiospam.lua"))()
-end)
-
-aimEspButton.MouseButton1Click:Connect(function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/tbao143/thaibao/main/TbaoHubRivals"))()
-end)
+-- По умолчанию показываем первую вкладку
+SwitchTab("Главная")
