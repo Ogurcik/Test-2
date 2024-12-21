@@ -1,160 +1,174 @@
-local a = Instance.new("ScreenGui")
-local b = Instance.new("Frame")
-local f = Instance.new("TextLabel")
-local g = Instance.new("TextBox")
-local h = Instance.new("TextButton")
-local closeButton = Instance.new("TextButton")
-local i = Instance.new("UICorner")
-local j = Instance.new("UIStroke")
-local l = game:GetService("RunService")
-local LocalPlayer = game:GetService("Players").LocalPlayer
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
 
-a.Parent = LocalPlayer:WaitForChild("PlayerGui")
-a.Name = "MainMenuGui"
+local ScreenGui = Instance.new("ScreenGui")
+ScreenGui.Name = "CustomMenu"
+ScreenGui.ResetOnSpawn = false
+ScreenGui.Parent = LocalPlayer:WaitForChild("PlayerGui")
 
-i.CornerRadius = UDim.new(0, 12)
-j.Color = Color3.fromRGB(0, 0, 0)
-j.Thickness = 2
+local MainFrame = Instance.new("Frame")
+MainFrame.Size = UDim2.new(0, 420, 0, 360)
+MainFrame.Position = UDim2.new(0.5, -210, 0.5, -180)
+MainFrame.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+MainFrame.BorderSizePixel = 0
+MainFrame.Parent = ScreenGui
 
-local function createButton(parent, position, size, text, bgColor, textColor, fontSize)
-    local button = Instance.new("TextButton")
-    button.Parent = parent
-    button.Position = position
-    button.Size = size
-    button.Text = text
-    button.BackgroundColor3 = bgColor
-    button.TextColor3 = textColor
-    button.Font = Enum.Font.SourceSansBold
-    button.TextSize = fontSize
-    i:Clone().Parent = button
-    j:Clone().Parent = button
-    return button
-end
+local UICorner = Instance.new("UICorner")
+UICorner.CornerRadius = UDim.new(0, 10)
+UICorner.Parent = MainFrame
 
-b.Parent = a
-b.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
-b.Position = UDim2.new(0.5, -150, 0.5, -150)
-b.Size = UDim2.new(0, 300, 0, 230)  -- Уменьшено пространство, уменьшена высота
-b.Visible = true
-b.BorderSizePixel = 0
-i:Clone().Parent = b
+local UIStroke = Instance.new("UIStroke")
+UIStroke.Color = Color3.fromRGB(0, 0, 0)
+UIStroke.Thickness = 3
+UIStroke.Parent = MainFrame
 
-closeButton.Parent = b
-closeButton.Position = UDim2.new(1, -35, 0, 5)
-closeButton.Size = UDim2.new(0, 30, 0, 30)
-closeButton.Text = "X"
-closeButton.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
-closeButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-closeButton.Font = Enum.Font.SourceSansBold
-closeButton.TextSize = 20
-i:Clone().Parent = closeButton
-j:Clone().Parent = closeButton
-
-local e = createButton(b, UDim2.new(0.5, -50, 0, 20), UDim2.new(0, 100, 0, 40), "Freeze", Color3.fromRGB(90, 90, 90), Color3.fromRGB(255, 255, 255), 18)
-
-f.Parent = b
-f.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
-f.Position = UDim2.new(0.1, 0, 0.2, 0)  -- Уменьшены отступы
-f.Size = UDim2.new(0.8, 0, 0, 25)  -- Уменьшен размер метки
-f.Text = "Speed:"
-f.TextColor3 = Color3.fromRGB(255, 255, 255)
-f.Font = Enum.Font.SourceSans
-f.TextSize = 18
-
-g.Parent = b
-g.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
-g.Position = UDim2.new(0.1, 0, 0.3, 0)  -- Уменьшены отступы
-g.Size = UDim2.new(0.8, 0, 0, 25)  -- Уменьшен размер поля ввода
-g.Text = "16"
-g.ClearTextOnFocus = true
-g.PlaceholderText = "Enter Speed"
-g.TextColor3 = Color3.fromRGB(255, 255, 255)
-g.Font = Enum.Font.SourceSans
-g.TextSize = 18
-i:Clone().Parent = g
-j:Clone().Parent = g
-
-local isFrozen = false
-local defaultSpeed = 16
-local speed = defaultSpeed
-local moveConnection
-
-local function toggleFreeze()
-    local character = LocalPlayer.Character
-    if not character then return end
-
-    local humanoidRootPart = character:FindFirstChild("HumanoidRootPart")
-    local humanoid = character:FindFirstChildOfClass("Humanoid")
-
-    if humanoidRootPart and humanoid then
-        if not isFrozen then
-            humanoidRootPart.Anchored = true
-            moveConnection = l.RenderStepped:Connect(function()
-                if isFrozen then
-                    humanoidRootPart.CFrame = humanoidRootPart.CFrame + (humanoid.MoveDirection * speed / 60)
-                end
-            end)
-            isFrozen = true
-            e.Text = "Unfreeze"
-        else
-            humanoidRootPart.Anchored = false
-            humanoid.WalkSpeed = defaultSpeed
-            isFrozen = false
-            e.Text = "Freeze"
-            if moveConnection then moveConnection:Disconnect() end
+task.spawn(function()
+    while true do
+        for i = 0, 1, 0.01 do
+            UIStroke.Color = Color3.fromHSV(i, 0.7, 0.9)
+            task.wait(0.03)
         end
-    end
-end
-
-local function updateSpeed()
-    local newSpeed = tonumber(g.Text)
-    if newSpeed and newSpeed > 0 then
-        speed = newSpeed
-        f.Text = "Speed: " .. tostring(speed)
-    else
-        g.Text = tostring(speed)
-    end
-end
-
-g.FocusLost:Connect(function(enterPressed)
-    if enterPressed then
-        updateSpeed()
     end
 end)
 
-local dragging, dragStart, startPos
-local dragConnection, changeConnection
+local Title = Instance.new("TextLabel")
+Title.Size = UDim2.new(1, 0, 0, 40)
+Title.Position = UDim2.new(0, 0, 0, 0)
+Title.Text = "Virus Roleplay V1.1"
+Title.Font = Enum.Font.GothamBold
+Title.TextSize = 22
+Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+Title.BorderSizePixel = 0
+Title.Parent = MainFrame
 
-local function updateDrag(input)
-    local delta = input.Position - dragStart
-    b.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+local UICornerTitle = Instance.new("UICorner")
+UICornerTitle.CornerRadius = UDim.new(0, 10)
+UICornerTitle.Parent = Title
+
+local TabHolder = Instance.new("Frame")
+TabHolder.Size = UDim2.new(1, 0, 0, 40)
+TabHolder.Position = UDim2.new(0, 0, 0, 40)
+TabHolder.BackgroundTransparency = 1
+TabHolder.Parent = MainFrame
+
+local Tabs = {"Main", "Other"}
+local Buttons = {}
+
+local TotalTabs = #Tabs
+local ButtonWidth = 120
+local ButtonHeight = 30
+local FrameWidth = MainFrame.Size.X.Offset
+local Spacing = (FrameWidth - (TotalTabs * ButtonWidth)) / (TotalTabs + 1)
+
+for i, tab in ipairs(Tabs) do
+    local TabButton = Instance.new("TextButton")
+    TabButton.Size = UDim2.new(0, ButtonWidth, 0, ButtonHeight)
+    TabButton.Position = UDim2.new(0, Spacing * i + ButtonWidth * (i - 1), 0, 5)
+    TabButton.Text = tab
+    TabButton.Font = Enum.Font.Gotham
+    TabButton.TextSize = 18
+    TabButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+    TabButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+    TabButton.BorderSizePixel = 0
+    TabButton.Parent = TabHolder
+
+    local UICornerButton = Instance.new("UICorner")
+    UICornerButton.CornerRadius = UDim.new(0, 6)
+    UICornerButton.Parent = TabButton
+
+    Buttons[tab] = TabButton
 end
 
-b.InputBegan:Connect(function(input)
+local ContentFrames = {}
+for _, tab in ipairs(Tabs) do
+    local Frame = Instance.new("Frame")
+    Frame.Size = UDim2.new(1, -20, 1, -90)
+    Frame.Position = UDim2.new(0, 10, 0, 80)
+    Frame.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+    Frame.BorderSizePixel = 0
+    Frame.Visible = false
+    Frame.Parent = MainFrame
+
+    local UICornerFrame = Instance.new("UICorner")
+    UICornerFrame.CornerRadius = UDim.new(0, 6)
+    UICornerFrame.Parent = Frame
+
+    ContentFrames[tab] = Frame
+end
+
+ContentFrames["Main"].Visible = true
+
+local function CreateButton(parent, text, scriptUrl)
+    local Button = Instance.new("TextButton")
+    Button.Size = UDim2.new(0, 160, 0, 40)
+    Button.Position = UDim2.new(0.5, -80, 0, (#parent:GetChildren() - 1) * 50)
+    Button.Text = text
+    Button.Font = Enum.Font.Gotham
+    Button.TextSize = 18
+    Button.TextColor3 = Color3.fromRGB(255, 255, 255)
+    Button.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+    Button.BorderSizePixel = 0
+    Button.Parent = parent
+
+    local UICorner = Instance.new("UICorner")
+    UICorner.CornerRadius = UDim.new(0, 6)
+    UICorner.Parent = Button
+
+    Button.MouseButton1Click:Connect(function()
+        loadstring(game:HttpGet(scriptUrl))()
+    end)
+end
+
+CreateButton(ContentFrames["Main"], "GodMode", "https://raw.githubusercontent.com/Ogurcik222/G.M.V.RP/refs/heads/main/obf_4IUCXtSbM21sj1g8XT9uVu0odfnq90G4hya28I6d7ZNq315z5s5j0W5zabs545f9.lua%20(1).lua")
+CreateButton(ContentFrames["Main"], "Teleports", "https://raw.githubusercontent.com/Ogurcik222/Tph.VR.Sc/refs/heads/main/teleporkana.lua")
+CreateButton(ContentFrames["Main"], "RadioSpam", "https://raw.githubusercontent.com/Ogurcik222/Radiochat-spam.vrk/refs/heads/main/radiospam.lua")
+CreateButton(ContentFrames["Main"], "AmmoHack", "https://raw.githubusercontent.com/Ogurcik222/Ammo.Vr.SC/refs/heads/main/Ammocheatscript.lua")
+CreateButton(ContentFrames["Other"], "Aim$Esp", "https://raw.githubusercontent.com/tbao143/thaibao/main/TbaoHubRivals")
+CreateButton(ContentFrames["Other"], "Fly V3", "https://rawscripts.net/raw/Universal-Script-Fly-v3-13879")
+CreateButton(ContentFrames["Other"], "Dex", "https://raw.githubusercontent.com/Babyhamsta/RBLX_Scripts/main/Universal/BypassedDarkDexV3.lua")
+
+Buttons["Main"].MouseButton1Click:Connect(function()
+    for _, frame in pairs(ContentFrames) do
+        frame.Visible = false
+    end
+    ContentFrames["Main"].Visible = true
+end)
+
+Buttons["Other"].MouseButton1Click:Connect(function()
+    for _, frame in pairs(ContentFrames) do
+        frame.Visible = false
+    end
+    ContentFrames["Other"].Visible = true
+end)
+
+local dragging, dragInput, dragStart, startPos
+local function update(input)
+    local delta = input.Position - dragStart
+    MainFrame.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+end
+
+MainFrame.InputBegan:Connect(function(input)
     if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
         dragging = true
         dragStart = input.Position
-        startPos = b.Position
-
-        changeConnection = input.Changed:Connect(function()
+        startPos = MainFrame.Position
+        input.Changed:Connect(function()
             if input.UserInputState == Enum.UserInputState.End then
                 dragging = false
-                if changeConnection then changeConnection:Disconnect() end
             end
         end)
     end
 end)
 
-b.InputChanged:Connect(function(input)
-    if dragging and (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then
-        updateDrag(input)
+MainFrame.InputChanged:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+        dragInput = input
     end
 end)
 
-closeButton.MouseButton1Click:Connect(function()
-    b.Visible = false
-end)
-
-e.MouseButton1Click:Connect(function()
-    toggleFreeze()
+game:GetService("UserInputService").InputChanged:Connect(function(input)
+    if dragging and input == dragInput then
+        update(input)
+    end
 end)
