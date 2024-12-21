@@ -161,7 +161,7 @@ LanguageButton.Parent = SettingsFrame
 
 local DiscordLinkButton = Instance.new("TextButton")
 DiscordLinkButton.Size = UDim2.new(0, 200, 0, 40)
-DiscordLinkButton.Text = "Join our Discord"
+DiscordLinkButton.Text = "Copy link of P.W.Q Server"
 DiscordLinkButton.Font = Enum.Font.Gotham
 DiscordLinkButton.TextSize = 18
 DiscordLinkButton.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -174,11 +174,25 @@ DiscordLinkButton.MouseButton1Click:Connect(function()
     setclipboard("https://discord.gg/BRkQ8naxfV")
 end)
 
+LanguageButton.MouseButton1Click:Connect(function()
+    if LanguageButton.Text == "Select language: English" then
+        LanguageButton.Text = "Выбрать язык: Русский"
+        -- Добавьте перевод всех надписей на русский здесь
+    else
+        LanguageButton.Text = "Select language: English"
+        -- Возврат к английскому
+    end
+end)
+
 Buttons["Main"].MouseButton1Click:Connect(function()
     for _, frame in pairs(ContentFrames) do
         frame.Visible = false
     end
     ContentFrames["Main"].Visible = true
+    for _, button in pairs(Buttons) do
+        button.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+    end
+    Buttons["Main"].BackgroundColor3 = Color3.fromRGB(60, 60, 60)
 end)
 
 Buttons["Other"].MouseButton1Click:Connect(function()
@@ -186,6 +200,10 @@ Buttons["Other"].MouseButton1Click:Connect(function()
         frame.Visible = false
     end
     ContentFrames["Other"].Visible = true
+    for _, button in pairs(Buttons) do
+        button.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+    end
+    Buttons["Other"].BackgroundColor3 = Color3.fromRGB(60, 60, 60)
 end)
 
 Buttons["Settings"].MouseButton1Click:Connect(function()
@@ -193,6 +211,10 @@ Buttons["Settings"].MouseButton1Click:Connect(function()
         frame.Visible = false
     end
     ContentFrames["Settings"].Visible = true
+    for _, button in pairs(Buttons) do
+        button.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+    end
+    Buttons["Settings"].BackgroundColor3 = Color3.fromRGB(60, 60, 60)
 end)
 
 local dragging, dragInput, dragStart, startPos
