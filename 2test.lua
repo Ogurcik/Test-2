@@ -52,7 +52,7 @@ TabHolder.Position = UDim2.new(0, 0, 0, 40)
 TabHolder.BackgroundTransparency = 1
 TabHolder.Parent = MainFrame
 
-local Tabs = {"Main", "Other"}
+local Tabs = {"Main", "Other", "Settings"}
 local Buttons = {}
 
 local TotalTabs = #Tabs
@@ -128,6 +128,52 @@ CreateButton(ContentFrames["Other"], "Aim$Esp", "https://raw.githubusercontent.c
 CreateButton(ContentFrames["Other"], "Fly V3", "https://rawscripts.net/raw/Universal-Script-Fly-v3-13879")
 CreateButton(ContentFrames["Other"], "Dex", "https://raw.githubusercontent.com/Babyhamsta/RBLX_Scripts/main/Universal/BypassedDarkDexV3.lua")
 
+local SettingsFrame = ContentFrames["Settings"]
+local SettingsText = Instance.new("TextLabel")
+SettingsText.Size = UDim2.new(1, 0, 0, 40)
+SettingsText.Text = "Made by P.W.Q"
+SettingsText.Font = Enum.Font.Gotham
+SettingsText.TextSize = 18
+SettingsText.TextColor3 = Color3.fromRGB(255, 255, 255)
+SettingsText.BackgroundTransparency = 1
+SettingsText.Parent = SettingsFrame
+
+local VersionText = Instance.new("TextLabel")
+VersionText.Size = UDim2.new(1, 0, 0, 40)
+VersionText.Text = "Version 1.1"
+VersionText.Font = Enum.Font.Gotham
+VersionText.TextSize = 18
+VersionText.TextColor3 = Color3.fromRGB(255, 255, 255)
+VersionText.BackgroundTransparency = 1
+VersionText.Position = UDim2.new(0, 0, 0, 50)
+VersionText.Parent = SettingsFrame
+
+local LanguageButton = Instance.new("TextButton")
+LanguageButton.Size = UDim2.new(0, 200, 0, 40)
+LanguageButton.Text = "Select language: English"
+LanguageButton.Font = Enum.Font.Gotham
+LanguageButton.TextSize = 18
+LanguageButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+LanguageButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+LanguageButton.BorderSizePixel = 0
+LanguageButton.Position = UDim2.new(0.5, -100, 0, 100)
+LanguageButton.Parent = SettingsFrame
+
+local DiscordLinkButton = Instance.new("TextButton")
+DiscordLinkButton.Size = UDim2.new(0, 200, 0, 40)
+DiscordLinkButton.Text = "Join our Discord"
+DiscordLinkButton.Font = Enum.Font.Gotham
+DiscordLinkButton.TextSize = 18
+DiscordLinkButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+DiscordLinkButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+DiscordLinkButton.BorderSizePixel = 0
+DiscordLinkButton.Position = UDim2.new(0.5, -100, 0, 150)
+DiscordLinkButton.Parent = SettingsFrame
+
+DiscordLinkButton.MouseButton1Click:Connect(function()
+    setclipboard("https://discord.gg/BRkQ8naxfV")
+end)
+
 Buttons["Main"].MouseButton1Click:Connect(function()
     for _, frame in pairs(ContentFrames) do
         frame.Visible = false
@@ -140,6 +186,13 @@ Buttons["Other"].MouseButton1Click:Connect(function()
         frame.Visible = false
     end
     ContentFrames["Other"].Visible = true
+end)
+
+Buttons["Settings"].MouseButton1Click:Connect(function()
+    for _, frame in pairs(ContentFrames) do
+        frame.Visible = false
+    end
+    ContentFrames["Settings"].Visible = true
 end)
 
 local dragging, dragInput, dragStart, startPos
