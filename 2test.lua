@@ -83,8 +83,8 @@ end
 local ContentFrames = {}
 for _, tab in ipairs(Tabs) do
     local Frame = Instance.new("Frame")
-    Frame.Size = UDim2.new(1, -20, 1, -90)
-    Frame.Position = UDim2.new(0, 10, 0, 80)
+    Frame.Size = UDim2.new(1, -20, 1, -110)
+    Frame.Position = UDim2.new(0, 10, 0, 100)
     Frame.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
     Frame.BorderSizePixel = 0
     Frame.Visible = false
@@ -102,7 +102,7 @@ ContentFrames["Main"].Visible = true
 local function CreateButton(parent, text, scriptUrl)
     local Button = Instance.new("TextButton")
     Button.Size = UDim2.new(0, 160, 0, 40)
-    Button.Position = UDim2.new(0.5, -80, 0, (#parent:GetChildren() - 1) * 50)
+    Button.Position = UDim2.new(0.5, -80, 0, (#parent:GetChildren() - 1) * 60)
     Button.Text = text
     Button.Font = Enum.Font.Gotham
     Button.TextSize = 18
@@ -148,17 +148,6 @@ VersionText.BackgroundTransparency = 1
 VersionText.Position = UDim2.new(0, 0, 0, 50)
 VersionText.Parent = SettingsFrame
 
-local LanguageButton = Instance.new("TextButton")
-LanguageButton.Size = UDim2.new(0, 200, 0, 40)
-LanguageButton.Text = "Select language: English"
-LanguageButton.Font = Enum.Font.Gotham
-LanguageButton.TextSize = 18
-LanguageButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-LanguageButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
-LanguageButton.BorderSizePixel = 0
-LanguageButton.Position = UDim2.new(0.5, -100, 0, 100)
-LanguageButton.Parent = SettingsFrame
-
 local DiscordLinkButton = Instance.new("TextButton")
 DiscordLinkButton.Size = UDim2.new(0, 200, 0, 40)
 DiscordLinkButton.Text = "Copy link of P.W.Q Server"
@@ -167,21 +156,11 @@ DiscordLinkButton.TextSize = 18
 DiscordLinkButton.TextColor3 = Color3.fromRGB(255, 255, 255)
 DiscordLinkButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
 DiscordLinkButton.BorderSizePixel = 0
-DiscordLinkButton.Position = UDim2.new(0.5, -100, 0, 150)
+DiscordLinkButton.Position = UDim2.new(0.5, -100, 0, 100)
 DiscordLinkButton.Parent = SettingsFrame
 
 DiscordLinkButton.MouseButton1Click:Connect(function()
     setclipboard("https://discord.gg/BRkQ8naxfV")
-end)
-
-LanguageButton.MouseButton1Click:Connect(function()
-    if LanguageButton.Text == "Select language: English" then
-        LanguageButton.Text = "Выбрать язык: Русский"
-        -- Добавьте перевод всех надписей на русский здесь
-    else
-        LanguageButton.Text = "Select language: English"
-        -- Возврат к английскому
-    end
 end)
 
 Buttons["Main"].MouseButton1Click:Connect(function()
