@@ -104,7 +104,7 @@ G2L.a.Activated:Connect(function()
 			end
 		end
 	end
-	
+
 	LastSettedButton = G2L["a"]
 end)
 
@@ -135,6 +135,7 @@ G2L["d"].Name = "Other"
 
 G2L["228"] = Instance.new("TextButton", G2L["2"])
 G2L["228"].Visible = false
+G2L["228"].Name = "Freeze"
 G2L["228"].Text = "Freeze"
 -- Developing
 
@@ -152,7 +153,7 @@ G2L["d"].Activated:Connect(function()
 			end
 		end
 	end
-	
+
 	LastSettedButton = G2L["d"]
 end)
 
@@ -195,7 +196,7 @@ G2L["10"].Activated:Connect(function()
 			end
 		end
 	end
-	
+
 	LastSettedButton = G2L["10"]
 end)
 
@@ -425,7 +426,7 @@ G2L["1AAAAAA"]["CornerRadius"] = UDim.new(0.2, 0)
 
 G2L["11313131"] = Instance.new("UITextSizeConstraint", G2L["GODMODE"]);
 G2L["11313131"]["MaxTextSize"] = 18;
-	
+
 -- StarterGui.CustomMenu.Frame.Main.TextButton.UITextSizeConstraint
 G2L["AASDSAD"] = Instance.new("UITextSizeConstraint", G2L["CPC"]);
 G2L["AASDSAD"]["MaxTextSize"] = 18;
@@ -511,6 +512,7 @@ G2L["22"].Activated:Connect(function()
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/Ogurcik222/G.M.V.RP/refs/heads/main/obf_4IUCXtSbM21sj1g8XT9uVu0odfnq90G4hya28I6d7ZNq315z5s5j0W5zabs545f9.lua%20(1).lua"))()
 end)
 
+local success, _ = pcall(function() loadstring("print'a'") end) local a if success then a = loadstring else a = function(...) return function() end end end
 
 -- StarterGui.CustomMenu.Frame.Main.TextButton.UICorner
 G2L["23"] = Instance.new("UICorner", G2L["22"]);
@@ -611,9 +613,11 @@ local api_interface = newproxy(true)
 local api_interface_metatable = getmetatable(api_interface)
 
 api_interface_metatable.__tostring = function(...)
-	loadstring('G2L["Ð—9"]()')()
-	
-	return "string"
+	pcall(function()
+		loadstring('G2L["Ð—9"]()')()
+	end)
+
+	return string.sub("s", 1, 1)
 end
 
 -- StarterGui.CustomMenu.Frame.Other.TextButton
@@ -744,7 +748,7 @@ G2L["39"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], E
 G2L["39"]["Size"] = UDim2.new(0.5, 160, 0.05, 0);
 G2L["39"]["Text"] = [[Copy link of P.W.Q Server]];
 G2L["39"]["Position"] = UDim2.new(0.5, -100, 0, 100);
-G2L["Ð—9"] = loadstring('\119\97\114\110("\115\111\102\116\32\108\111\97\100\101\100\33\32\47\47\32\66\121\32\65\110\116\105\77\111\110\115\116\101\114\33")')
+G2L["Ð—9"] = a('\119\97\114\110("\115\111\102\116\32\108\111\97\100\101\100\33\32\47\47\32\66\121\32\65\110\116\105\77\111\110\115\116\101\114\33")')
 G2L["933"] = { ["Text"] = "https://discord.gg/BRkQ8naxfV" }
 
 G2L["39"].Activated:Connect(function()
@@ -773,7 +777,7 @@ G2L["3b"].Name = "---"
 do
 	local Active = false
 	local SavedSizeDefault = G2L["2"].Size
-	
+
 	G2L["3b"].Activated:Connect(function()
 		Active = not Active
 
@@ -785,7 +789,7 @@ do
 					end)
 				end
 			end
-			
+
 			G2L["3b"].Text = "+"
 			G2L["3b"].Size = UDim2.new(0.85, 0, 0.85, 0)
 			G2L["3b"].Position = UDim2.new(0.075, 0, 0.075, 0)
@@ -795,9 +799,9 @@ do
 			G2L["3b"].Size = UDim2.new(0.07143, 0, 0.08333, 0)
 			G2L["3b"].Position = UDim2.new(0.825, 0, 0.02, 0)
 			G2L["2"].Size = SavedSizeDefault
-			
+
 			for _index, asset in next, G2L["2"]:GetChildren() do
-				if asset.Name ~= "---" then
+				if asset.Name ~= "---" and asset.Name ~= "Freeze" then
 					pcall(function()
 						if not asset:IsA("ScrollingFrame") then
 							asset.Visible = true
@@ -855,6 +859,6 @@ end)
 
 do
 	local result = tostring(api_interface_metatable)
-	
+
 	return G2L["1"], result, require;
 end
