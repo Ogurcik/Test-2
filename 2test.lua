@@ -46,7 +46,7 @@ local function CreateBillboard(plr)
     local HealthLabel = Instance.new("TextLabel")
     HealthLabel.Name = "HealthLabel"
     HealthLabel.Font = Enum.Font.GothamBold
-    HealthLabel.TextSize = 12
+    HealthLabel.TextSize = 16
     HealthLabel.TextColor3 = Color3.fromRGB(255, 0, 0)
     HealthLabel.TextStrokeTransparency = 0.5
     HealthLabel.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
