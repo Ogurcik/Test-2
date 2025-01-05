@@ -27,7 +27,7 @@ end
 local function CreateBillboard(plr)
     local Billboard = Instance.new("BillboardGui")
     Billboard.Name = plr.Name .. "_Billboard"
-    Billboard.Size = UDim2.new(3, 0, 0.8, 0)
+    Billboard.Size = UDim2.new(3, 0, 1, 0)
     Billboard.StudsOffset = Vector3.new(0, 3, 0)
     Billboard.AlwaysOnTop = true
     Billboard.Parent = Storage
@@ -40,12 +40,13 @@ local function CreateBillboard(plr)
     NameLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
     NameLabel.BackgroundTransparency = 1
     NameLabel.Size = UDim2.new(1, 0, 0.5, 0)
+    NameLabel.Position = UDim2.new(0, 0, 0, 0)
     NameLabel.Parent = Billboard
 
     local HealthLabel = Instance.new("TextLabel")
     HealthLabel.Name = "HealthLabel"
     HealthLabel.Font = Enum.Font.GothamBold
-    HealthLabel.TextSize = 16
+    HealthLabel.TextSize = 12
     HealthLabel.TextColor3 = Color3.fromRGB(255, 0, 0)
     HealthLabel.TextStrokeTransparency = 0.5
     HealthLabel.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
