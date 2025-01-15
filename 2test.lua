@@ -1,4 +1,3 @@
-Что делает этот скрипт коротко и ясно
 
 local original_getmetatable = getmetatable
 local original_debug_getinfo = debug.getinfo
